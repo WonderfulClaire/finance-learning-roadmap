@@ -216,6 +216,12 @@ def build_page(md_path: Path, module: dict, prev_mod: dict | None, next_mod: dic
 
     quiz = quiz_html(module["id"])
     quote = quote_html(module["id"])
+    if next_mod:
+        next_href = html_filename(next_mod["file"])
+        next_label = "📖 下一章 →"
+    else:
+        next_href = "../learn.html"
+        next_label = "🎉 查看结业证书"
 
     return f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -287,6 +293,9 @@ article li{{margin:.35em 0}}
 .complete-bar button{{padding:12px 20px;border:0;border-radius:8px;background:var(--ok);color:#fff;font-size:15px;font-weight:700;cursor:pointer}}
 .complete-bar button:hover{{filter:brightness(1.08)}}
 .complete-bar button.done{{background:var(--gold)}}
+.complete-bar .next-btn{{padding:12px 20px;border:0;border-radius:8px;background:var(--brand);color:#fff;font-size:15px;font-weight:700;cursor:pointer;display:inline-block;transition:filter .15s,box-shadow .15s;box-shadow:var(--shadow)}}
+.complete-bar .next-btn:hover{{filter:brightness(1.08);text-decoration:none}}
+.complete-bar .next-btn.done{{background:var(--gold)}}
 .complete-bar .msg{{font-size:13px;color:var(--muted)}}
 .quiz .q{{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}}
 .quiz .qt{{margin-top:0}}
@@ -336,9 +345,10 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:20px}}
 <section class="card" style="max-width:1400px;margin:0 auto 24px;">
   <div class="complete-bar">
     <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
+    <a class="next-btn" id="nextBtn" href="{next_href}">{next_label}</a>
     <span class="msg" id="completeMsg"></span>
   </div>
-  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。</p>
+  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。学完点「下一章」即可继续。</p>
 </section>
 {quiz}
 <footer>
@@ -358,14 +368,17 @@ function updateBtn(){{
   const done = getDone();
   const btn = document.getElementById('markBtn');
   const msg = document.getElementById('completeMsg');
+  const nextBtn = document.getElementById('nextBtn');
   if (done.has(MODULE_ID)) {{
     btn.textContent = '✓ 本节已完成（点击取消）';
     btn.classList.add('done');
-    msg.textContent = '进度已同步到 milestones 页';
+    msg.textContent = '进度已同步到 milestones 页，点「下一章」继续 →';
+    if (nextBtn) nextBtn.classList.add('done');
   }} else {{
     btn.textContent = '✅ 标记本节为「已完成」';
     btn.classList.remove('done');
     msg.textContent = '';
+    if (nextBtn) nextBtn.classList.remove('done');
   }}
 }}
 function toggleComplete(){{
