@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 360" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="g0" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF3E0"/><stop offset="1" stop-color="#FFE0B2"/>
+    </linearGradient>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E3F2FD"/><stop offset="1" stop-color="#BBDEFB"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E8F5E9"/><stop offset="1" stop-color="#C8E6C9"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F3E5F5"/><stop offset="1" stop-color="#E1BEE7"/>
+    </linearGradient>
+    <linearGradient id="g4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFF9C4"/><stop offset="1" stop-color="#FFF59D"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="980" height="360" fill="#ffffff"/>
+  <text x="490" y="34" font-size="22" font-weight="700" fill="#1a1a1a" text-anchor="middle">个人理财系统学习路线 · 5 阶段 9 课</text>
+  <text x="490" y="58" font-size="13" fill="#666" text-anchor="middle">从「为什么理财」到「资产配置 + 量化初探」，循序渐进</text>
+
+  <!-- 阶段 0 -->
+  <rect x="20" y="90" width="170" height="220" rx="14" fill="url(#g0)" stroke="#FB8C00" stroke-width="2"/>
+  <text x="105" y="118" font-size="15" font-weight="700" fill="#E65100" text-anchor="middle">M00 启航</text>
+  <text x="105" y="142" font-size="12" fill="#5d4037" text-anchor="middle">建立正确金钱观</text>
+  <line x1="34" y1="158" x2="176" y2="158" stroke="#FB8C00" stroke-width="1"/>
+  <text x="105" y="184" font-size="12" fill="#333" text-anchor="middle">· 复利 vs 通胀</text>
+  <text x="105" y="208" font-size="12" fill="#333" text-anchor="middle">· 买前必想三问</text>
+  <text x="105" y="232" font-size="12" fill="#333" text-anchor="middle">· 六大常见坑</text>
+  <text x="105" y="268" font-size="11" fill="#888" text-anchor="middle">目标：不亏大钱</text>
+
+  <!-- arrow -->
+  <path d="M195 200 L208 200" stroke="#999" stroke-width="3" marker-end="url(#ar)"/>
+
+  <!-- 阶段 1 -->
+  <rect x="212" y="90" width="170" height="220" rx="14" fill="url(#g1)" stroke="#1E88E5" stroke-width="2"/>
+  <text x="297" y="118" font-size="15" font-weight="700" fill="#0D47A1" text-anchor="middle">M01–M02 基础</text>
+  <text x="297" y="142" font-size="12" fill="#1565C0" text-anchor="middle">钱能去哪 + 稳的部分</text>
+  <line x1="226" y1="158" x2="368" y2="158" stroke="#1E88E5" stroke-width="1"/>
+  <text x="297" y="184" font-size="12" fill="#333" text-anchor="middle">· 资产全景图</text>
+  <text x="297" y="208" font-size="12" fill="#333" text-anchor="middle">· 三桶管理</text>
+  <text x="297" y="232" font-size="12" fill="#333" text-anchor="middle">· 货基/存款/债基</text>
+  <text x="297" y="268" font-size="11" fill="#888" text-anchor="middle">目标：先守后攻</text>
+
+  <path d="M387 200 L400 200" stroke="#999" stroke-width="3" marker-end="url(#ar)"/>
+
+  <!-- 阶段 2 -->
+  <rect x="404" y="90" width="170" height="220" rx="14" fill="url(#g2)" stroke="#43A047" stroke-width="2"/>
+  <text x="489" y="118" font-size="15" font-weight="700" fill="#1B5E20" text-anchor="middle">M03–M04 权益</text>
+  <text x="489" y="142" font-size="12" fill="#2E7D32" text-anchor="middle">指数 + 主动 + 股票</text>
+  <line x1="418" y1="158" x2="560" y2="158" stroke="#43A047" stroke-width="1"/>
+  <text x="489" y="184" font-size="12" fill="#333" text-anchor="middle">· 指数基金入门</text>
+  <text x="489" y="208" font-size="12" fill="#333" text-anchor="middle">· 真实持仓体检</text>
+  <text x="489" y="232" font-size="12" fill="#333" text-anchor="middle">· 主动/个股边界</text>
+  <text x="489" y="268" font-size="11" fill="#888" text-anchor="middle">目标：选对工具</text>
+
+  <path d="M579 200 L592 200" stroke="#999" stroke-width="3" marker-end="url(#ar)"/>
+
+  <!-- 阶段 3 -->
+  <rect x="596" y="90" width="170" height="220" rx="14" fill="url(#g3)" stroke="#8E24AA" stroke-width="2"/>
+  <text x="681" y="118" font-size="15" font-weight="700" fill="#4A148C" text-anchor="middle">M05–M06 策略</text>
+  <text x="681" y="142" font-size="12" fill="#6A1B9A" text-anchor="middle">配置 + 定投 + 估值</text>
+  <line x1="610" y1="158" x2="752" y2="158" stroke="#8E24AA" stroke-width="1"/>
+  <text x="681" y="184" font-size="12" fill="#333" text-anchor="middle">· 资产配置</text>
+  <text x="681" y="208" font-size="12" fill="#333" text-anchor="middle">· 定投与再平衡</text>
+  <text x="681" y="232" font-size="12" fill="#333" text-anchor="middle">· PE 百分位</text>
+  <text x="681" y="268" font-size="11" fill="#888" text-anchor="middle">目标：纪律取胜</text>
+
+  <path d="M771 200 L784 200" stroke="#999" stroke-width="3" marker-end="url(#ar)"/>
+
+  <!-- 阶段 4 -->
+  <rect x="788" y="90" width="172" height="220" rx="14" fill="url(#g4)" stroke="#FBC02D" stroke-width="2"/>
+  <text x="874" y="118" font-size="15" font-weight="700" fill="#F57F17" text-anchor="middle">M07–M08 进阶</text>
+  <text x="874" y="142" font-size="12" fill="#F9A825" text-anchor="middle">财报量化 + 保障</text>
+  <line x1="802" y1="158" x2="944" y2="158" stroke="#FBC02D" stroke-width="1"/>
+  <text x="874" y="184" font-size="12" fill="#333" text-anchor="middle">· 财报三张表</text>
+  <text x="874" y="208" font-size="12" fill="#333" text-anchor="middle">· Python 量化初探</text>
+  <text x="874" y="232" font-size="12" fill="#333" text-anchor="middle">· 保险与养老</text>
+  <text x="874" y="268" font-size="11" fill="#888" text-anchor="middle">目标：守住下限</text>
+
+  <text x="490" y="345" font-size="12" fill="#999" text-anchor="middle">配套 tools/ 五个零依赖 Python 计算器 · 详见 30天打卡计划.md</text>
+
+  <defs>
+    <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#999"/>
+    </marker>
+  </defs>
+</svg>
