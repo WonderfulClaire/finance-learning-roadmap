@@ -39,6 +39,17 @@ git push -u origin main
 
 打开 https://github.com/WonderfulClaire/finance-learning-roadmap ，应能看到 README 渲染的路线图与课程目录。
 
+## 启用 GitHub Pages（可选，托管 index.html 在线计算器）
+
+仓库根目录已有 `index.html`（交互式复利/通胀计算器）。开启后访问 `https://wonderfulclaire.github.io/finance-learning-roadmap/`。
+
+> ⚠️ 实测：本项目的 Personal Access Token 仅有 `repo` 权限，**没有 `pages` 写权限**，
+> 调 `POST /repos/.../pages` 会返回 403。所以这一项**必须手动在网页开启**：
+
+1. 打开仓库 `Settings → Pages`
+2. `Branch` 选 **main**，`Directory` 选 **/(root)**
+3. 点 **Save**，等 1–2 分钟，GitHub 会给出 Pages 网址
+
 ---
 
 完成后欢迎在仓库开 Issue / PR 一起完善，也欢迎点 Star ⭐ 让更多人少踩坑。
