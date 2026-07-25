@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 420" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="420" fill="#ffffff"/>
+  <text x="40" y="40" font-size="22" font-weight="700" fill="#1f2a44">资产配置：一张图看懂「钱该怎么分」</text>
+  <text x="40" y="66" font-size="13" fill="#6b7280">示例为「稳健型」参考配比，请以个人风险承受能力为准（详见 M05）</text>
+
+  <!-- Donut -->
+  <g transform="rotate(-90 210 220)">
+    <circle cx="210" cy="220" r="90" fill="none" stroke="#eef2f7" stroke-width="34"/>
+    <!-- 权益 40% -->
+    <circle cx="210" cy="220" r="90" fill="none" stroke="#4e79a7" stroke-width="34"
+            stroke-dasharray="226.19 339.30" stroke-dashoffset="0"/>
+    <!-- 固收 35% -->
+    <circle cx="210" cy="220" r="90" fill="none" stroke="#59a14f" stroke-width="34"
+            stroke-dasharray="197.92 367.57" stroke-dashoffset="-226.19"/>
+    <!-- 现金 10% -->
+    <circle cx="210" cy="220" r="90" fill="none" stroke="#9c755f" stroke-width="34"
+            stroke-dasharray="56.55 508.94" stroke-dashoffset="-424.11"/>
+    <!-- 另类 10% -->
+    <circle cx="210" cy="220" r="90" fill="none" stroke="#f28e2b" stroke-width="34"
+            stroke-dasharray="56.55 508.94" stroke-dashoffset="-480.66"/>
+    <!-- 保障 5% -->
+    <circle cx="210" cy="220" r="90" fill="none" stroke="#e15759" stroke-width="34"
+            stroke-dasharray="28.27 537.22" stroke-dashoffset="-537.21"/>
+  </g>
+  <text x="210" y="214" text-anchor="middle" font-size="15" font-weight="700" fill="#1f2a44">稳健型</text>
+  <text x="210" y="234" text-anchor="middle" font-size="12" fill="#6b7280">参考模板</text>
+
+  <!-- Legend -->
+  <g font-size="14" fill="#1f2a44">
+    <rect x="390" y="120" width="16" height="16" rx="3" fill="#4e79a7"/><text x="416" y="133">权益类（股票/股基）　40%</text>
+    <rect x="390" y="152" width="16" height="16" rx="3" fill="#59a14f"/><text x="416" y="165">固收类（债/货基）　35%</text>
+    <rect x="390" y="184" width="16" height="16" rx="3" fill="#9c755f"/><text x="416" y="197">现金类（应急金）　　10%</text>
+    <rect x="390" y="216" width="16" height="16" rx="3" fill="#f28e2b"/><text x="416" y="229">另类（黄金/REITs）　10%</text>
+    <rect x="390" y="248" width="16" height="16" rx="3" fill="#e15759"/><text x="416" y="261">保障（保险）　　　　5%</text>
+  </g>
+
+  <text x="40" y="400" font-size="12" fill="#9ca3af">配比并非投资建议：年轻人可上调权益、临近用钱则上调固收与现金。</text>
+</svg>

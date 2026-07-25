@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 440" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="440" fill="#ffffff"/>
+  <text x="40" y="40" font-size="22" font-weight="700" fill="#1f2a44">风险阶梯：收益越高，波动越大</text>
+  <text x="40" y="66" font-size="13" fill="#6b7280">越往上预期收益越高，但回撤（可能亏多少）也越大。先想清楚自己在第几级。</text>
+
+  <!-- ladder rungs (top = highest risk) -->
+  <g font-size="15" fill="#1f2a44">
+    <!-- 另类 -->
+    <rect x="120" y="100" width="440" height="46" rx="8" fill="#f28e2b"/>
+    <text x="140" y="129" font-weight="700" fill="#fff">① 另类（黄金 / REITs / 加密）</text>
+    <text x="500" y="129" fill="#fff" font-size="12">高波动 · 配置型</text>
+
+    <!-- 权益 -->
+    <rect x="120" y="160" width="440" height="46" rx="8" fill="#4e79a7"/>
+    <text x="140" y="189" font-weight="700" fill="#fff">② 权益（股票 / 股票基金）</text>
+    <text x="500" y="189" fill="#fff" font-size="12">长期 8–12% · 回撤可达 -30%+</text>
+
+    <!-- 固收 -->
+    <rect x="120" y="220" width="440" height="46" rx="8" fill="#59a14f"/>
+    <text x="140" y="249" font-weight="700" fill="#fff">③ 固收（债券 / 债基 / 理财）</text>
+    <text x="500" y="249" fill="#fff" font-size="12">3–6% · 小波动</text>
+
+    <!-- 现金 -->
+    <rect x="120" y="280" width="440" height="46" rx="8" fill="#9c755f"/>
+    <text x="140" y="309" font-weight="700" fill="#fff">④ 现金（货基 / 存款）</text>
+    <text x="500" y="309" fill="#fff" font-size="12">1–3% · 几乎不亏</text>
+
+    <!-- 保障 -->
+    <rect x="120" y="340" width="440" height="46" rx="8" fill="#e15759"/>
+    <text x="140" y="369" font-weight="700" fill="#fff">⑤ 保障（保险 / 应急金）</text>
+    <text x="500" y="369" fill="#fff" font-size="12">守底 · 不图收益</text>
+  </g>
+
+  <text x="40" y="420" font-size="12" fill="#9ca3af">提示：梯子底部越稳（现金+保障够厚），上面才敢站得高。</text>
+</svg>

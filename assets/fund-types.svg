@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 400" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="400" fill="#ffffff"/>
+  <text x="40" y="40" font-size="22" font-weight="700" fill="#1f2a44">三类权益工具：普通人怎么选？</text>
+  <text x="40" y="66" font-size="13" fill="#6b7280">从「省心 → 费心」、从「透明 → 不透明」的一张对比卡。</text>
+
+  <!-- headers -->
+  <g font-size="16" font-weight="700" text-anchor="middle">
+    <rect x="60" y="90" width="170" height="44" rx="8" fill="#4e79a7"/><text x="145" y="118" fill="#fff">指数基金</text>
+    <rect x="255" y="90" width="170" height="44" rx="8" fill="#59a14f"/><text x="340" y="118" fill="#fff">主动基金</text>
+    <rect x="450" y="90" width="170" height="44" rx="8" fill="#e15759"/><text x="535" y="118" fill="#fff">个股</text>
+  </g>
+
+  <!-- rows -->
+  <g font-size="13" fill="#1f2a44">
+    <text x="20" y="170" font-weight="700" fill="#6b7280">管理费</text>
+    <text x="60" y="170" text-anchor="middle">低（0.1–0.5%）</text>
+    <text x="255" y="170" text-anchor="middle">中（1–1.5%）</text>
+    <text x="450" y="170" text-anchor="middle">零，但有税费</text>
+
+    <text x="20" y="215" font-weight="700" fill="#6b7280">透明度</text>
+    <text x="60" y="215" text-anchor="middle">高（每天公布持仓）</text>
+    <text x="255" y="215" text-anchor="middle">季更（滞后）</text>
+    <text x="450" y="215" text-anchor="middle">自己研究</text>
+
+    <text x="20" y="260" font-weight="700" fill="#6b7280">难度</text>
+    <text x="60" y="260" text-anchor="middle">★（买完放着）</text>
+    <text x="255" y="260" text-anchor="middle">★★（挑经理）</text>
+    <text x="450" y="260" text-anchor="middle">★★★（深研）</text>
+
+    <text x="20" y="305" font-weight="700" fill="#6b7280">适合谁</text>
+    <text x="60" y="305" text-anchor="middle">绝大多数人</text>
+    <text x="255" y="305" text-anchor="middle">有甄别力的人</text>
+    <text x="450" y="305" text-anchor="middle">有时间/专业</text>
+  </g>
+
+  <!-- bottom note -->
+  <rect x="60" y="335" width="560" height="40" rx="8" fill="#eef2f7"/>
+  <text x="80" y="360" font-size="13" fill="#1f2a44">📌 新手建议：先用指数基金建立「市场平均收益」，再决定是否进阶到主动/个股。</text>
+</svg>

@@ -18,6 +18,10 @@
   Built for people who want to <i>actually understand</i> money — not get rich quick.
 </p>
 
+<p align="center">
+  🌐 <a href="index.html">在线交互式计算器</a> &nbsp;·&nbsp; 🇬🇧 <a href="README_EN.md">English README</a> &nbsp;·&nbsp; 📑 <a href="INDEX.md">目录索引</a>
+</p>
+
 ---
 
 ## ✨ 这是个什么项目？
@@ -42,6 +46,13 @@
 
 五阶段、九节课，建议按顺序学，每学完一节在 [`30天打卡计划.md`](30天打卡计划.md) 打勾。
 
+### 🖼️ 配套图示
+
+- [资产配比甜甜圈](assets/asset-allocation.svg) — 稳健型股/债/现金/另类/保障怎么分
+- [通胀侵蚀曲线](assets/inflation-erode.svg) — 名义价值 vs 实际购买力（30 年）
+- [风险阶梯](assets/risk-ladder.svg) — 收益越高、波动越大
+- [三类工具对比](assets/fund-types.svg) — 指数 / 主动 / 个股怎么选
+
 ---
 
 ## 📚 课程大纲
@@ -53,7 +64,7 @@
 | M02 | 现金与固收 | 货基 / 存款 / 债券基金怎么挑 | [docs/02](docs/02-现金与固收.md) |
 | M03 | 指数基金入门 | 为什么普通人从指数开始 + 真实持仓体检 | [docs/03](docs/03-指数基金入门.md) |
 | M04 | 主动基金与股票入门 | 主动 vs 指数、股票赚什么钱 | [docs/04](docs/04-主动基金与股票入门.md) |
-| M05 | 资产配置与定投 | 股债搭配、定投、再平衡 | [docs/05-资产配置与定投.md) |
+| M05 | 资产配置与定投 | 股债搭配、定投、再平衡 | [docs/05-资产配置与定投.md](docs/05-资产配置与定投.md) |
 | M06 | 估值指标与择时 | PE/PB/百分位怎么看 | [docs/06](docs/06-估值指标与择时.md) |
 | M07 | 进阶：财报与量化初探 | 三张财报表 + Python 算指标 | [docs/07](docs/07-进阶-财报与量化初探.md) |
 | M08 | 保险与养老税务 | 先守后攻、个人养老金 | [docs/08](docs/08-保险与养老税务.md) |
@@ -94,6 +105,18 @@ python tools/compound_interest.py --principal 100000 --monthly 1000 --years 20 -
 
 不想囤课？按 [`30天打卡计划.md`](30天打卡计划.md) 一天一主题，周末复盘。目标是建立
 **「认知 → 行动 → 复盘」** 的闭环，而不是收藏吃灰。
+
+---
+
+## 🌐 在线版（GitHub Pages）
+
+不想装 Python？打开 **[`index.html`](index.html)** 就能用浏览器跑交互式复利/通胀计算器（纯前端、零依赖）。若已开启 GitHub Pages，在线地址为：
+
+```
+https://wonderfulclaire.github.io/finance-learning-roadmap/
+```
+
+开启方法：仓库 `Settings → Pages → Branch: main → /(root) → Save`。
 
 ---
 

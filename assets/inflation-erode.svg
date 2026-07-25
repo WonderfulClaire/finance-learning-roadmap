@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" font-family="-apple-system, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif">
+  <rect width="680" height="380" fill="#ffffff"/>
+  <text x="40" y="40" font-size="22" font-weight="700" fill="#1f2a44">复利 vs 通胀：30 年后的「名义」与「真实」</text>
+  <text x="40" y="66" font-size="13" fill="#6b7280">假设本金 10 万、年化 8% 复利；通胀 3%。指数化（起点=100）便于对比。</text>
+
+  <!-- axes -->
+  <line x1="60" y1="40" x2="60" y2="300" stroke="#cbd5e1" stroke-width="1.5"/>
+  <line x1="60" y1="300" x2="560" y2="300" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="20" y="44" font-size="11" fill="#9ca3af">1000</text>
+  <text x="20" y="170" font-size="11" fill="#9ca3af">500</text>
+  <text x="34" y="304" font-size="11" fill="#9ca3af">0</text>
+  <text x="56" y="320" font-size="12" fill="#6b7280">第0年</text>
+  <text x="200" y="320" font-size="12" fill="#6b7280">第10年</text>
+  <text x="350" y="320" font-size="12" fill="#6b7280">第20年</text>
+  <text x="498" y="320" font-size="12" fill="#6b7280">第30年</text>
+
+  <!-- nominal line -->
+  <polyline fill="none" stroke="#4e79a7" stroke-width="3"
+    points="60,300 213,243.9 367,178.8 520,38.4"/>
+  <circle cx="60" cy="300" r="4" fill="#4e79a7"/>
+  <circle cx="213" cy="243.9" r="4" fill="#4e79a7"/>
+  <circle cx="367" cy="178.8" r="4" fill="#4e79a7"/>
+  <circle cx="520" cy="38.4" r="4" fill="#4e79a7"/>
+
+  <!-- real line -->
+  <polyline fill="none" stroke="#e15759" stroke-width="3" stroke-dasharray="6 5"
+    points="60,300 213,258.2 367,232.9 520,192.2"/>
+  <circle cx="213" cy="258.2" r="4" fill="#e15759"/>
+  <circle cx="367" cy="232.9" r="4" fill="#e15759"/>
+  <circle cx="520" cy="192.2" r="4" fill="#e15759"/>
+
+  <!-- value labels -->
+  <text x="524" y="42" font-size="12" font-weight="700" fill="#4e79a7">名义 ≈ 1006</text>
+  <text x="524" y="196" font-size="12" font-weight="700" fill="#e15759">实际 ≈ 415</text>
+
+  <!-- legend -->
+  <g font-size="13" fill="#1f2a44">
+    <line x1="400" y1="120" x2="430" y2="120" stroke="#4e79a7" stroke-width="3"/><text x="438" y="124">名义价值（账面）</text>
+    <line x1="400" y1="150" x2="430" y2="150" stroke="#e15759" stroke-width="3" stroke-dasharray="6 5"/><text x="438" y="154">实际购买力（扣通胀）</text>
+  </g>
+  <text x="40" y="356" font-size="12" fill="#9ca3af">结论：不投资，钱会被通胀慢慢「偷走」；但高收益也意味着波动，需用时间换空间。</text>
+</svg>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>个人理财系统学习路线 · 交互式计算器</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1f2a44; --muted:#6b7280; --line:#e5e7eb;
+    --brand:#4e79a7; --brand2:#f28e2b; --ok:#59a14f; --bad:#e15759;
+    --card:#f8fafc; --shadow:0 8px 30px rgba(15,23,42,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f172a; --fg:#e2e8f0; --muted:#94a3b8; --line:#233044;
+      --card:#111c33; --shadow:0 8px 30px rgba(0,0,0,.4);}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:var(--bg);color:var(--fg);line-height:1.6;}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:56px 20px 48px;text-align:center}
+  .hero h1{margin:0;font-size:34px;letter-spacing:.5px}
+  .hero p{margin:12px auto 0;max-width:680px;color:#cbd5e1;font-size:16px}
+  .hero .badges{margin-top:18px}
+  .hero img{height:22px;margin:0 3px;vertical-align:middle}
+  .wrap{max-width:960px;margin:0 auto;padding:32px 20px 64px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;
+    box-shadow:var(--shadow);margin:24px 0}
+  h2{font-size:22px;margin:8px 0 16px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;color:var(--muted);margin:14px 0 6px}
+  input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;
+    background:var(--bg);color:var(--fg);font-size:15px}
+  .row{display:flex;gap:12px}
+  .row>div{flex:1}
+  button{margin-top:18px;width:100%;padding:12px;border:0;border-radius:8px;cursor:pointer;
+    background:var(--brand);color:#fff;font-size:15px;font-weight:700}
+  button:hover{filter:brightness(1.08)}
+  .res{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+  @media(max-width:720px){.res{grid-template-columns:1fr}}
+  .stat{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center}
+  .stat .v{font-size:22px;font-weight:800;color:var(--brand)}
+  .stat .v.ok{color:var(--ok)} .stat .v.bad{color:var(--bad)}
+  .stat .k{font-size:12px;color:var(--muted);margin-top:4px}
+  canvas{width:100%;height:320px;margin-top:14px}
+  .links{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:720px){.links{grid-template-columns:1fr}}
+  .lk{display:block;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+  .lk b{display:block;font-size:15px;margin-bottom:4px}
+  .lk span{font-size:13px;color:var(--muted)}
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 20px 48px}
+  .note{font-size:12px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>📈 个人理财系统学习路线</h1>
+  <p>从「复利 vs 通胀」到「资产配置 + 量化初探」——零基础也能看懂的中文开源教程。先玩玩下面的计算器，再去看 9 节课。</p>
+  <div class="badges">
+    <img alt="stars" src="https://img.shields.io/github/stars/WonderfulClaire/finance-learning-roadmap?style=social"/>
+    <img alt="license" src="https://img.shields.io/badge/license-MIT-green.svg"/>
+    <img alt="modules" src="https://img.shields.io/badge/课程-9%20modules-blue.svg"/>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
+    <h2>🧮 交互式复利 & 通胀计算器</h2>
+    <p class="note">拖动输入框，曲线实时变化。月度复利模型：每月定投，按 (1+r/12) 滚动。</p>
+    <div class="grid">
+      <div>
+        <label>初始本金（元）</label>
+        <input id="principal" type="number" value="100000" min="0" step="1000"/>
+        <label>每月定投（元）</label>
+        <input id="monthly" type="number" value="1000" min="0" step="100"/>
+        <label>年化收益率（%）</label>
+        <input id="rate" type="number" value="8" min="0" max="30" step="0.5"/>
+        <label>投资年限（年）</label>
+        <input id="years" type="number" value="20" min="1" max="50" step="1"/>
+        <label>预期年化通胀（%）</label>
+        <input id="inflation" type="number" value="3" min="0" max="15" step="0.5"/>
+        <button onclick="calc()">计算</button>
+      </div>
+      <div>
+        <div class="res">
+          <div class="stat"><div id="r_fv" class="v">—</div><div class="k">名义终值</div></div>
+          <div class="stat"><div id="r_real" class="v ok">—</div><div class="k">实际购买力</div></div>
+          <div class="stat"><div id="r_gain" class="v">—</div><div class="k">总收益</div></div>
+          <div class="stat"><div id="r_cost" class="v">—</div><div class="k">累计投入</div></div>
+          <div class="stat"><div id="r_double" class="v bad">—</div><div class="k">本金翻倍年数</div></div>
+          <div class="stat"><div id="r_roi" class="v">—</div><div class="k">收益率</div></div>
+        </div>
+        <canvas id="chart"></canvas>
+        <p class="note">蓝线＝账户价值；橙虚线＝累计投入（成本）；红虚线＝扣除通胀后的实际购买力。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🗺️ 学习路线图</h2>
+    <p><img src="assets/roadmap.svg" alt="roadmap" style="width:100%;border:1px solid var(--line);border-radius:10px"/></p>
+  </section>
+
+  <section class="card">
+    <h2>📚 课程 & 资源</h2>
+    <div class="links">
+      <a class="lk" href="docs/00-启航-为什么理财与防坑.md"><b>M00 启航 · 为什么理财与防坑</b><span>复利 vs 通胀、买前必想三问、六大坑</span></a>
+      <a class="lk" href="docs/01-资产地图与工具箱.md"><b>M01 资产地图与工具箱</b><span>钱能去哪、五类资产、三桶管理</span></a>
+      <a class="lk" href="docs/02-现金与固收.md"><b>M02 现金与固收</b><span>货基 / 存款 / 债券基金怎么挑</span></a>
+      <a class="lk" href="docs/03-指数基金入门.md"><b>M03 指数基金入门</b><span>为什么普通人从指数开始 + 真实持仓体检</span></a>
+      <a class="lk" href="docs/04-主动基金与股票入门.md"><b>M04 主动基金与股票入门</b><span>主动 vs 指数、股票赚什么钱</span></a>
+      <a class="lk" href="docs/05-资产配置与定投.md"><b>M05 资产配置与定投</b><span>股债搭配、定投、再平衡</span></a>
+      <a class="lk" href="docs/06-估值指标与择时.md"><b>M06 估值指标与择时</b><span>PE / PB / 百分位怎么看</span></a>
+      <a class="lk" href="docs/07-进阶-财报与量化初探.md"><b>M07 进阶 · 财报与量化初探</b><span>三张财报表 + Python 算指标</span></a>
+      <a class="lk" href="docs/08-保险与养老税务.md"><b>M08 保险与养老税务</b><span>先守后攻、个人养老金</span></a>
+      <a class="lk" href="docs/glossary.md"><b>📘 术语表</b><span>一看就懂的理财黑话</span></a>
+      <a class="lk" href="docs/resources.md"><b>📚 延伸书单与资源</b><span>书、App、数据源</span></a>
+      <a class="lk" href="30天打卡计划.md"><b>🗓️ 30 天打卡计划</b><span>一天一主题，周末复盘</span></a>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🧰 零依赖 Python 工具</h2>
+    <p>本地命令行直接跑（需 Python 3，无需安装任何库）：</p>
+    <pre style="background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;font-size:13px">python tools/compound_interest.py --principal 100000 --monthly 1000 --years 20 --rate 0.08
+python tools/inflation_impact.py --amount 100000 --years 30 --inflation 0.03
+python tools/asset_allocation.py --age 28 --risk 高 --amount 100000
+python tools/pe_percentile.py --current 15 --history 12,13,14,15,18,20,22
+python tools/fund_compare.py --help</pre>
+    <p class="note">完整说明见 <a href="README.md">README</a> 与 <a href="README_EN.md">English README</a>。</p>
+  </section>
+
+  <footer>
+    ⚠️ 本项目仅供学习，不构成投资建议。理财是认知变现，慢就是快。<br/>
+    MIT License · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+  </footer>
+</main>
+
+<script>
+function fmt(n){ return '¥' + Math.round(n).toLocaleString('zh-CN'); }
+
+function calc(){
+  const P=+principal.value||0, M=+monthly.value||0, r=(+rate.value||0)/100,
+        Y=+years.value||1, inf=(+inflation.value||0)/100;
+  const months=Y*12, rm=r/12;
+  let fv=P, contrib=P, series=[];
+  series.push({m:0, fv:P, cost:P});
+  for(let m=1;m<=months;m++){
+    fv = fv*(1+rm) + M;
+    contrib += M;
+    series.push({m, fv, cost:contrib});
+  }
+  const real = fv / Math.pow(1+inf, Y);
+  const gain = fv - contrib;
+  const roi  = contrib>0 ? (gain/contrib*100) : 0;
+  const dbl  = (rm>0) ? Math.log(2)/Math.log(1+rm)/12 : Infinity;
+
+  r_fv.textContent   = fmt(fv);
+  r_real.textContent = fmt(real);
+  r_gain.textContent = fmt(gain);
+  r_cost.textContent = fmt(contrib);
+  r_double.textContent = isFinite(dbl) ? dbl.toFixed(1)+' 年' : '∞';
+  r_roi.textContent  = roi.toFixed(0)+'%';
+
+  drawChart(series, real, Y, inf);
+}
+
+function drawChart(series, realEnd, Y, inf){
+  const c=document.getElementById('chart');
+  const dpr=window.devicePixelRatio||1;
+  const W=c.clientWidth, H=320;
+  c.width=W*dpr; c.height=H*dpr;
+  const ctx=c.getContext('2d'); ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,W,H);
+
+  const padL=64, padR=16, padT=16, padB=28;
+  const maxV=Math.max(...series.map(s=>s.fv))*1.05 || 1;
+  const x=m=> padL + (m/(series.length-1))*(W-padL-padR);
+  const y=v=> (H-padB) - (v/maxV)*(H-padT-padB);
+
+  // grid
+  ctx.strokeStyle='rgba(148,163,184,.25)'; ctx.lineWidth=1;
+  ctx.fillStyle='rgba(148,163,184,.9)'; ctx.font='11px sans-serif';
+  for(let i=0;i<=4;i++){
+    const gy=padT + i*((H-padT-padB)/4);
+    ctx.beginPath(); ctx.moveTo(padL,gy); ctx.lineTo(W-padR,gy); ctx.stroke();
+    const val=maxV*(1-i/4);
+    ctx.fillText('¥'+(val>=10000?(val/10000).toFixed(0)+'万':val.toFixed(0)), 6, gy+4);
+  }
+
+  const line=(key,color,dash)=>{
+    ctx.strokeStyle=color; ctx.lineWidth=2.5; ctx.setLineDash(dash||[]);
+    ctx.beginPath();
+    series.forEach((s,i)=>{ const px=x(s.m), py=y(s[key]); i?ctx.lineTo(px,py):ctx.moveTo(px,py); });
+    ctx.stroke(); ctx.setLineDash([]);
+  };
+  // cost basis (orange dashed)
+  line('cost','#f28e2b',[6,5]);
+  // real purchasing power (red dashed) approximated per-point
+  ctx.strokeStyle='#e15759'; ctx.lineWidth=2; ctx.setLineDash([3,4]);
+  ctx.beginPath();
+  series.forEach((s,i)=>{
+    const realV = s.fv / Math.pow(1+inf, (s.m/12));
+    const px=x(s.m), py=y(realV); i?ctx.lineTo(px,py):ctx.moveTo(px,py);
+  });
+  ctx.stroke(); ctx.setLineDash([]);
+  // portfolio value (blue)
+  line('fv','#4e79a7');
+
+  // x labels
+  ctx.fillStyle='rgba(148,163,184,.9)';
+  [0, Math.floor(series.length/2), series.length-1].forEach(i=>{
+    const s=series[i]; ctx.fillText('第'+Math.round(s.m/12)+'年', x(s.m)-14, H-8);
+  });
+}
+
+['principal','monthly','rate','years','inflation'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', calc);
+});
+window.addEventListener('resize', calc);
+calc();
+</script>
+</body>
+</html>
