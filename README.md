@@ -38,6 +38,14 @@
 
 > ⚠️ **免责声明**：本仓库仅供学习交流，**不构成任何投资建议**。一切数据以公开来源为准，过往业绩不代表未来。投资有风险，决策需独立判断。
 
+<p align="center">
+  <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">
+    <img src="assets/share-card.png" alt="分享本仓库" width="680"/>
+  </a>
+  <br/>
+  <span style="color:#666;font-size:13px">分享图：扫码直达仓库，欢迎转发给想理财的朋友</span>
+</p>
+
 ---
 
 ## 🗺️ 学习路线图
@@ -108,7 +116,19 @@ python tools/compound_interest.py --principal 100000 --monthly 1000 --years 20 -
 
 ---
 
-## 🌐 在线版（GitHub Pages）
+## 🧪 实战案例（`examples/`，全部可复现）
+
+把理论变成真实数字。每个案例都直接调用 `tools/` 脚本，输出真实运行结果：
+
+| 案例 | 内容 | 工具 |
+|---|---|---|
+| [01 基金体检](examples/01-基金体检实战.md) | 用两只真实基金的费率、收益、估值做对比 | `fund_compare.py` |
+| [02 复利滚雪球](examples/02-复利滚雪球实战.md) | 10 万 + 每月 1000 元，20 年复利与通胀侵蚀 | `compound_interest.py` + `inflation_impact.py` |
+| [03 资产配置](examples/03-资产配置实战.md) | 按年龄/风险生成目标配比 + 估值分位辅助 | `asset_allocation.py` + `pe_percentile.py` |
+
+→ 详见 [`examples/README.md`](examples/README.md)，附 [`sample-portfolio.csv`](examples/data/sample-portfolio.csv) 练习数据。
+
+---
 
 不想装 Python？打开 **[`index.html`](index.html)** 就能用浏览器跑交互式复利/通胀计算器（纯前端、零依赖）。若已开启 GitHub Pages，在线地址为：
 

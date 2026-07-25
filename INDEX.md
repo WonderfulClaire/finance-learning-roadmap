@@ -6,7 +6,10 @@
 - **[README（中文）](README.md)** · **[English README](README_EN.md)** — 项目总览、课程大纲、工具箱
 - **[交互式计算器 index.html](index.html)** — 浏览器里直接算复利/通胀（GitHub Pages 可托管）
 - **[30 天打卡计划](30天打卡计划.md)** — 一天一主题，周末复盘
+- **[实战案例](examples/)** — 真实数据 + 工具复现，可当作练习册
+- **[分享图](assets/share-card.png)** — 扫码直达仓库，适合发朋友圈/小红书/即刻
 
+---
 ## 📚 课程（建议顺序）
 
 | # | 文档 | 一句话 | 配图 |
@@ -31,6 +34,16 @@
 | [pe_percentile.py](tools/pe_percentile.py) | 算当前 PE 在历史的分位 | `--current --history` |
 | [fund_compare.py](tools/fund_compare.py) | 两只基金费率/收益对比 | 见 `--help` |
 
+## 🧪 实战案例（`examples/`）
+
+| 案例 | 文档 | 练什么 | 工具 |
+|---|---|---|---|
+| 01 基金体检 | [01-基金体检实战.md](examples/01-基金体检实战.md) | 真实基金对比 + 持仓诊断 | `fund_compare.py` |
+| 02 复利滚雪球 | [02-复利滚雪球实战.md](examples/02-复利滚雪球实战.md) | 复利曲线 + 通胀侵蚀 | `compound_interest.py` + `inflation_impact.py` |
+| 03 资产配置 | [03-资产配置实战.md](examples/03-资产配置实战.md) | 目标配比 + 估值分位 | `asset_allocation.py` + `pe_percentile.py` |
+
+- 数据集：[examples/data/sample-portfolio.csv](examples/data/sample-portfolio.csv)
+
 ## 🖼️ 图示（assets/）
 
 - [roadmap.svg](assets/roadmap.svg) — 五阶段九课总路线图
@@ -38,6 +51,8 @@
 - [inflation-erode.svg](assets/inflation-erode.svg) — 名义 vs 实际购买力（30 年）
 - [risk-ladder.svg](assets/risk-ladder.svg) — 风险阶梯：收益越高波动越大
 - [fund-types.svg](assets/fund-types.svg) — 指数 / 主动 / 个股对比卡
+- [qrcode.svg](assets/qrcode.svg) — 仓库二维码
+- [share-card.png / share-card.svg](assets/share-card.png) — 社交分享图（含二维码）
 
 ## 📘 参考
 - [术语表](docs/glossary.md) — 一看就懂的理财黑话

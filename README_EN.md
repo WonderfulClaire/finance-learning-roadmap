@@ -33,6 +33,14 @@ Most personal-finance content online is polarized: either anxiety-marketing scre
 
 > ⚠️ **Disclaimer**: This repository is for learning only and **is not investment advice**. All data is illustrative; past performance ≠ future results. Investing carries risk — decide independently.
 
+<p align="center">
+  <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">
+    <img src="assets/share-card.png" alt="Share this repo" width="680"/>
+  </a>
+  <br/>
+  <span style="color:#666;font-size:13px">Share this QR card with anyone who wants to learn personal finance.</span>
+</p>
+
 ---
 
 ## 🗺️ Roadmap
@@ -52,7 +60,7 @@ Five stages, nine modules. Learn in order, and check off each one in [`30天打�
 | M02 | Cash & Fixed Income | how to pick money-market / deposits / bond funds | [docs/02](docs/02-现金与固收.md) |
 | M03 | Index Funds 101 | why beginners start with index funds + a real portfolio check-up | [docs/03](docs/03-指数基金入门.md) |
 | M04 | Active Funds & Stocks 101 | active vs index, what stocks actually pay you | [docs/04](docs/04-主动基金与股票入门.md) |
-| M05 | Asset Allocation & DCA | stocks+bonds mix, dollar-cost averaging, rebalancing | [docs/05-资产配置与定投.md) |
+| M05 | Asset Allocation & DCA | stocks+bonds mix, dollar-cost averaging, rebalancing | [docs/05](docs/05-资产配置与定投.md) |
 | M06 | Valuation & Timing | how to read PE / PB / percentiles | [docs/06](docs/06-估值指标与择时.md) |
 | M07 | Advanced: Financials & Quant | the 3 financial statements + Python metrics | [docs/07](docs/07-进阶-财报与量化初探.md) |
 | M08 | Insurance, Retirement & Tax | defend before attack, personal pension | [docs/08](docs/08-保险与养老税务.md) |
@@ -82,6 +90,20 @@ Prefer to play first? Open **`index.html`** — an interactive compounding & inf
 ```
 https://wonderfulclaire.github.io/finance-learning-roadmap/
 ```
+
+---
+
+## 🧪 Examples (`examples/`, all reproducible)
+
+Theory with real numbers. Every example calls the `tools/` scripts directly and includes the actual output:
+
+| Example | What it covers | Tool(s) |
+|---|---|---|
+| [01 基金体检](examples/01-基金体检实战.md) | Compare two real funds on fees, return, and valuation | `fund_compare.py` |
+| [02 复利滚雪球](examples/02-复利滚雪球实战.md) | ¥100k + ¥1k/month for 20 years: compounding and inflation | `compound_interest.py` + `inflation_impact.py` |
+| [03 资产配置](examples/03-资产配置实战.md) | Target allocation by age/risk + valuation percentile | `asset_allocation.py` + `pe_percentile.py` |
+
+→ See [`examples/README.md`](examples/README.md) and the [`sample-portfolio.csv`](examples/data/sample-portfolio.csv) exercise dataset.
 
 ---
 
