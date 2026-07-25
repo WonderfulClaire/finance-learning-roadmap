@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="像玩游戏一样学理财：9 节课进度追踪、阶段里程碑、XP 等级、可定制结业证书下载。"/>
+<title>🎮 理财学习进度 · 里程碑与结业证书</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1f2a44; --muted:#6b7280; --line:#e5e7eb;
+    --brand:#4e79a7; --brand2:#f28e2b; --ok:#59a14f; --bad:#e15759; --gold:#c8a24a;
+    --card:#f8fafc; --shadow:0 8px 30px rgba(15,23,42,.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f172a; --fg:#e2e8f0; --muted:#94a3b8; --line:#233044;
+      --card:#111c33; --shadow:0 8px 30px rgba(0,0,0,.4);}
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:var(--bg);color:var(--fg);line-height:1.6;}
+  a{color:var(--brand);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:48px 20px 40px;text-align:center}
+  .hero h1{margin:0;font-size:32px;letter-spacing:.5px}
+  .hero p{margin:12px auto 0;max-width:680px;color:#cbd5e1;font-size:15px}
+  .wrap{max-width:980px;margin:0 auto;padding:28px 20px 64px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;
+    box-shadow:var(--shadow);margin:22px 0}
+  h2{font-size:21px;margin:6px 0 14px}
+  .back{display:inline-block;font-size:13px;color:#cbd5e1;margin-top:10px}
+
+  /* stats bar */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+  @media(max-width:680px){.stats{grid-template-columns:1fr 1fr}}
+  .stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .stat .v{font-size:24px;font-weight:800;color:var(--brand)}
+  .stat .v.gold{color:var(--gold)} .stat .v.ok{color:var(--ok)}
+  .stat .k{font-size:12px;color:var(--muted);margin-top:4px}
+  .overall{margin:6px 0 4px}
+  .bar{height:14px;background:var(--bg);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+  .bar>i{display:block;height:100%;width:0;border-radius:99px;
+    background:linear-gradient(90deg,var(--brand),var(--brand2));transition:width .5s ease}
+  .bar.sm{height:10px}
+  .bar.sm>i{background:linear-gradient(90deg,var(--gold),var(--brand2))}
+  .ovtxt{font-size:12px;color:var(--muted);text-align:right;margin-top:4px}
+
+  /* stage */
+  .stage{border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0;background:var(--bg)}
+  .stage h3{margin:0 0 4px;font-size:17px;display:flex;align-items:center;gap:10px}
+  .stage .scnt{font-size:12px;color:var(--muted);margin-left:auto}
+  .badge{display:inline-block;font-size:13px;font-weight:700;padding:4px 10px;border-radius:99px;
+    border:1px dashed var(--line);color:var(--muted);background:transparent;transition:all .3s}
+  .badge.on{color:#7a5b16;border-color:var(--gold);
+    background:linear-gradient(135deg,#fff3d6,#ffe2a8);
+    box-shadow:0 0 0 3px rgba(200,162,74,.18);}
+  .mod{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-top:1px dashed var(--line)}
+  .mod:first-of-type{border-top:0}
+  .mod input{margin-top:5px;width:18px;height:18px;accent-color:var(--ok);cursor:pointer;flex:none}
+  .mod a{flex:1;font-size:14px}
+  .mod .lk{font-size:12px;color:var(--muted);margin-left:6px}
+
+  /* certificate */
+  .lock{background:rgba(225,87,89,.08);border:1px solid rgba(225,87,89,.35);
+    color:var(--bad);border-radius:10px;padding:12px;font-size:13px;text-align:center;margin:10px 0}
+  .certPanel{opacity:1;transition:opacity .3s}
+  .certPanel.dim{opacity:.45;pointer-events:none}
+  .field{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+  .field>div{flex:1;min-width:200px}
+  label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  input[type=text],input[type=date]{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;
+    background:var(--bg);color:var(--fg);font-size:15px}
+  .btns{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+  button{padding:11px 16px;border:0;border-radius:8px;cursor:pointer;font-size:14px;font-weight:700;
+    background:var(--brand);color:#fff;flex:1;min-width:160px}
+  button:hover{filter:brightness(1.08)}
+  button.ghost{background:transparent;border:1px solid var(--line);color:var(--fg)}
+  button:disabled{opacity:.5;cursor:not-allowed;filter:none}
+  .certWrap{margin-top:16px;display:flex;justify-content:center}
+  #cert{width:100%;max-width:720px;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow)}
+
+  /* confetti + toast */
+  #confetti{position:fixed;inset:0;width:100%;height:100vh;pointer-events:none;z-index:9998}
+  #toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);
+    background:linear-gradient(135deg,#c8a24a,#f28e2b);color:#fff;font-weight:700;
+    padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);
+    z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
+  #toast.show{transform:translateX(-50%) translateY(0)}
+
+  footer{text-align:center;color:var(--muted);font-size:13px;padding:28px 20px 48px}
+  .note{font-size:12px;color:var(--muted);margin-top:10px}
+
+  @media print{
+    body*{visibility:hidden}
+    #certWrap, #certWrap *{visibility:visible}
+    #certWrap{position:absolute;left:0;top:0;width:100%}
+    #confetti,#toast{display:none}
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti"></canvas>
+<div id="toast"></div>
+
+<header class="hero">
+  <h1>🎮 理财学习进度 · 里程碑</h1>
+  <p>像玩游戏一样学理财：勾掉一节、攒一点 XP、点亮一枚阶段徽章。全部 9 节课通关，还能下载专属结业证书。</p>
+  <a class="back" href="index.html">← 返回交互式计算器</a>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
+    <div class="stats">
+      <div class="stat"><div id="lv" class="v">Lv.1</div><div class="k">当前等级</div></div>
+      <div class="stat"><div id="xp" class="v">0 XP</div><div class="k">累计经验</div></div>
+      <div class="stat"><div id="mc" class="v ok">0 / 9</div><div class="k">已完成课程</div></div>
+      <div class="stat"><div id="bg" class="v gold">0 / 5</div><div class="k">已得徽章</div></div>
+    </div>
+    <div class="overall">
+      <div class="bar"><i id="overallBar"></i></div>
+      <div class="ovtxt"><span id="overallTxt">0%</span> 总体进度</div>
+    </div>
+    <p class="note">进度保存在你本地浏览器（localStorage），不会上传。换设备/清缓存会重置——通关后记得下载证书。</p>
+  </section>
+
+  <section class="card" id="stages"></section>
+
+  <section class="card">
+    <h2>🏆 结业证书</h2>
+    <div id="certLock" class="lock">🔒 完成全部 9 节课、点亮 5 枚阶段徽章后，解锁证书下载。</div>
+    <div id="certPanel" class="certPanel dim">
+      <div class="field">
+        <div>
+          <label>姓名 / 昵称（会印在证书上）</label>
+          <input id="certName" type="text" maxlength="16" placeholder="例如：Claire"/>
+        </div>
+        <div>
+          <label>颁发日期</label>
+          <input id="certDate" type="date"/>
+        </div>
+      </div>
+      <div class="btns">
+        <button onclick="renderCert()">🔄 预览 / 刷新</button>
+        <button id="dlBtn" onclick="downloadCert()" disabled>⬇️ 下载证书 PNG</button>
+        <button id="genBtn" class="ghost" onclick="window.print()" disabled>🖨️ 打印 / 存为 PDF</button>
+      </div>
+      <div class="certWrap" id="certWrap">
+        <canvas id="cert"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>⚙️ 数据</h2>
+    <div class="btns">
+      <button class="ghost" onclick="resetProgress()">🗑️ 重置我的学习进度</button>
+    </div>
+    <p class="note">重置只清除本地进度，不影响仓库内容。</p>
+  </section>
+
+  <footer>
+    ⚠️ 本项目仅供学习，不构成投资建议。理财是认知变现，慢就是快。<br/>
+    MIT License · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+  </footer>
+</main>
+
+<script>
+/* ---------- 数据：5 阶段 / 9 课 ---------- */
+const STAGES = [
+  { id:'s1', name:'阶段一 · 启航', badge:'🚀 启航者', modules:[
+    { id:'m00', title:'M00 启航：为什么理财与防坑', file:'docs/00-启航-为什么理财与防坑.md' } ] },
+  { id:'s2', name:'阶段二 · 基础', badge:'💰 资产管家', modules:[
+    { id:'m01', title:'M01 资产地图与工具箱', file:'docs/01-资产地图与工具箱.md' },
+    { id:'m02', title:'M02 现金与固收', file:'docs/02-现金与固收.md' } ] },
+  { id:'s3', name:'阶段三 · 权益', badge:'📈 权益投资人', modules:[
+    { id:'m03', title:'M03 指数基金入门', file:'docs/03-指数基金入门.md' },
+    { id:'m04', title:'M04 主动基金与股票入门', file:'docs/04-主动基金与股票入门.md' } ] },
+  { id:'s4', name:'阶段四 · 策略', badge:'🎯 策略大师', modules:[
+    { id:'m05', title:'M05 资产配置与定投', file:'docs/05-资产配置与定投.md' },
+    { id:'m06', title:'M06 估值指标与择时', file:'docs/06-估值指标与择时.md' } ] },
+  { id:'s5', name:'阶段五 · 进阶', badge:'🏆 理财宗师', modules:[
+    { id:'m07', title:'M07 进阶：财报与量化初探', file:'docs/07-进阶-财报与量化初探.md' },
+    { id:'m08', title:'M08 保险与养老税务', file:'docs/08-保险与养老税务.md' } ] }
+];
+const XP_PER = 100, XP_PER_LEVEL = 150;
+
+/* ---------- 状态 ---------- */
+const STORE = 'flr_progress_v1';
+let done = new Set(JSON.parse(localStorage.getItem(STORE) || '[]'));
+const save = () => localStorage.setItem(STORE, JSON.stringify([...done]));
+const totalXP = () => done.size * XP_PER;
+const level = () => Math.floor(totalXP() / XP_PER_LEVEL) + 1;
+const allDone = () => done.size === STAGES.reduce((n,s)=>n+s.modules.length,0);
+const stageComplete = s => s.modules.every(m => done.has(m.id));
+
+/* ---------- 渲染 ---------- */
+function buildStages(){
+  const root = document.getElementById('stages');
+  root.innerHTML = '';
+  STAGES.forEach(s => {
+    const sec = document.createElement('div');
+    sec.className = 'stage';
+    sec.innerHTML =
+      '<h3>'+ s.name +
+        '<span class="badge" id="badge-'+ s.id +'">'+ s.badge +'</span>' +
+        '<span class="scnt" id="cnt-'+ s.id +'"></span></h3>' +
+      '<div class="bar sm"><i id="bar-'+ s.id +'"></i></div>';
+    s.modules.forEach(m => {
+      const row = document.createElement('div');
+      row.className = 'mod';
+      row.innerHTML =
+        '<input type="checkbox" id="cb-'+ m.id +'" onchange="toggle(\''+ m.id +'\')"/>' +
+        '<a href="'+ m.file +'" target="_blank" rel="noopener">'+ m.title +'</a>';
+      sec.appendChild(row);
+    });
+    root.appendChild(sec);
+  });
+}
+
+function render(){
+  document.getElementById('lv').textContent = 'Lv.' + level();
+  document.getElementById('xp').textContent = totalXP() + ' XP';
+  document.getElementById('mc').textContent = done.size + ' / 9';
+  const earned = STAGES.filter(stageComplete).length;
+  document.getElementById('bg').textContent = earned + ' / 5';
+  const total = STAGES.reduce((n,s)=>n+s.modules.length,0);
+  const pct = done.size / total * 100;
+  document.getElementById('overallBar').style.width = pct + '%';
+  document.getElementById('overallTxt').textContent = Math.round(pct) + '%';
+
+  STAGES.forEach(s => {
+    const cnt = s.modules.filter(m => done.has(m.id)).length;
+    document.getElementById('bar-'+s.id).style.width = (cnt / s.modules.length * 100) + '%';
+    document.getElementById('cnt-'+s.id).textContent = cnt + '/' + s.modules.length;
+    const b = document.getElementById('badge-'+s.id);
+    const on = stageComplete(s);
+    b.className = 'badge ' + (on ? 'on' : 'off');
+    s.modules.forEach(m => { document.getElementById('cb-'+m.id).checked = done.has(m.id); });
+  });
+
+  const ad = allDone();
+  document.getElementById('certLock').style.display = ad ? 'none' : 'block';
+  document.getElementById('certPanel').className = 'certPanel' + (ad ? '' : ' dim');
+  document.getElementById('genBtn').disabled = !ad;
+  document.getElementById('dlBtn').disabled = !ad;
+}
+
+/* ---------- 交互 ---------- */
+function toggle(id){
+  const before = new Set(STAGES.filter(stageComplete).map(s => s.id));
+  if (done.has(id)) done.delete(id); else done.add(id);
+  save();
+  const after = new Set(STAGES.filter(stageComplete).map(s => s.id));
+  let justFinished = null;
+  after.forEach(sid => { if (!before.has(sid)) justFinished = STAGES.find(s => s.id === sid); });
+  render();
+  if (justFinished){
+    celebrate();
+    toast('🎉 里程碑达成：' + justFinished.badge);
+  }
+  if (allDone() && !before.size){
+    toast('🏆 全部通关！去下载你的结业证书吧');
+  }
+}
+
+function resetProgress(){
+  if (!confirm('确定重置本地学习进度？此操作不可撤销。')) return;
+  done = new Set();
+  save();
+  render();
+  toast('已重置进度');
+}
+
+/* ---------- 反馈：礼花 + toast ---------- */
+let confettiRAF = null;
+function celebrate(){
+  const cv = document.getElementById('confetti');
+  const ctx = cv.getContext('2d');
+  const W = cv.width = cv.clientWidth;
+  const H = cv.height = window.innerHeight;
+  const colors = ['#4e79a7','#f28e2b','#59a14f','#e15759','#f1c40f','#9b59b6'];
+  const parts = Array.from({length:150}, () => ({
+    x: Math.random()*W, y: -20 - Math.random()*H*0.3,
+    vx: (Math.random()-0.5)*4, vy: 2 + Math.random()*3,
+    r: 4 + Math.random()*5, c: colors[Math.floor(Math.random()*colors.length)],
+    rot: Math.random()*Math.PI, vr: (Math.random()-0.5)*0.2
+  }));
+  let t = 0;
+  cancelAnimationFrame(confettiRAF);
+  (function anim(){
+    t++;
+    ctx.clearRect(0,0,W,H);
+    parts.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.vy += 0.03; p.rot += p.vr;
+      ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.c; ctx.fillRect(-p.r/2,-p.r/2,p.r,p.r);
+      ctx.restore();
+    });
+    if (t < 180) confettiRAF = requestAnimationFrame(anim);
+    else ctx.clearRect(0,0,W,H);
+  })();
+}
+function toast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+/* ---------- 结业证书 ---------- */
+function drawSeal(ctx, cx, cy){
+  ctx.save();
+  ctx.beginPath(); ctx.arc(cx, cy, 70, 0, Math.PI*2);
+  ctx.fillStyle = '#c8a24a'; ctx.fill();
+  ctx.lineWidth = 4; ctx.strokeStyle = '#fff';
+  ctx.beginPath(); ctx.arc(cx, cy, 58, 0, Math.PI*2); ctx.stroke();
+  ctx.fillStyle = '#fff'; ctx.textAlign = 'center';
+  ctx.font = 'bold 20px Georgia, serif'; ctx.fillText('FINANCE', cx, cy - 4);
+  ctx.font = '30px Georgia, serif'; ctx.fillText('✓', cx, cy + 28);
+  ctx.restore();
+}
+function renderCert(){
+  const name = (document.getElementById('certName').value || '理财学员').trim() || '理财学员';
+  const date = document.getElementById('certDate').value || new Date().toISOString().slice(0,10);
+  const cv = document.getElementById('cert');
+  const dpr = 2, W = 1200, H = 850;
+  cv.width = W*dpr; cv.height = H*dpr;
+  const ctx = cv.getContext('2d');
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  ctx.clearRect(0,0,W,H);
+
+  const g = ctx.createLinearGradient(0,0,W,H);
+  g.addColorStop(0,'#fffdf7'); g.addColorStop(1,'#fdf3e3');
+  ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle = '#c8a24a'; ctx.lineWidth = 10; ctx.strokeRect(28,28,W-56,H-56);
+  ctx.strokeStyle = '#e0c068'; ctx.lineWidth = 2; ctx.strokeRect(44,44,W-88,H-88);
+
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#8a6d3b'; ctx.font = '600 26px Georgia, serif';
+  ctx.fillText('📈 个人理财系统学习路线', W/2, 132);
+  ctx.fillStyle = '#2c2417'; ctx.font = '800 64px "PingFang SC","Microsoft YaHei",serif';
+  ctx.fillText('结业证书', W/2, 224);
+  ctx.fillStyle = '#a98f5e'; ctx.font = 'italic 24px Georgia, serif';
+  ctx.fillText('CERTIFICATE OF COMPLETION', W/2, 262);
+
+  ctx.fillStyle = '#3a342a'; ctx.font = '26px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText('兹证明', W/2, 340);
+  ctx.fillStyle = '#b8860b'; ctx.font = 'bold 48px "PingFang SC","Microsoft YaHei",serif';
+  ctx.fillText(name, W/2, 404);
+
+  ctx.fillStyle = '#3a342a'; ctx.font = '23px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText('已完成《个人理财系统学习路线》全部 9 节课、5 个学习阶段', W/2, 462);
+  ctx.fillText('系统掌握「复利 · 资产地图 · 指数基金 · 资产配置 · 估值 · 财报量化」核心框架', W/2, 498);
+
+  ctx.fillStyle = '#5b5141'; ctx.font = '22px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText('颁发日期：' + date, W/2, 560);
+  ctx.fillStyle = '#6b5b3e'; ctx.font = '20px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText('—— 由 Atlas 财经副驾 与开源社区 联合颁发 ——', W/2, 616);
+  ctx.fillStyle = '#2c3e50'; ctx.font = '15px monospace';
+  ctx.fillText('github.com/WonderfulClaire/finance-learning-roadmap', W/2, 656);
+
+  drawSeal(ctx, W-185, H-175);
+}
+function downloadCert(){
+  renderCert();
+  const name = (document.getElementById('certName').value || '理财学员').trim() || '理财学员';
+  const a = document.createElement('a');
+  a.download = '理财结业证书-' + name + '.png';
+  a.href = document.getElementById('cert').toDataURL('image/png');
+  a.click();
+}
+
+/* ---------- 初始化 ---------- */
+buildStages();
+render();
+(function initDate(){
+  const d = document.getElementById('certDate');
+  if (!d.value) d.value = new Date().toISOString().slice(0,10);
+})();
+window.addEventListener('resize', () => {
+  const cv = document.getElementById('confetti');
+  cv.width = cv.clientWidth; cv.height = window.innerHeight;
+});
+</script>
+</body>
+</html>

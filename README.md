@@ -19,7 +19,7 @@
 </p>
 
 <p align="center">
-  🌐 <a href="index.html">在线交互式计算器</a> &nbsp;·&nbsp; 🇬🇧 <a href="README_EN.md">English README</a> &nbsp;·&nbsp; 📑 <a href="INDEX.md">目录索引</a>
+  🌐 <a href="index.html">在线交互式计算器</a> &nbsp;·&nbsp; 🎮 <a href="learn.html">游戏化学习进度</a> &nbsp;·&nbsp; 🇬🇧 <a href="README_EN.md">English README</a> &nbsp;·&nbsp; 📑 <a href="INDEX.md">目录索引</a>
 </p>
 
 ---
@@ -127,6 +127,19 @@ python tools/compound_interest.py --principal 100000 --monthly 1000 --years 20 -
 | [03 资产配置](examples/03-资产配置实战.md) | 按年龄/风险生成目标配比 + 估值分位辅助 | `asset_allocation.py` + `pe_percentile.py` |
 
 → 详见 [`examples/README.md`](examples/README.md)，附 [`sample-portfolio.csv`](examples/data/sample-portfolio.csv) 练习数据。
+
+---
+
+## 🎮 游戏化学习：进度 · 里程碑 · 结业证书
+
+打开 **[`learn.html`](learn.html)**，像玩游戏一样推进学习：
+
+- ✅ **进度追踪**：9 节课随时打勾，进度存在本地浏览器（localStorage），不联网
+- ⭐ **XP / 等级**：每完成一节 +100 XP，等级随经验提升
+- 🏅 **阶段里程碑**：每通关一个阶段点亮一枚徽章（启航者 → 资产管家 → 权益投资人 → 策略大师 → 理财宗师），点亮时有礼花庆祝
+- 🏆 **可定制结业证书**：全部 9 节课通关后，可填写姓名与日期，用 Canvas 生成专属结业证书，**下载 PNG 或打印 / 存为 PDF** 分享给朋友
+
+> 适合放进 README 顶部「先去玩一下」的入口，提升仓库粘性与传播。
 
 ---
 

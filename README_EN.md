@@ -107,6 +107,17 @@ Theory with real numbers. Every example calls the `tools/` scripts directly and 
 
 ---
 
+## 🎮 Gamified Learning: Progress · Milestones · Certificate
+
+Open **[`learn.html`](learn.html)** and learn like a game:
+
+- ✅ **Progress tracking** — tick off any of the 9 modules; progress is saved in your browser (localStorage), no server
+- ⭐ **XP / Levels** — each module completed = +100 XP, level rises with experience
+- 🏅 **Stage milestones** — finishing a stage lights up a badge (Starter → Asset Steward → Equity Investor → Strategy Master → Finance Master), with a confetti celebration
+- 🏆 **Custom certificate** — after all 9 modules, fill in your name & date and generate a certificate on Canvas — **download as PNG or print / save as PDF** to share
+
+---
+
 ## 🧰 Toolbox (`tools/`, all zero-dependency)
 
 | Tool | What it does | Example |

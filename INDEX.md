@@ -5,6 +5,7 @@
 ## 🚀 入口
 - **[README（中文）](README.md)** · **[English README](README_EN.md)** — 项目总览、课程大纲、工具箱
 - **[交互式计算器 index.html](index.html)** — 浏览器里直接算复利/通胀（GitHub Pages 可托管）
+- **[🎮 游戏化学习 learn.html](learn.html)** — 进度/XP/里程碑徽章 + 可定制结业证书下载
 - **[30 天打卡计划](30天打卡计划.md)** — 一天一主题，周末复盘
 - **[实战案例](examples/)** — 真实数据 + 工具复现，可当作练习册
 - **[分享图](assets/share-card.png)** — 扫码直达仓库，适合发朋友圈/小红书/即刻
