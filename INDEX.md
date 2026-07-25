@@ -15,15 +15,15 @@
 
 | # | 文档 | 一句话 | 配图 |
 |---|---|---|---|
-| M00 | [启航：为什么理财与防坑](docs/00-启航-为什么理财与防坑.md) | 复利 vs 通胀、买前必想三问、六大坑 | [通胀侵蚀](assets/inflation-erode.svg) |
-| M01 | [资产地图与工具箱](docs/01-资产地图与工具箱.md) | 钱能去哪、五类资产、三桶管理 | [资产配比](assets/asset-allocation.svg) |
-| M02 | [现金与固收](docs/02-现金与固收.md) | 货基 / 存款 / 债券基金怎么挑 | — |
-| M03 | [指数基金入门](docs/03-指数基金入门.md) | 为什么普通人从指数开始 + 真实持仓体检 | [三类工具对比](assets/fund-types.svg) |
-| M04 | [主动基金与股票入门](docs/04-主动基金与股票入门.md) | 主动 vs 指数、股票赚什么钱 | — |
-| M05 | [资产配置与定投](docs/05-资产配置与定投.md) | 股债搭配、定投、再平衡 | [风险阶梯](assets/risk-ladder.svg) |
-| M06 | [估值指标与择时](docs/06-估值指标与择时.md) | PE / PB / 百分位怎么看 | — |
-| M07 | [进阶：财报与量化初探](docs/07-进阶-财报与量化初探.md) | 三张财报表 + Python 算指标 | — |
-| M08 | [保险与养老税务](docs/08-保险与养老税务.md) | 先守后攻、个人养老金 | — |
+| M00 | [启航：为什么理财与防坑](lessons/00-启航-为什么理财与防坑.html) | 复利 vs 通胀、买前必想三问、六大坑 | [通胀侵蚀](assets/inflation-erode.svg) |
+| M01 | [资产地图与工具箱](lessons/01-资产地图与工具箱.html) | 钱能去哪、五类资产、三桶管理 | [资产配比](assets/asset-allocation.svg) |
+| M02 | [现金与固收](lessons/02-现金与固收.html) | 货基 / 存款 / 债券基金怎么挑 | — |
+| M03 | [指数基金入门](lessons/03-指数基金入门.html) | 为什么普通人从指数开始 + 真实持仓体检 | [三类工具对比](assets/fund-types.svg) |
+| M04 | [主动基金与股票入门](lessons/04-主动基金与股票入门.html) | 主动 vs 指数、股票赚什么钱 | — |
+| M05 | [资产配置与定投](lessons/05-资产配置与定投.html) | 股债搭配、定投、再平衡 | [风险阶梯](assets/risk-ladder.svg) |
+| M06 | [估值指标与择时](lessons/06-估值指标与择时.html) | PE / PB / 百分位怎么看 | — |
+| M07 | [进阶：财报与量化初探](lessons/07-进阶-财报与量化初探.html) | 三张财报表 + Python 算指标 | — |
+| M08 | [保险与养老税务](lessons/08-保险与养老税务.html) | 先守后攻、个人养老金 | — |
 
 ## 🧰 工具（tools/，零依赖）
 
@@ -56,8 +56,8 @@
 - [share-card.png / share-card.svg](assets/share-card.png) — 社交分享图（含二维码）
 
 ## 📘 参考
-- [术语表](docs/glossary.md) — 一看就懂的理财黑话
-- [延伸书单与资源](docs/resources.md) — 书、App、数据源
+- [术语表](https://github.com/WonderfulClaire/finance-learning-roadmap/blob/main/docs/glossary.md) — 一看就懂的理财黑话
+- [延伸书单与资源](https://github.com/WonderfulClaire/finance-learning-roadmap/blob/main/docs/resources.md) — 书、App、数据源
 - [CONTRIBUTING.md](CONTRIBUTING.md) · [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) · [LICENSE](LICENSE)
 
 ---

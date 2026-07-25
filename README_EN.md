@@ -55,17 +55,17 @@ Five stages, nine modules. Learn in order, and check off each one in [`30天打�
 
 | # | Module | One-liner | Link |
 |---|---|---|---|
-| M00 | Start Here: Why & Pitfalls | compounding vs inflation, 3 questions before buying, 6 traps | [docs/00](docs/00-启航-为什么理财与防坑.md) |
-| M01 | Asset Map & Toolkit | where money goes, 5 asset classes, the 3-bucket method | [docs/01](docs/01-资产地图与工具箱.md) |
-| M02 | Cash & Fixed Income | how to pick money-market / deposits / bond funds | [docs/02](docs/02-现金与固收.md) |
-| M03 | Index Funds 101 | why beginners start with index funds + a real portfolio check-up | [docs/03](docs/03-指数基金入门.md) |
-| M04 | Active Funds & Stocks 101 | active vs index, what stocks actually pay you | [docs/04](docs/04-主动基金与股票入门.md) |
-| M05 | Asset Allocation & DCA | stocks+bonds mix, dollar-cost averaging, rebalancing | [docs/05](docs/05-资产配置与定投.md) |
-| M06 | Valuation & Timing | how to read PE / PB / percentiles | [docs/06](docs/06-估值指标与择时.md) |
-| M07 | Advanced: Financials & Quant | the 3 financial statements + Python metrics | [docs/07](docs/07-进阶-财报与量化初探.md) |
-| M08 | Insurance, Retirement & Tax | defend before attack, personal pension | [docs/08](docs/08-保险与养老税务.md) |
+| M00 | Start Here: Why & Pitfalls | compounding vs inflation, 3 questions before buying, 6 traps | [Web](lessons/00-启航-为什么理财与防坑.html) |
+| M01 | Asset Map & Toolkit | where money goes, 5 asset classes, the 3-bucket method | [Web](lessons/01-资产地图与工具箱.html) |
+| M02 | Cash & Fixed Income | how to pick money-market / deposits / bond funds | [Web](lessons/02-现金与固收.html) |
+| M03 | Index Funds 101 | why beginners start with index funds + a real portfolio check-up | [Web](lessons/03-指数基金入门.html) |
+| M04 | Active Funds & Stocks 101 | active vs index, what stocks actually pay you | [Web](lessons/04-主动基金与股票入门.html) |
+| M05 | Asset Allocation & DCA | stocks+bonds mix, dollar-cost averaging, rebalancing | [Web](lessons/05-资产配置与定投.html) |
+| M06 | Valuation & Timing | how to read PE / PB / percentiles | [Web](lessons/06-估值指标与择时.html) |
+| M07 | Advanced: Financials & Quant | the 3 financial statements + Python metrics | [Web](lessons/07-进阶-财报与量化初探.html) |
+| M08 | Insurance, Retirement & Tax | defend before attack, personal pension | [Web](lessons/08-保险与养老税务.html) |
 
-Companion: 📘 [Glossary](docs/glossary.md) · 📚 [Book list & resources](docs/resources.md) · 🗓️ [30-day plan](30天打卡计划.md)
+Companion: 📘 [Glossary](https://github.com/WonderfulClaire/finance-learning-roadmap/blob/main/docs/glossary.md) · 📚 [Book list & resources](https://github.com/WonderfulClaire/finance-learning-roadmap/blob/main/docs/resources.md) · 🗓️ [30-day plan](30天打卡计划.md)
 
 ---
 
@@ -77,7 +77,8 @@ git clone https://github.com/WonderfulClaire/finance-learning-roadmap.git
 cd finance-learning-roadmap
 
 # 2. Start reading from M00
-#    open docs/00-启航-为什么理财与防坑.md
+#    open lessons/00-启航-为什么理财与防坑.html
+#    or open learn.html for the gamified progress page
 
 # 3. Feel compounding with a tool (needs Python 3, zero deps)
 python tools/compound_interest.py --principal 100000 --monthly 1000 --years 20 --rate 0.08

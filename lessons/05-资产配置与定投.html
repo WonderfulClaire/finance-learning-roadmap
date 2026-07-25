@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="M05 资产配置与定投 · 个人理财系统学习路线"/>
+<meta property="og:title" content="M05 资产配置与定投"/>
+<meta property="og:description" content="从零基础到资产配置的中文开源理财教程"/>
+<meta property="og:image" content="https://wonderfulclaire.github.io/finance-learning-roadmap/assets/share-card.png"/>
+<title>M05 资产配置与定投 · 理财学习路线</title>
+<style>
+:root{
+  --bg:#ffffff;--fg:#1f2a44;--muted:#6b7280;--line:#e5e7eb;
+  --brand:#4e79a7;--brand2:#f28e2b;--ok:#59a14f;--bad:#e15759;--gold:#c8a24a;
+  --card:#f8fafc;--shadow:0 8px 30px rgba(15,23,42,.08);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0f172a;--fg:#e2e8f0;--muted:#94a3b8;--line:#233044;--card:#111c33;--shadow:0 8px 30px rgba(0,0,0,.4);}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header.hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:32px 20px 24px}
+header.hero .hwrap{max-width:980px;margin:0 auto}
+header.hero h1{margin:0;font-size:26px}
+header.hero .meta{margin-top:8px;font-size:13px;color:#cbd5e1}
+nav.top{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px}
+nav.top a.back{color:var(--muted)}
+nav.top .stage{margin-left:auto;color:var(--muted)}
+nav.lesson-nav{max-width:980px;margin:0 auto;padding:0 20px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+nav.lesson-nav a{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13px;max-width:48%}
+main.wrap{max-width:980px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media(min-width:900px){
+  main.wrap{grid-template-columns:220px 1fr}
+}
+aside.toc{display:none}
+@media(min-width:900px){
+  aside.toc{display:block;position:sticky;top:24px;align-self:start;font-size:13px}
+  aside.toc ul{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:12px}
+  aside.toc li{margin:8px 0}
+  aside.toc a{color:var(--muted)}
+  aside.toc a:hover{color:var(--brand)}
+}
+article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+article h1{font-size:28px;margin-top:0}
+article h2{font-size:20px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+article h3{font-size:17px;margin-top:24px}
+article p{margin:.8em 0}
+article blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 8px 8px 0;color:var(--muted)}
+article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
+article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
+article th{background:var(--bg);font-weight:700}
+article code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+article pre{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:10px;overflow:auto}
+article pre code{background:transparent;color:inherit;padding:0}
+article ul,article ol{padding-left:22px}
+article li{margin:.35em 0}
+.wikilink{background:rgba(78,121,167,.12);color:var(--brand);padding:1px 6px;border-radius:4px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin:22px 0}
+.complete-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.complete-bar button{padding:12px 20px;border:0;border-radius:8px;background:var(--ok);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.complete-bar button:hover{filter:brightness(1.08)}
+.complete-bar button.done{background:var(--gold)}
+.complete-bar .msg{font-size:13px;color:var(--muted)}
+.quiz .q{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.quiz .qt{margin-top:0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px}
+.quiz .opt{padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--card);display:flex;align-items:flex-start;gap:8px}
+.quiz .opt:hover{border-color:var(--brand)}
+.quiz .opt.disabled{pointer-events:none}
+.quiz .opt.correct{border-color:var(--ok);background:rgba(89,161,79,.12)}
+.quiz .opt.wrong{border-color:var(--bad);background:rgba(225,87,89,.12)}
+.quiz .opt input{margin-top:3px;flex:none}
+.quiz .feedback{margin-top:10px;font-size:14px}
+.quiz .feedback .ok{color:var(--ok);font-weight:700}
+.quiz .feedback .bad{color:var(--bad);font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+#toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
+#toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+<header class="hero">
+  <div class="hwrap">
+    <h1>M05 资产配置与定投</h1>
+    <div class="meta">阶段四 · 策略 · 🎯 策略大师 · 个人理财系统学习路线</div>
+  </div>
+</header>
+<nav class="top">
+  <a class="back" href="../index.html">← 交互式计算器</a>
+  <a class="back" href="../learn.html">🎮 里程碑</a>
+  <span class="stage">🎯 策略大师</span>
+</nav>
+<nav class="lesson-nav">
+  <a class="navprev" href="04-主动基金与股票入门.html">← M04 主动基金与股票入门</a>
+  <a class="navnext" href="06-估值指标与择时.html">M06 估值指标与择时 →</a>
+</nav>
+<main class="wrap">
+  <aside class="toc">
+    <b>目录</b>
+    <div class="toc">
+<ul>
+<li><a href="#m05">M05 · 资产配置与定投</a><ul>
+<li><a href="#90">一、资产配置：决定你 90% 的结果</a></li>
+<li><a href="#_1">二、经典"年龄法则"（入门版）</a></li>
+<li><a href="#_2">三、定投：普通人对抗"猜底"的武器</a><ul>
+<li><a href="#_3">为什么有用</a></li>
+<li><a href="#_4">定投的误区</a></li>
+</ul>
+</li>
+<li><a href="#_5">四、再平衡：机械地"卖高买低"</a></li>
+<li><a href="#_6">五、一个极简组合示例（教学用）</a></li>
+<li><a href="#_7">六、本周行动清单 ✅</a></li>
+<li><a href="#_8">七、下一步</a></li>
+<li><a href="#english-abstract">🌐 English Abstract</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+  </aside>
+  <article>
+    <h1 id="m05">M05 · 资产配置与定投</h1>
+<blockquote>
+<p><strong>学习目标</strong>：学会把股/债/现金拼成适合你的组合，并用定投 + 再平衡把"择时焦虑"变成纪律。
+<strong>预计用时</strong>：45 分钟 + 跑一次工具。</p>
+</blockquote>
+<hr />
+<h2 id="90">一、资产配置：决定你 90% 的结果</h2>
+<p>研究界有个著名结论（Brinson 等）：组合长期收益的差异，<strong>主要来源于资产配置，而非择股择时</strong>。</p>
+<p>核心逻辑：
+- 股票长期收益高但波动大
+- 债券波动小但收益低
+- 两者<strong>不完全同涨同跌</strong>，组合在一起，能在"差不多收益"下"明显更小的波动"</p>
+<blockquote>
+<p>仓库 <code>tools/asset_allocation.py</code> 会根据你的风险偏好，给出股/债/现金的目标配比。</p>
+</blockquote>
+<p><img alt="风险阶梯：收益越高、波动越大" src="../assets/risk-ladder.svg" /></p>
+<hr />
+<h2 id="_1">二、经典"年龄法则"（入门版）</h2>
+<p>一个古老但好用的经验公式：</p>
+<pre><code>权益占比(%) ≈ 100 − 你的年龄
+</code></pre>
+<ul>
+<li>25 岁 → 权益 75%、固收 25%</li>
+<li>40 岁 → 权益 60%、固收 40%</li>
+</ul>
+<p>进阶版用「100 − 年龄」改成「110 − 年龄」或按风险问卷调。本质是：<strong>越年轻、越能扛波动，权益越多。</strong></p>
+<hr />
+<h2 id="_2">三、定投：普通人对抗"猜底"的武器</h2>
+<p>定投 = 固定时间、固定金额买入（如每月 1 号买 1000 元指数基金）。</p>
+<h3 id="_3">为什么有用</h3>
+<ul>
+<li><strong>摊平成本</strong>：跌时同样的钱买更多份额，涨时买更少，自动"低买多、高买少"</li>
+<li><strong>消灭择时焦虑</strong>：不用纠结"现在是不是底"</li>
+<li><strong>强制储蓄</strong>：把理财变成习惯</li>
+</ul>
+<h3 id="_4">定投的误区</h3>
+<ul>
+<li>❌ 定投不是"闭眼赚钱"，长期仍需底层资产向上</li>
+<li>❌ 熊市停扣 = 放弃低价筹码，最可惜</li>
+<li>✅ 止盈要有规则：如"估值进入历史高位分位"或"达到目标收益"再减</li>
+</ul>
+<hr />
+<h2 id="_5">四、再平衡：机械地"卖高买低"</h2>
+<p>组合建好后，市场会让比例漂移。比如目标股 60%/债 40%，一年后股涨到 75%。</p>
+<p><strong>再平衡</strong> = 每年（或偏离超 5%）把比例调回目标：
+- 卖一部分涨多的股票，买一部分跌多的债券
+- 这逼你<strong>高位减仓、低位加仓</strong>，是反人性的好纪律</p>
+<blockquote>
+<p>再平衡是少数"免费午餐"：不预测市场，却系统性提升风险收益比。</p>
+</blockquote>
+<hr />
+<h2 id="_6">五、一个极简组合示例（教学用）</h2>
+<table>
+<thead>
+<tr>
+<th>资产</th>
+<th>占比</th>
+<th>标的举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>国内宽基</td>
+<td>35%</td>
+<td>沪深300 / 中证A500 指数基金</td>
+</tr>
+<tr>
+<td>海外宽基</td>
+<td>25%</td>
+<td>纳指100 / 标普500 QDII</td>
+</tr>
+<tr>
+<td>债券</td>
+<td>30%</td>
+<td>纯债基金 / 国债</td>
+</tr>
+<tr>
+<td>现金</td>
+<td>10%</td>
+<td>货基（应急+加仓弹药）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>这只是框架演示，不是建议。你的比例由期限 + 风险承受决定。用 <code>tools/asset_allocation.py</code> 生成你的版本。</p>
+</blockquote>
+<hr />
+<h2 id="_7">六、本周行动清单 ✅</h2>
+<ul>
+<li>[ ] 跑一次 <code>tools/asset_allocation.py</code>，得到你的目标配比</li>
+<li>[ ] 把现有持仓映射到"股/债/现金"，看偏离多少</li>
+<li>[ ] 设定定投日（如每月发工资后一天）和再平衡频率（每年）</li>
+</ul>
+<hr />
+<h2 id="_8">七、下一步</h2>
+<p>→ <strong>M06 估值指标与择时</strong>：PE/PB/百分位怎么看，怎样判断"贵不贵"。</p>
+<hr />
+<h2 id="english-abstract">🌐 English Abstract</h2>
+<p><strong>Topic:</strong> Asset allocation &amp; dollar-cost averaging (DCA) — turning timing anxiety into discipline.</p>
+<p><strong>Key takeaways:</strong>
+- Asset allocation drives <strong>~90% of long-term portfolio outcome</strong> (Brinson et al.) — more than stock-picking or timing.
+- Age rule of thumb: <strong>equity % ≈ 100 − your age</strong> (younger → more equity).
+- DCA removes timing anxiety, enforces saving, and auto "buys more when cheap".
+- <strong>Rebalancing</strong> mechanically sells high / buys low — one of the few genuine "free lunches" in finance.</p>
+<p><strong>Why it matters:</strong> This is where theory becomes a repeatable process you can actually stick to for decades.</p>
+  </article>
+</main>
+<section class="card" style="max-width:980px;margin:0 auto 24px;">
+  <div class="complete-bar">
+    <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
+    <span class="msg" id="completeMsg"></span>
+  </div>
+  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。</p>
+</section>
+
+<section class="quiz card" id="quiz">
+  <h2>🧩 课后小测验</h2>
+  <p class="note">答完立刻出答案与解析，巩固本节要点。</p>
+  <div class="q" id="quiz-q1"><p class="qt"><b>Q1.</b> 资产配置被认为能解释组合长期收益差异的多少？</p><div class="opts"><label class="opt" data-q="1" data-opt="0"><input type="radio" name="q1" value="0"> <span>A. 约 10%</span></label>
+<label class="opt" data-q="1" data-opt="1"><input type="radio" name="q1" value="1"> <span>B. 约 50%</span></label>
+<label class="opt" data-q="1" data-opt="2"><input type="radio" name="q1" value="2"> <span>C. 约 90%</span></label>
+<label class="opt" data-q="1" data-opt="3"><input type="radio" name="q1" value="3"> <span>D. 完全随机，无法解释</span></label></div><div class="feedback" id="fb-q1"></div></div>
+<div class="q" id="quiz-q2"><p class="qt"><b>Q2.</b> “100 − 年龄”法则大致给出什么建议？</p><div class="opts"><label class="opt" data-q="2" data-opt="0"><input type="radio" name="q2" value="0"> <span>A. 应急金应等于 100 减去年龄的月数</span></label>
+<label class="opt" data-q="2" data-opt="1"><input type="radio" name="q2" value="1"> <span>B. 权益占比(%) ≈ 100 − 你的年龄</span></label>
+<label class="opt" data-q="2" data-opt="2"><input type="radio" name="q2" value="2"> <span>C. 定投金额应每年减少 1%</span></label>
+<label class="opt" data-q="2" data-opt="3"><input type="radio" name="q2" value="3"> <span>D. 债券久期应等于 100 减去年龄</span></label></div><div class="feedback" id="fb-q2"></div></div>
+<div class="q" id="quiz-q3"><p class="qt"><b>Q3.</b> 再平衡的核心作用是什么？</p><div class="opts"><label class="opt" data-q="3" data-opt="0"><input type="radio" name="q3" value="0"> <span>A. 预测市场顶部和底部</span></label>
+<label class="opt" data-q="3" data-opt="1"><input type="radio" name="q3" value="1"> <span>B. 机械地“卖高买低”，把比例调回目标</span></label>
+<label class="opt" data-q="3" data-opt="2"><input type="radio" name="q3" value="2"> <span>C. 增加交易次数以获取更多收益</span></label>
+<label class="opt" data-q="3" data-opt="3"><input type="radio" name="q3" value="3"> <span>D. 把所有资产换成现金避险</span></label></div><div class="feedback" id="fb-q3"></div></div>
+</section>
+<script>
+(function(){
+  const answers = [2, 1, 1];
+  const explanations = ["M05 引用 Brinson 等的研究：组合长期收益差异主要来源于资产配置，而非选股择时。", "M05 的年龄法则：25 岁权益约 75%，40 岁约 60%；越年轻、越能承受波动，权益可越多。", "M05 称再平衡是少数“免费午餐”：不预测市场，却系统性让你高位减仓、低位加仓。"];
+  document.querySelectorAll('.opt').forEach(label => {
+    label.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') e.preventDefault();
+      const qIdx = parseInt(this.dataset.q) - 1;
+      const chosen = parseInt(this.dataset.opt);
+      const correct = answers[qIdx];
+      const fb = document.getElementById('fb-q' + (qIdx+1));
+      const all = this.closest('.opts').querySelectorAll('.opt');
+      all.forEach(l => l.classList.add('disabled'));
+      if (chosen === correct) {
+        this.classList.add('correct');
+        fb.innerHTML = '<span class="ok">✅ 正确！</span> ' + explanations[qIdx];
+      } else {
+        this.classList.add('wrong');
+        all[correct].classList.add('correct');
+        fb.innerHTML = '<span class="bad">❌ 不对。</span> ' + explanations[qIdx];
+      }
+    });
+  });
+})();
+</script>
+
+<footer>
+  ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+</footer>
+<script>
+const MODULE_ID = 'm05';
+const STORE = 'flr_progress_v1';
+const STAGE_ID = 's4';
+function getDone(){ return new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); }
+function saveDone(s){ localStorage.setItem(STORE, JSON.stringify([...s])); }
+function toast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+}
+function updateBtn(){
+  const done = getDone();
+  const btn = document.getElementById('markBtn');
+  const msg = document.getElementById('completeMsg');
+  if (done.has(MODULE_ID)) {
+    btn.textContent = '✓ 本节已完成（点击取消）';
+    btn.classList.add('done');
+    msg.textContent = '进度已同步到 milestones 页';
+  } else {
+    btn.textContent = '✅ 标记本节为「已完成」';
+    btn.classList.remove('done');
+    msg.textContent = '';
+  }
+}
+function toggleComplete(){
+  const done = getDone();
+  const wasDone = done.has(MODULE_ID);
+  if (wasDone) done.delete(MODULE_ID); else done.add(MODULE_ID);
+  saveDone(done);
+  updateBtn();
+  toast(wasDone ? '已取消完成标记' : '🎉 本节已标记完成！');
+}
+updateBtn();
+</script>
+</body>
+</html>

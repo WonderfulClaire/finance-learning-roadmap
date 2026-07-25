@@ -67,17 +67,17 @@
 
 | # | 模块 | 一句话 | 链接 |
 |---|---|---|---|
-| M00 | 启航：为什么理财与防坑 | 复利 vs 通胀、买前必想三问、六大坑 | [docs/00](docs/00-启航-为什么理财与防坑.md) |
-| M01 | 资产地图与工具箱 | 钱能去哪、五类资产、三桶管理 | [docs/01](docs/01-资产地图与工具箱.md) |
-| M02 | 现金与固收 | 货基 / 存款 / 债券基金怎么挑 | [docs/02](docs/02-现金与固收.md) |
-| M03 | 指数基金入门 | 为什么普通人从指数开始 + 真实持仓体检 | [docs/03](docs/03-指数基金入门.md) |
-| M04 | 主动基金与股票入门 | 主动 vs 指数、股票赚什么钱 | [docs/04](docs/04-主动基金与股票入门.md) |
-| M05 | 资产配置与定投 | 股债搭配、定投、再平衡 | [docs/05-资产配置与定投.md](docs/05-资产配置与定投.md) |
-| M06 | 估值指标与择时 | PE/PB/百分位怎么看 | [docs/06](docs/06-估值指标与择时.md) |
-| M07 | 进阶：财报与量化初探 | 三张财报表 + Python 算指标 | [docs/07](docs/07-进阶-财报与量化初探.md) |
-| M08 | 保险与养老税务 | 先守后攻、个人养老金 | [docs/08](docs/08-保险与养老税务.md) |
+| M00 | 启航：为什么理财与防坑 | 复利 vs 通胀、买前必想三问、六大坑 | [网页课](lessons/00-启航-为什么理财与防坑.html) |
+| M01 | 资产地图与工具箱 | 钱能去哪、五类资产、三桶管理 | [网页课](lessons/01-资产地图与工具箱.html) |
+| M02 | 现金与固收 | 货基 / 存款 / 债券基金怎么挑 | [网页课](lessons/02-现金与固收.html) |
+| M03 | 指数基金入门 | 为什么普通人从指数开始 + 真实持仓体检 | [网页课](lessons/03-指数基金入门.html) |
+| M04 | 主动基金与股票入门 | 主动 vs 指数、股票赚什么钱 | [网页课](lessons/04-主动基金与股票入门.html) |
+| M05 | 资产配置与定投 | 股债搭配、定投、再平衡 | [网页课](lessons/05-资产配置与定投.html) |
+| M06 | 估值指标与择时 | PE/PB/百分位怎么看 | [网页课](lessons/06-估值指标与择时.html) |
+| M07 | 进阶：财报与量化初探 | 三张财报表 + Python 算指标 | [网页课](lessons/07-进阶-财报与量化初探.html) |
+| M08 | 保险与养老税务 | 先守后攻、个人养老金 | [网页课](lessons/08-保险与养老税务.html) |
 
-配套：📘 [术语表](docs/glossary.md) · 📚 [延伸书单与资源](docs/resources.md) · 🗓️ [30 天打卡计划](30天打卡计划.md)
+配套：📘 [术语表](https://github.com/WonderfulClaire/finance-learning-roadmap/blob/main/docs/glossary.md) · 📚 [延伸书单与资源](https://github.com/WonderfulClaire/finance-learning-roadmap/blob/main/docs/resources.md) · 🗓️ [30 天打卡计划](30天打卡计划.md)
 
 ---
 
@@ -89,7 +89,8 @@ git clone https://github.com/WonderfulClaire/finance-learning-roadmap.git
 cd finance-learning-roadmap
 
 # 2. 从 M00 开始读
-#    直接打开 docs/00-启航-为什么理财与防坑.md
+#    直接打开 lessons/00-启航-为什么理财与防坑.html
+#    或者打开 learn.html 进入「游戏化学习进度页」，按阶段通关
 
 # 3. 跑一个工具感受复利（需 Python 3，零依赖）
 python tools/compound_interest.py --principal 100000 --monthly 1000 --years 20 --rate 0.08

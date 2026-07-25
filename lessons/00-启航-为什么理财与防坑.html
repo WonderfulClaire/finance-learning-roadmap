@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="M00 启航：为什么理财与防坑 · 个人理财系统学习路线"/>
+<meta property="og:title" content="M00 启航：为什么理财与防坑"/>
+<meta property="og:description" content="从零基础到资产配置的中文开源理财教程"/>
+<meta property="og:image" content="https://wonderfulclaire.github.io/finance-learning-roadmap/assets/share-card.png"/>
+<title>M00 启航：为什么理财与防坑 · 理财学习路线</title>
+<style>
+:root{
+  --bg:#ffffff;--fg:#1f2a44;--muted:#6b7280;--line:#e5e7eb;
+  --brand:#4e79a7;--brand2:#f28e2b;--ok:#59a14f;--bad:#e15759;--gold:#c8a24a;
+  --card:#f8fafc;--shadow:0 8px 30px rgba(15,23,42,.08);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0f172a;--fg:#e2e8f0;--muted:#94a3b8;--line:#233044;--card:#111c33;--shadow:0 8px 30px rgba(0,0,0,.4);}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header.hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:32px 20px 24px}
+header.hero .hwrap{max-width:980px;margin:0 auto}
+header.hero h1{margin:0;font-size:26px}
+header.hero .meta{margin-top:8px;font-size:13px;color:#cbd5e1}
+nav.top{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px}
+nav.top a.back{color:var(--muted)}
+nav.top .stage{margin-left:auto;color:var(--muted)}
+nav.lesson-nav{max-width:980px;margin:0 auto;padding:0 20px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+nav.lesson-nav a{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13px;max-width:48%}
+main.wrap{max-width:980px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media(min-width:900px){
+  main.wrap{grid-template-columns:220px 1fr}
+}
+aside.toc{display:none}
+@media(min-width:900px){
+  aside.toc{display:block;position:sticky;top:24px;align-self:start;font-size:13px}
+  aside.toc ul{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:12px}
+  aside.toc li{margin:8px 0}
+  aside.toc a{color:var(--muted)}
+  aside.toc a:hover{color:var(--brand)}
+}
+article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+article h1{font-size:28px;margin-top:0}
+article h2{font-size:20px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+article h3{font-size:17px;margin-top:24px}
+article p{margin:.8em 0}
+article blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 8px 8px 0;color:var(--muted)}
+article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
+article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
+article th{background:var(--bg);font-weight:700}
+article code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+article pre{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:10px;overflow:auto}
+article pre code{background:transparent;color:inherit;padding:0}
+article ul,article ol{padding-left:22px}
+article li{margin:.35em 0}
+.wikilink{background:rgba(78,121,167,.12);color:var(--brand);padding:1px 6px;border-radius:4px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin:22px 0}
+.complete-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.complete-bar button{padding:12px 20px;border:0;border-radius:8px;background:var(--ok);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.complete-bar button:hover{filter:brightness(1.08)}
+.complete-bar button.done{background:var(--gold)}
+.complete-bar .msg{font-size:13px;color:var(--muted)}
+.quiz .q{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.quiz .qt{margin-top:0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px}
+.quiz .opt{padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--card);display:flex;align-items:flex-start;gap:8px}
+.quiz .opt:hover{border-color:var(--brand)}
+.quiz .opt.disabled{pointer-events:none}
+.quiz .opt.correct{border-color:var(--ok);background:rgba(89,161,79,.12)}
+.quiz .opt.wrong{border-color:var(--bad);background:rgba(225,87,89,.12)}
+.quiz .opt input{margin-top:3px;flex:none}
+.quiz .feedback{margin-top:10px;font-size:14px}
+.quiz .feedback .ok{color:var(--ok);font-weight:700}
+.quiz .feedback .bad{color:var(--bad);font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+#toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
+#toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+<header class="hero">
+  <div class="hwrap">
+    <h1>M00 启航：为什么理财与防坑</h1>
+    <div class="meta">阶段一 · 启航 · 🚀 启航者 · 个人理财系统学习路线</div>
+  </div>
+</header>
+<nav class="top">
+  <a class="back" href="../index.html">← 交互式计算器</a>
+  <a class="back" href="../learn.html">🎮 里程碑</a>
+  <span class="stage">🚀 启航者</span>
+</nav>
+<nav class="lesson-nav">
+  <span></span>
+  <a class="navnext" href="01-资产地图与工具箱.html">M01 资产地图与工具箱 →</a>
+</nav>
+<main class="wrap">
+  <aside class="toc">
+    <b>目录</b>
+    <div class="toc">
+<ul>
+<li><a href="#m00">M00 · 启航：为什么理财，以及如何不踩坑</a><ul>
+<li><a href="#_1">一、先泼冷水：理财不是"暴富"</a></li>
+<li><a href="#vs">二、两把剪刀：复利 vs 通胀</a><ul>
+<li><a href="#1">1) 复利：世界第八大奇迹</a></li>
+<li><a href="#2">2) 通胀：看不见的小偷</a></li>
+<li><a href="#3-72">3) 72 法则（心算神器）</a></li>
+</ul>
+</li>
+<li><a href="#_2">三、买任何东西前，先想三件事</a></li>
+<li><a href="#_3">四、三条保命原则</a></li>
+<li><a href="#6">五、新手最常见的 6 个坑</a></li>
+<li><a href="#_4">六、本周行动清单 ✅</a></li>
+<li><a href="#_5">七、下一步</a></li>
+<li><a href="#english-abstract">🌐 English Abstract</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+  </aside>
+  <article>
+    <h1 id="m00">M00 · 启航：为什么理财，以及如何不踩坑</h1>
+<blockquote>
+<p><strong>学习目标</strong>：搞懂"理财到底解决什么问题"，建立三条保命原则，识别最常见的坑。
+<strong>预计用时</strong>：40 分钟 + 本周行动清单。</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、先泼冷水：理财不是"暴富"</h2>
+<p>很多人冲进理财是想着"钱生钱、早日财务自由"。但现实是：</p>
+<ul>
+<li>理财的第一目标不是<strong>赚最多</strong>，而是<strong>不亏大钱 + 让钱不被通胀吃掉</strong>。</li>
+<li>真正能"复利起飞"的，是<strong>时间长 + 稳定不中断</strong>，不是某次押对。</li>
+<li>金融市场专治各种"我很聪明"。杠杆、内幕、短线暴富故事，幸存者偏差极大。</li>
+</ul>
+<p>记住一句话：<strong>你赚的每一分钱，都是认知的变现；你亏的每一分钱，都是认知的缺陷。</strong></p>
+<hr />
+<h2 id="vs">二、两把剪刀：复利 vs 通胀</h2>
+<p>理财的意义，用一个对比就懂。</p>
+<h3 id="1">1) 复利：世界第八大奇迹</h3>
+<p>本金 10 万，年化 8%：
+- 10 年后 ≈ 21.6 万（翻 1 倍多）
+- 20 年后 ≈ 46.6 万（翻 4.6 倍）
+- 30 年后 ≈ 100.6 万（翻 10 倍）</p>
+<p>关键是<strong>时间</strong>。越早开始，曲线越陡。仓库工具一键算：</p>
+<pre><code class="language-bash">python tools/compound_interest.py --principal 100000 --years 30 --rate 0.08
+</code></pre>
+<h3 id="2">2) 通胀：看不见的小偷</h3>
+<p>假设通胀 3%/年，今天的 100 元，30 年后购买力只剩约 100 ÷ (1.03³⁰) ≈ <strong>41 元</strong>。
+也就是说，<strong>钱躺在活期里，每年都在被动变穷</strong>。</p>
+<blockquote>
+<p>复利让你"往前跑"，通胀在"往后拽"。理财，就是让前者稳稳跑赢后者。
+跑通胀≈需要 3%–4% 年化；要真正增值，目标通常 6%–10%（伴随更大波动）。</p>
+</blockquote>
+<h3 id="3-72">3) 72 法则（心算神器）</h3>
+<p>本金翻倍需要的年数 ≈ <strong>72 ÷ 年化收益率(%)</strong>
+- 8% 年化 → 约 9 年翻倍
+- 12% 年化 → 约 6 年翻倍
+- 通胀 3% → 约 24 年购买力腰斩</p>
+<p><img alt="名义价值 vs 实际购买力（30 年）" src="../assets/inflation-erode.svg" /></p>
+<hr />
+<h2 id="_2">三、买任何东西前，先想三件事</h2>
+<p>这是全教程最重要的三问，写下来贴在屏幕上：</p>
+<ol>
+<li><strong>这笔钱多久不用？</strong>（期限决定你能不能承受波动）</li>
+<li><strong>亏多少我会睡不着？</strong>（风险承受能力，不是"想赚多少"）</li>
+<li><strong>我为什么要买它、什么情况下卖？</strong>（没有卖出计划 = 没有计划）</li>
+</ol>
+<blockquote>
+<p>对应概念卡见 <span class="wikilink">资产配置</span>、<span class="wikilink">风险承受能力与风险偏好</span>、<span class="wikilink">通胀</span>、<span class="wikilink">复利</span>。</p>
+</blockquote>
+<hr />
+<h2 id="_3">四、三条保命原则</h2>
+<ol>
+<li><strong>先保障，后投资</strong>：应急金（3–6 个月支出）+ 必要保险没到位前，别谈高波动投资。</li>
+<li><strong>不懂不投</strong>：朋友说"长期持有稳赚"就跟着买，是最大的坑（见 M03 真实案例）。</li>
+<li><strong>分散 + 纪律</strong>：单一资产再好也别 all in；用定投和再平衡代替"感觉"。</li>
+</ol>
+<hr />
+<h2 id="6">五、新手最常见的 6 个坑</h2>
+<table>
+<thead>
+<tr>
+<th>坑</th>
+<th>真相</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跟着朋友/大V 买，没研究</td>
+<td>他亏得起、你未必；他卖出你不知道</td>
+</tr>
+<tr>
+<td>把基金当股票短线炒</td>
+<td>基金费用高、波动慢，不适合日内</td>
+</tr>
+<tr>
+<td>只看收益率不看回撤</td>
+<td>一年涨 50% 但可能先跌 40%，你拿不住</td>
+</tr>
+<tr>
+<td>用杠杆 / 借钱炒股</td>
+<td>波动会放大到强行平仓，归零</td>
+</tr>
+<tr>
+<td>迷信"保本高收益"</td>
+<td>收益和风险永远挂钩，反常即骗局</td>
+</tr>
+<tr>
+<td>追涨杀跌</td>
+<td>高点冲进去、低点割肉，完美反向操作</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">六、本周行动清单 ✅</h2>
+<ul>
+<li>[ ] 用工具算一次自己的"复利曲线"（代入真实可投金额）</li>
+<li>[ ] 盘点：活期 + 货基够不够 <strong>3–6 个月支出</strong>？不够先补</li>
+<li>[ ] 写一句：账户浮亏 <strong>___%</strong> 你会睡不着？（你的风险红线）</li>
+<li>[ ] 把你已买的每个产品，用"三问"过一遍，记下来</li>
+</ul>
+<hr />
+<h2 id="_5">七、下一步</h2>
+<p>→ <strong>M01 资产地图与工具箱</strong>：钱到底能去哪些地方，各自的收益/风险/流动性长啥样。</p>
+<hr />
+<h2 id="english-abstract">🌐 English Abstract</h2>
+<p><strong>Topic:</strong> Why we invest at all — and how to avoid the most common traps.</p>
+<p><strong>Key takeaways:</strong>
+- The first goal of investing is <em>not to lose big</em> and <em>to outrun inflation</em> — not to get rich quick.
+- Compound interest rewards <strong>time + consistency</strong>; the Rule of 72 lets you estimate doubling time in your head (72 ÷ annual %).
+- Before buying anything, ask three questions: <strong>time horizon</strong> / <strong>max loss you can sleep through</strong> / <strong>why-buy-and-when-to-sell</strong>.
+- Three life-saving rules: insure first, never invest in what you don't understand, diversify + follow discipline.</p>
+<p><strong>Why it matters:</strong> Sets the right mindset so you don't become the market's tuition. Most people lose money before they start, by chasing stories instead of building understanding.</p>
+  </article>
+</main>
+<section class="card" style="max-width:980px;margin:0 auto 24px;">
+  <div class="complete-bar">
+    <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
+    <span class="msg" id="completeMsg"></span>
+  </div>
+  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。</p>
+</section>
+
+<section class="quiz card" id="quiz">
+  <h2>🧩 课后小测验</h2>
+  <p class="note">答完立刻出答案与解析，巩固本节要点。</p>
+  <div class="q" id="quiz-q1"><p class="qt"><b>Q1.</b> 理财的第一目标应该是什么？</p><div class="opts"><label class="opt" data-q="1" data-opt="0"><input type="radio" name="q1" value="0"> <span>A. 短期内赚尽量多的钱</span></label>
+<label class="opt" data-q="1" data-opt="1"><input type="radio" name="q1" value="1"> <span>B. 不亏大钱 + 让钱不被通胀吃掉</span></label>
+<label class="opt" data-q="1" data-opt="2"><input type="radio" name="q1" value="2"> <span>C. 找到内幕消息押注单只股票</span></label>
+<label class="opt" data-q="1" data-opt="3"><input type="radio" name="q1" value="3"> <span>D. 把所有钱都投进高收益产品</span></label></div><div class="feedback" id="fb-q1"></div></div>
+<div class="q" id="quiz-q2"><p class="qt"><b>Q2.</b> 72 法则用于估算什么？</p><div class="opts"><label class="opt" data-q="2" data-opt="0"><input type="radio" name="q2" value="0"> <span>A. 每年需要定投的金额</span></label>
+<label class="opt" data-q="2" data-opt="1"><input type="radio" name="q2" value="1"> <span>B. 本金翻倍的所需年数 ≈ 72 ÷ 年化收益率(%)</span></label>
+<label class="opt" data-q="2" data-opt="2"><input type="radio" name="q2" value="2"> <span>C. 通胀率对购买力的精确损失</span></label>
+<label class="opt" data-q="2" data-opt="3"><input type="radio" name="q2" value="3"> <span>D. 股票的最大回撤幅度</span></label></div><div class="feedback" id="fb-q2"></div></div>
+<div class="q" id="quiz-q3"><p class="qt"><b>Q3.</b> 在买任何投资品之前，下面哪一问最重要？</p><div class="opts"><label class="opt" data-q="3" data-opt="0"><input type="radio" name="q3" value="0"> <span>A. 我朋友买了多少？</span></label>
+<label class="opt" data-q="3" data-opt="1"><input type="radio" name="q3" value="1"> <span>B. 这笔钱多久不用、亏多少我会睡不着、为什么买以及什么时候卖</span></label>
+<label class="opt" data-q="3" data-opt="2"><input type="radio" name="q3" value="2"> <span>C. 最近一年收益最高的是哪只</span></label>
+<label class="opt" data-q="3" data-opt="3"><input type="radio" name="q3" value="3"> <span>D. 这只产品有没有名人推荐</span></label></div><div class="feedback" id="fb-q3"></div></div>
+</section>
+<script>
+(function(){
+  const answers = [1, 1, 1];
+  const explanations = ["M00 强调：理财的第一目标不是赚最多，而是避免大亏、跑赢通胀。暴富心态最容易踩坑。", "72 法则是心算神器：翻倍年数 ≈ 72 ÷ 年化率。例如 8% 年化约 9 年翻倍。", "M00 的三问（期限/风险红线/卖出计划）是全书最重要的决策框架。"];
+  document.querySelectorAll('.opt').forEach(label => {
+    label.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') e.preventDefault();
+      const qIdx = parseInt(this.dataset.q) - 1;
+      const chosen = parseInt(this.dataset.opt);
+      const correct = answers[qIdx];
+      const fb = document.getElementById('fb-q' + (qIdx+1));
+      const all = this.closest('.opts').querySelectorAll('.opt');
+      all.forEach(l => l.classList.add('disabled'));
+      if (chosen === correct) {
+        this.classList.add('correct');
+        fb.innerHTML = '<span class="ok">✅ 正确！</span> ' + explanations[qIdx];
+      } else {
+        this.classList.add('wrong');
+        all[correct].classList.add('correct');
+        fb.innerHTML = '<span class="bad">❌ 不对。</span> ' + explanations[qIdx];
+      }
+    });
+  });
+})();
+</script>
+
+<footer>
+  ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+</footer>
+<script>
+const MODULE_ID = 'm00';
+const STORE = 'flr_progress_v1';
+const STAGE_ID = 's1';
+function getDone(){ return new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); }
+function saveDone(s){ localStorage.setItem(STORE, JSON.stringify([...s])); }
+function toast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+}
+function updateBtn(){
+  const done = getDone();
+  const btn = document.getElementById('markBtn');
+  const msg = document.getElementById('completeMsg');
+  if (done.has(MODULE_ID)) {
+    btn.textContent = '✓ 本节已完成（点击取消）';
+    btn.classList.add('done');
+    msg.textContent = '进度已同步到 milestones 页';
+  } else {
+    btn.textContent = '✅ 标记本节为「已完成」';
+    btn.classList.remove('done');
+    msg.textContent = '';
+  }
+}
+function toggleComplete(){
+  const done = getDone();
+  const wasDone = done.has(MODULE_ID);
+  if (wasDone) done.delete(MODULE_ID); else done.add(MODULE_ID);
+  saveDone(done);
+  updateBtn();
+  toast(wasDone ? '已取消完成标记' : '🎉 本节已标记完成！');
+}
+updateBtn();
+</script>
+</body>
+</html>

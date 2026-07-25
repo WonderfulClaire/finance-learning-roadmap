@@ -169,19 +169,19 @@
 /* ---------- 数据：5 阶段 / 9 课 ---------- */
 const STAGES = [
   { id:'s1', name:'阶段一 · 启航', badge:'🚀 启航者', modules:[
-    { id:'m00', title:'M00 启航：为什么理财与防坑', file:'docs/00-启航-为什么理财与防坑.md' } ] },
+    { id:'m00', title:'M00 启航：为什么理财与防坑', file:'lessons/00-启航-为什么理财与防坑.html' } ] },
   { id:'s2', name:'阶段二 · 基础', badge:'💰 资产管家', modules:[
-    { id:'m01', title:'M01 资产地图与工具箱', file:'docs/01-资产地图与工具箱.md' },
-    { id:'m02', title:'M02 现金与固收', file:'docs/02-现金与固收.md' } ] },
+    { id:'m01', title:'M01 资产地图与工具箱', file:'lessons/01-资产地图与工具箱.html' },
+    { id:'m02', title:'M02 现金与固收', file:'lessons/02-现金与固收.html' } ] },
   { id:'s3', name:'阶段三 · 权益', badge:'📈 权益投资人', modules:[
-    { id:'m03', title:'M03 指数基金入门', file:'docs/03-指数基金入门.md' },
-    { id:'m04', title:'M04 主动基金与股票入门', file:'docs/04-主动基金与股票入门.md' } ] },
+    { id:'m03', title:'M03 指数基金入门', file:'lessons/03-指数基金入门.html' },
+    { id:'m04', title:'M04 主动基金与股票入门', file:'lessons/04-主动基金与股票入门.html' } ] },
   { id:'s4', name:'阶段四 · 策略', badge:'🎯 策略大师', modules:[
-    { id:'m05', title:'M05 资产配置与定投', file:'docs/05-资产配置与定投.md' },
-    { id:'m06', title:'M06 估值指标与择时', file:'docs/06-估值指标与择时.md' } ] },
+    { id:'m05', title:'M05 资产配置与定投', file:'lessons/05-资产配置与定投.html' },
+    { id:'m06', title:'M06 估值指标与择时', file:'lessons/06-估值指标与择时.html' } ] },
   { id:'s5', name:'阶段五 · 进阶', badge:'🏆 理财宗师', modules:[
-    { id:'m07', title:'M07 进阶：财报与量化初探', file:'docs/07-进阶-财报与量化初探.md' },
-    { id:'m08', title:'M08 保险与养老税务', file:'docs/08-保险与养老税务.md' } ] }
+    { id:'m07', title:'M07 进阶：财报与量化初探', file:'lessons/07-进阶-财报与量化初探.html' },
+    { id:'m08', title:'M08 保险与养老税务', file:'lessons/08-保险与养老税务.html' } ] }
 ];
 const XP_PER = 100, XP_PER_LEVEL = 150;
 
@@ -211,7 +211,8 @@ function buildStages(){
       row.className = 'mod';
       row.innerHTML =
         '<input type="checkbox" id="cb-'+ m.id +'" onchange="toggle(\''+ m.id +'\')"/>' +
-        '<a href="'+ m.file +'" target="_blank" rel="noopener">'+ m.title +'</a>';
+        '<a href="'+ m.file +'">'+ m.title +'</a>' +
+        '<span class="lk">→ 点标题学习，学完回来打勾</span>';
       sec.appendChild(row);
     });
     root.appendChild(sec);

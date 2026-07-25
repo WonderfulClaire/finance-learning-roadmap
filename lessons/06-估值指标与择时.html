@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="M06 估值指标与择时 · 个人理财系统学习路线"/>
+<meta property="og:title" content="M06 估值指标与择时"/>
+<meta property="og:description" content="从零基础到资产配置的中文开源理财教程"/>
+<meta property="og:image" content="https://wonderfulclaire.github.io/finance-learning-roadmap/assets/share-card.png"/>
+<title>M06 估值指标与择时 · 理财学习路线</title>
+<style>
+:root{
+  --bg:#ffffff;--fg:#1f2a44;--muted:#6b7280;--line:#e5e7eb;
+  --brand:#4e79a7;--brand2:#f28e2b;--ok:#59a14f;--bad:#e15759;--gold:#c8a24a;
+  --card:#f8fafc;--shadow:0 8px 30px rgba(15,23,42,.08);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0f172a;--fg:#e2e8f0;--muted:#94a3b8;--line:#233044;--card:#111c33;--shadow:0 8px 30px rgba(0,0,0,.4);}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header.hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:32px 20px 24px}
+header.hero .hwrap{max-width:980px;margin:0 auto}
+header.hero h1{margin:0;font-size:26px}
+header.hero .meta{margin-top:8px;font-size:13px;color:#cbd5e1}
+nav.top{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px}
+nav.top a.back{color:var(--muted)}
+nav.top .stage{margin-left:auto;color:var(--muted)}
+nav.lesson-nav{max-width:980px;margin:0 auto;padding:0 20px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+nav.lesson-nav a{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13px;max-width:48%}
+main.wrap{max-width:980px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media(min-width:900px){
+  main.wrap{grid-template-columns:220px 1fr}
+}
+aside.toc{display:none}
+@media(min-width:900px){
+  aside.toc{display:block;position:sticky;top:24px;align-self:start;font-size:13px}
+  aside.toc ul{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:12px}
+  aside.toc li{margin:8px 0}
+  aside.toc a{color:var(--muted)}
+  aside.toc a:hover{color:var(--brand)}
+}
+article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+article h1{font-size:28px;margin-top:0}
+article h2{font-size:20px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+article h3{font-size:17px;margin-top:24px}
+article p{margin:.8em 0}
+article blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 8px 8px 0;color:var(--muted)}
+article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
+article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
+article th{background:var(--bg);font-weight:700}
+article code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+article pre{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:10px;overflow:auto}
+article pre code{background:transparent;color:inherit;padding:0}
+article ul,article ol{padding-left:22px}
+article li{margin:.35em 0}
+.wikilink{background:rgba(78,121,167,.12);color:var(--brand);padding:1px 6px;border-radius:4px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin:22px 0}
+.complete-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.complete-bar button{padding:12px 20px;border:0;border-radius:8px;background:var(--ok);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.complete-bar button:hover{filter:brightness(1.08)}
+.complete-bar button.done{background:var(--gold)}
+.complete-bar .msg{font-size:13px;color:var(--muted)}
+.quiz .q{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.quiz .qt{margin-top:0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px}
+.quiz .opt{padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--card);display:flex;align-items:flex-start;gap:8px}
+.quiz .opt:hover{border-color:var(--brand)}
+.quiz .opt.disabled{pointer-events:none}
+.quiz .opt.correct{border-color:var(--ok);background:rgba(89,161,79,.12)}
+.quiz .opt.wrong{border-color:var(--bad);background:rgba(225,87,89,.12)}
+.quiz .opt input{margin-top:3px;flex:none}
+.quiz .feedback{margin-top:10px;font-size:14px}
+.quiz .feedback .ok{color:var(--ok);font-weight:700}
+.quiz .feedback .bad{color:var(--bad);font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+#toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
+#toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+<header class="hero">
+  <div class="hwrap">
+    <h1>M06 估值指标与择时</h1>
+    <div class="meta">阶段四 · 策略 · 🎯 策略大师 · 个人理财系统学习路线</div>
+  </div>
+</header>
+<nav class="top">
+  <a class="back" href="../index.html">← 交互式计算器</a>
+  <a class="back" href="../learn.html">🎮 里程碑</a>
+  <span class="stage">🎯 策略大师</span>
+</nav>
+<nav class="lesson-nav">
+  <a class="navprev" href="05-资产配置与定投.html">← M05 资产配置与定投</a>
+  <a class="navnext" href="07-进阶-财报与量化初探.html">M07 进阶：财报与量化初探 →</a>
+</nav>
+<main class="wrap">
+  <aside class="toc">
+    <b>目录</b>
+    <div class="toc">
+<ul>
+<li><a href="#m06">M06 · 估值指标与择时</a><ul>
+<li><a href="#_1">一、估值是干嘛的？</a></li>
+<li><a href="#_2">二、三把常用尺子</a><ul>
+<li><a href="#1-pe">1) PE（市盈率）= 价格 ÷ 盈利</a></li>
+<li><a href="#2-pb">2) PB（市净率）= 价格 ÷ 净资产</a></li>
+<li><a href="#3-percentile">3) 估值百分位（Percentile）⭐ 最实用</a></li>
+</ul>
+</li>
+<li><a href="#_3">三、怎么用百分位（实战框架）</a></li>
+<li><a href="#_4">四、不同指数，估值含义不同</a></li>
+<li><a href="#_5">五、估值 ≠ 择时</a></li>
+<li><a href="#_6">六、本周行动清单 ✅</a></li>
+<li><a href="#_7">七、下一步</a></li>
+<li><a href="#english-abstract">🌐 English Abstract</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+  </aside>
+  <article>
+    <h1 id="m06">M06 · 估值指标与择时</h1>
+<blockquote>
+<p><strong>学习目标</strong>：搞懂 PE/PB/百分位这几把"尺子"，学会判断一个指数贵不贵，以及估值该怎样辅助（而非替代）决策。
+<strong>预计用时</strong>：40 分钟 + 跑一次工具。</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、估值是干嘛的？</h2>
+<p>估值 = 判断"现在这个价格，贵不贵"。对指数基金尤其有用：因为指数成分固定，历史估值可比。</p>
+<p>核心思想：<strong>在便宜（低估值）时多买，在贵（高估值）时少买或卖</strong>，长期提升收益、降低风险。</p>
+<hr />
+<h2 id="_2">二、三把常用尺子</h2>
+<h3 id="1-pe">1) PE（市盈率）= 价格 ÷ 盈利</h3>
+<ul>
+<li>表示"按当前盈利，多少年回本"</li>
+<li>PE 低 → 相对便宜；PE 高 → 相对贵</li>
+<li><strong>局限</strong>：盈利为负或周期波动大时失真</li>
+</ul>
+<h3 id="2-pb">2) PB（市净率）= 价格 ÷ 净资产</h3>
+<ul>
+<li>适合银行、地产等重资产行业</li>
+<li>表示"花几倍买下账面资产"</li>
+</ul>
+<h3 id="3-percentile">3) 估值百分位（Percentile）⭐ 最实用</h3>
+<p>把当前 PE 放在<strong>过去 N 年</strong>的所有 PE 里排位：
+- 20% 分位 → 比历史上 80% 的时间都便宜（便宜区）
+- 80% 分位 → 比历史上 80% 的时间都贵（贵区）</p>
+<blockquote>
+<p>仓库 <code>tools/pe_percentile.py</code>：输入一串历史 PE，算出当前分位。</p>
+</blockquote>
+<hr />
+<h2 id="_3">三、怎么用百分位（实战框架）</h2>
+<table>
+<thead>
+<tr>
+<th>当前 PE 分位</th>
+<th>操作倾向</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt; 30%</td>
+<td>低估，定投可加码</td>
+</tr>
+<tr>
+<td>30%–70%</td>
+<td>正常，按原计划定投</td>
+</tr>
+<tr>
+<td>&gt; 70%</td>
+<td>高估，少买 / 考虑止盈一部分</td>
+</tr>
+<tr>
+<td>&gt; 90%</td>
+<td>泡沫区，谨慎，准备再平衡减仓</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：<strong>低估值可能长期更低（价值陷阱），高估值也可能继续涨</strong>。估值只给"赔率"，不给"时点"。别把它当精确开关。</p>
+</blockquote>
+<hr />
+<h2 id="_4">四、不同指数，估值含义不同</h2>
+<ul>
+<li><strong>宽基（沪深300/纳指100）</strong>：看 PE 百分位最有参考性</li>
+<li><strong>行业指数（白酒/医药/半导体）</strong>：周期性强，PE 会"误导"，要看行业逻辑</li>
+<li><strong>QDII（纳指）</strong>：还要叠加<strong>美元汇率</strong>——人民币升值会侵蚀收益</li>
+</ul>
+<hr />
+<h2 id="_5">五、估值 ≠ 择时</h2>
+<p>新手最容易犯的错：以为"会看估值就能精准抄底逃顶"。事实上：
+- 没有人能稳定择时
+- 估值的作用是<strong>调仓位</strong>（多买少买），不是<strong>空仓满仓</strong>
+- 长期持有 + 低估多买，已经胜过绝大多数择时</p>
+<hr />
+<h2 id="_6">六、本周行动清单 ✅</h2>
+<ul>
+<li>[ ] 查你持有的指数当前 PE 分位（理杏仁/乌龟量化）</li>
+<li>[ ] 跑 <code>tools/pe_percentile.py</code> 验证分位计算逻辑</li>
+<li>[ ] 给每个持仓定一个"高估减仓"的阈值</li>
+</ul>
+<hr />
+<h2 id="_7">七、下一步</h2>
+<p>→ <strong>M07 进阶：财报与量化初探</strong>：想自己算指标、甚至回测？用 Python 迈出第一步。</p>
+<hr />
+<h2 id="english-abstract">🌐 English Abstract</h2>
+<p><strong>Topic:</strong> Valuation metrics (PE / PB / percentile) and their role — supporting, never replacing, decisions.</p>
+<p><strong>Key takeaways:</strong>
+- <strong>PE</strong> = price/earnings (years to break even); <strong>PB</strong> = price/book; <strong>percentile</strong> is the most practical gauge.
+- Use percentile bands: <strong>&lt;30% cheap (add), 30–70% normal, &gt;70% expensive (trim), &gt;90% froth</strong>.
+- Valuation adjusts <em>position size</em>, not an on/off switch; no one times the market consistently.
+- Different indices need different reads (sector cycles mislead; QDII adds FX overlay).</p>
+<p><strong>Why it matters:</strong> Valuation gives you <em>odds</em>, not <em>timing</em>. Used right, it quietly improves risk-adjusted returns.</p>
+  </article>
+</main>
+<section class="card" style="max-width:980px;margin:0 auto 24px;">
+  <div class="complete-bar">
+    <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
+    <span class="msg" id="completeMsg"></span>
+  </div>
+  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。</p>
+</section>
+
+<section class="quiz card" id="quiz">
+  <h2>🧩 课后小测验</h2>
+  <p class="note">答完立刻出答案与解析，巩固本节要点。</p>
+  <div class="q" id="quiz-q1"><p class="qt"><b>Q1.</b> PE（市盈率）表示什么含义？</p><div class="opts"><label class="opt" data-q="1" data-opt="0"><input type="radio" name="q1" value="0"> <span>A. 公司市值 ÷ 净资产</span></label>
+<label class="opt" data-q="1" data-opt="1"><input type="radio" name="q1" value="1"> <span>B. 价格 ÷ 盈利，按当前盈利多少年回本</span></label>
+<label class="opt" data-q="1" data-opt="2"><input type="radio" name="q1" value="2"> <span>C. 每股分红 ÷ 股价</span></label>
+<label class="opt" data-q="1" data-opt="3"><input type="radio" name="q1" value="3"> <span>D. 股价波动率</span></label></div><div class="feedback" id="fb-q1"></div></div>
+<div class="q" id="quiz-q2"><p class="qt"><b>Q2.</b> 估值百分位处于 80% 以上，通常代表什么？</p><div class="opts"><label class="opt" data-q="2" data-opt="0"><input type="radio" name="q2" value="0"> <span>A. 比历史上 80% 的时间都便宜，应大幅加仓</span></label>
+<label class="opt" data-q="2" data-opt="1"><input type="radio" name="q2" value="1"> <span>B. 比历史上 80% 的时间都贵，进入贵区/谨慎区</span></label>
+<label class="opt" data-q="2" data-opt="2"><input type="radio" name="q2" value="2"> <span>C. 估值没有参考意义</span></label>
+<label class="opt" data-q="2" data-opt="3"><input type="radio" name="q2" value="3"> <span>D. 指数必定马上要跌</span></label></div><div class="feedback" id="fb-q2"></div></div>
+<div class="q" id="quiz-q3"><p class="qt"><b>Q3.</b> 估值在投资决策中应该扮演什么角色？</p><div class="opts"><label class="opt" data-q="3" data-opt="0"><input type="radio" name="q3" value="0"> <span>A. 精确判断抄底和逃顶的开关</span></label>
+<label class="opt" data-q="3" data-opt="1"><input type="radio" name="q3" value="1"> <span>B. 调仓参考（低估多买、高估少买），而非空仓满仓的依据</span></label>
+<label class="opt" data-q="3" data-opt="2"><input type="radio" name="q3" value="2"> <span>C. 唯一决定买卖的因素</span></label>
+<label class="opt" data-q="3" data-opt="3"><input type="radio" name="q3" value="3"> <span>D. 只看估值就能稳定战胜市场</span></label></div><div class="feedback" id="fb-q3"></div></div>
+</section>
+<script>
+(function(){
+  const answers = [1, 1, 1];
+  const explanations = ["M06 解释：PE = 价格 ÷ 盈利，表示按当前盈利多少年回本；PE 低通常相对便宜。", "M06 的百分位框架：80% 分位以上表示贵，倾向少买或止盈；但估值不是精确开关。", "M06 强调：估值给“赔率”不给“时点”，用来调整仓位，不是精确择时工具。"];
+  document.querySelectorAll('.opt').forEach(label => {
+    label.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') e.preventDefault();
+      const qIdx = parseInt(this.dataset.q) - 1;
+      const chosen = parseInt(this.dataset.opt);
+      const correct = answers[qIdx];
+      const fb = document.getElementById('fb-q' + (qIdx+1));
+      const all = this.closest('.opts').querySelectorAll('.opt');
+      all.forEach(l => l.classList.add('disabled'));
+      if (chosen === correct) {
+        this.classList.add('correct');
+        fb.innerHTML = '<span class="ok">✅ 正确！</span> ' + explanations[qIdx];
+      } else {
+        this.classList.add('wrong');
+        all[correct].classList.add('correct');
+        fb.innerHTML = '<span class="bad">❌ 不对。</span> ' + explanations[qIdx];
+      }
+    });
+  });
+})();
+</script>
+
+<footer>
+  ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+</footer>
+<script>
+const MODULE_ID = 'm06';
+const STORE = 'flr_progress_v1';
+const STAGE_ID = 's4';
+function getDone(){ return new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); }
+function saveDone(s){ localStorage.setItem(STORE, JSON.stringify([...s])); }
+function toast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+}
+function updateBtn(){
+  const done = getDone();
+  const btn = document.getElementById('markBtn');
+  const msg = document.getElementById('completeMsg');
+  if (done.has(MODULE_ID)) {
+    btn.textContent = '✓ 本节已完成（点击取消）';
+    btn.classList.add('done');
+    msg.textContent = '进度已同步到 milestones 页';
+  } else {
+    btn.textContent = '✅ 标记本节为「已完成」';
+    btn.classList.remove('done');
+    msg.textContent = '';
+  }
+}
+function toggleComplete(){
+  const done = getDone();
+  const wasDone = done.has(MODULE_ID);
+  if (wasDone) done.delete(MODULE_ID); else done.add(MODULE_ID);
+  saveDone(done);
+  updateBtn();
+  toast(wasDone ? '已取消完成标记' : '🎉 本节已标记完成！');
+}
+updateBtn();
+</script>
+</body>
+</html>

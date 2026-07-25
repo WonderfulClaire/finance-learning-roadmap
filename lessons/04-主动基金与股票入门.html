@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="M04 主动基金与股票入门 · 个人理财系统学习路线"/>
+<meta property="og:title" content="M04 主动基金与股票入门"/>
+<meta property="og:description" content="从零基础到资产配置的中文开源理财教程"/>
+<meta property="og:image" content="https://wonderfulclaire.github.io/finance-learning-roadmap/assets/share-card.png"/>
+<title>M04 主动基金与股票入门 · 理财学习路线</title>
+<style>
+:root{
+  --bg:#ffffff;--fg:#1f2a44;--muted:#6b7280;--line:#e5e7eb;
+  --brand:#4e79a7;--brand2:#f28e2b;--ok:#59a14f;--bad:#e15759;--gold:#c8a24a;
+  --card:#f8fafc;--shadow:0 8px 30px rgba(15,23,42,.08);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0f172a;--fg:#e2e8f0;--muted:#94a3b8;--line:#233044;--card:#111c33;--shadow:0 8px 30px rgba(0,0,0,.4);}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header.hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:32px 20px 24px}
+header.hero .hwrap{max-width:980px;margin:0 auto}
+header.hero h1{margin:0;font-size:26px}
+header.hero .meta{margin-top:8px;font-size:13px;color:#cbd5e1}
+nav.top{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px}
+nav.top a.back{color:var(--muted)}
+nav.top .stage{margin-left:auto;color:var(--muted)}
+nav.lesson-nav{max-width:980px;margin:0 auto;padding:0 20px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+nav.lesson-nav a{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13px;max-width:48%}
+main.wrap{max-width:980px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media(min-width:900px){
+  main.wrap{grid-template-columns:220px 1fr}
+}
+aside.toc{display:none}
+@media(min-width:900px){
+  aside.toc{display:block;position:sticky;top:24px;align-self:start;font-size:13px}
+  aside.toc ul{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:12px}
+  aside.toc li{margin:8px 0}
+  aside.toc a{color:var(--muted)}
+  aside.toc a:hover{color:var(--brand)}
+}
+article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+article h1{font-size:28px;margin-top:0}
+article h2{font-size:20px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+article h3{font-size:17px;margin-top:24px}
+article p{margin:.8em 0}
+article blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 8px 8px 0;color:var(--muted)}
+article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
+article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
+article th{background:var(--bg);font-weight:700}
+article code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+article pre{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:10px;overflow:auto}
+article pre code{background:transparent;color:inherit;padding:0}
+article ul,article ol{padding-left:22px}
+article li{margin:.35em 0}
+.wikilink{background:rgba(78,121,167,.12);color:var(--brand);padding:1px 6px;border-radius:4px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin:22px 0}
+.complete-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.complete-bar button{padding:12px 20px;border:0;border-radius:8px;background:var(--ok);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.complete-bar button:hover{filter:brightness(1.08)}
+.complete-bar button.done{background:var(--gold)}
+.complete-bar .msg{font-size:13px;color:var(--muted)}
+.quiz .q{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.quiz .qt{margin-top:0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px}
+.quiz .opt{padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--card);display:flex;align-items:flex-start;gap:8px}
+.quiz .opt:hover{border-color:var(--brand)}
+.quiz .opt.disabled{pointer-events:none}
+.quiz .opt.correct{border-color:var(--ok);background:rgba(89,161,79,.12)}
+.quiz .opt.wrong{border-color:var(--bad);background:rgba(225,87,89,.12)}
+.quiz .opt input{margin-top:3px;flex:none}
+.quiz .feedback{margin-top:10px;font-size:14px}
+.quiz .feedback .ok{color:var(--ok);font-weight:700}
+.quiz .feedback .bad{color:var(--bad);font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+#toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
+#toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+<header class="hero">
+  <div class="hwrap">
+    <h1>M04 主动基金与股票入门</h1>
+    <div class="meta">阶段三 · 权益 · 📈 权益投资人 · 个人理财系统学习路线</div>
+  </div>
+</header>
+<nav class="top">
+  <a class="back" href="../index.html">← 交互式计算器</a>
+  <a class="back" href="../learn.html">🎮 里程碑</a>
+  <span class="stage">📈 权益投资人</span>
+</nav>
+<nav class="lesson-nav">
+  <a class="navprev" href="03-指数基金入门.html">← M03 指数基金入门</a>
+  <a class="navnext" href="05-资产配置与定投.html">M05 资产配置与定投 →</a>
+</nav>
+<main class="wrap">
+  <aside class="toc">
+    <b>目录</b>
+    <div class="toc">
+<ul>
+<li><a href="#m04">M04 · 主动基金与股票入门</a><ul>
+<li><a href="#_1">一、主动基金：把选股交给"经理"</a><ul>
+<li><a href="#_2">优点 / 难点</a></li>
+<li><a href="#_3">怎么挑（如果你一定要买）</a></li>
+</ul>
+</li>
+<li><a href="#_4">二、股票：你成了公司的股东</a><ul>
+<li><a href="#_5">股票赚两笔钱</a></li>
+<li><a href="#_6">为什么大多数人炒股亏</a></li>
+<li><a href="#_7">如果你要开始研究股票</a></li>
+</ul>
+</li>
+<li><a href="#vs">三、主动基金 vs 指数基金，怎么选？</a></li>
+<li><a href="#_8">四、本周行动清单 ✅</a></li>
+<li><a href="#_9">五、下一步</a></li>
+<li><a href="#english-abstract">🌐 English Abstract</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+  </aside>
+  <article>
+    <h1 id="m04">M04 · 主动基金与股票入门</h1>
+<blockquote>
+<p><strong>学习目标</strong>：理解主动基金和股票赚的是什么钱、难在哪，搞清楚普通人要不要、怎么碰。
+<strong>预计用时</strong>：40 分钟。</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、主动基金：把选股交给"经理"</h2>
+<p>主动基金经理拿你的钱，主观挑股票，目标是<strong>跑赢指数</strong>。</p>
+<h3 id="_2">优点 / 难点</h3>
+<ul>
+<li>✅ 好的经理能在某些阶段显著超额（Alpha）</li>
+<li>❌ 收费高（管理费常 1.5%/年），长期吃收益</li>
+<li>❌ <strong>风格漂移</strong>：说好价值投资，结果追热点</li>
+<li>❌ <strong>冠军魔咒</strong>：去年第一，今年可能垫底（运气成分大）</li>
+</ul>
+<h3 id="_3">怎么挑（如果你一定要买）</h3>
+<ul>
+<li>看<strong>长期</strong>（5 年以上）年化是否稳定跑赢基准，而不是某一年爆红</li>
+<li>看<strong>最大回撤</strong>是否你能承受</li>
+<li>看<strong>经理任职年限</strong>和<strong>投资理念</strong>是否清晰、一贯</li>
+<li>看<strong>规模</strong>：过大（几百亿）难调头，过小（&lt; 2 亿）有清盘风险</li>
+</ul>
+<blockquote>
+<p>对大多数人：<strong>先用指数基金打好底仓，主动基金当作"锦上添花"，且占比别高。</strong></p>
+</blockquote>
+<hr />
+<h2 id="_4">二、股票：你成了公司的股东</h2>
+<p>买股票 = 买下公司一小部分。股价长期跟<strong>公司赚钱能力</strong>走，短期被情绪和资金牵着走。</p>
+<h3 id="_5">股票赚两笔钱</h3>
+<ol>
+<li><strong>企业成长</strong>：盈利增长推升股价（长期主逻辑）</li>
+<li><strong>分红</strong>：公司把利润分给你（现金奶牛型）</li>
+</ol>
+<h3 id="_6">为什么大多数人炒股亏</h3>
+<ul>
+<li>追涨杀跌、听消息、频繁交易（手续费 + 摩擦吃掉收益）</li>
+<li>不加研究就重仓单只，一次黑天鹅归零</li>
+<li>把"投机"当"投资"，用短线心态做长期事</li>
+</ul>
+<h3 id="_7">如果你要开始研究股票</h3>
+<ul>
+<li>先读财报（M07）：营收、利润、ROE、现金流</li>
+<li>理解<strong>护城河</strong>：品牌、网络效应、成本优势</li>
+<li>用<strong>估值</strong>判断贵不贵（PE/PB，见 M06）</li>
+<li>永远<strong>分散</strong>，单只别超总仓 10%–15%（闲钱前提下）</li>
+</ul>
+<blockquote>
+<p>一句话：股票是"进阶题"，先把指数基金和资产配置做对，再考虑它。</p>
+</blockquote>
+<hr />
+<h2 id="vs">三、主动基金 vs 指数基金，怎么选？</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>指数基金</th>
+<th>主动基金</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>费用</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>透明度</td>
+<td>高（规则定）</td>
+<td>低（持仓滞后）</td>
+</tr>
+<tr>
+<td>依赖人</td>
+<td>不依赖</td>
+<td>高度依赖经理</td>
+</tr>
+<tr>
+<td>适合谁</td>
+<td>绝大多数人</td>
+<td>有筛选能力的人</td>
+</tr>
+<tr>
+<td>建议占比</td>
+<td>主力</td>
+<td>卫星（≤30%）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_8">四、本周行动清单 ✅</h2>
+<ul>
+<li>[ ] 如果你持有主动基金，查它的 5 年年化 vs 基准</li>
+<li>[ ] 列出你"想研究"的 1–2 家公司，从读年报开始</li>
+<li>[ ] 给自己定规矩：单只股票 ≤ 总仓 X%</li>
+</ul>
+<hr />
+<h2 id="_9">五、下一步</h2>
+<p>→ <strong>M05 资产配置与定投</strong>：把各类资产拼成组合，并用定投降低择时压力。</p>
+<hr />
+<h2 id="english-abstract">🌐 English Abstract</h2>
+<p><strong>Topic:</strong> Active funds &amp; individual stocks — what they are and whether ordinary people should touch them.</p>
+<p><strong>Key takeaways:</strong>
+- Active funds chase <em>alpha</em> but cost more (≈1.5%/yr) and depend heavily on the manager (style drift, "champion's curse").
+- Stocks make you an <strong>owner</strong>; long-term price follows earning power, short-term follows sentiment.
+- Most retail traders lose via chasing rallies, rumor-trading, over-trading, and concentrated bets.
+- Rule of thumb: <strong>index as core, active as a small satellite (≤30%)</strong>; single stock ≤10%–15% of portfolio.</p>
+<p><strong>Why it matters:</strong> Clarifies what is worth your time (core index + allocation) versus what is an "advanced problem" best deferred until the basics are solid.</p>
+  </article>
+</main>
+<section class="card" style="max-width:980px;margin:0 auto 24px;">
+  <div class="complete-bar">
+    <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
+    <span class="msg" id="completeMsg"></span>
+  </div>
+  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。</p>
+</section>
+
+<section class="quiz card" id="quiz">
+  <h2>🧩 课后小测验</h2>
+  <p class="note">答完立刻出答案与解析，巩固本节要点。</p>
+  <div class="q" id="quiz-q1"><p class="qt"><b>Q1.</b> 主动基金相比指数基金，最突出的风险/难点是什么？</p><div class="opts"><label class="opt" data-q="1" data-opt="0"><input type="radio" name="q1" value="0"> <span>A. 规则太透明，缺乏惊喜</span></label>
+<label class="opt" data-q="1" data-opt="1"><input type="radio" name="q1" value="1"> <span>B. 依赖基金经理，存在风格漂移和高费率</span></label>
+<label class="opt" data-q="1" data-opt="2"><input type="radio" name="q1" value="2"> <span>C. 永远不能跑赢指数</span></label>
+<label class="opt" data-q="1" data-opt="3"><input type="radio" name="q1" value="3"> <span>D. 只能买债券</span></label></div><div class="feedback" id="fb-q1"></div></div>
+<div class="q" id="quiz-q2"><p class="qt"><b>Q2.</b> 对大多数普通人，主动基金在组合中更适合扮演什么角色？</p><div class="opts"><label class="opt" data-q="2" data-opt="0"><input type="radio" name="q2" value="0"> <span>A. 全部仓位</span></label>
+<label class="opt" data-q="2" data-opt="1"><input type="radio" name="q2" value="1"> <span>B. 主力仓位</span></label>
+<label class="opt" data-q="2" data-opt="2"><input type="radio" name="q2" value="2"> <span>C. 卫星仓位（≤30%）</span></label>
+<label class="opt" data-q="2" data-opt="3"><input type="radio" name="q2" value="3"> <span>D. 完全不要碰</span></label></div><div class="feedback" id="fb-q2"></div></div>
+<div class="q" id="quiz-q3"><p class="qt"><b>Q3.</b> 买股票本质上是买什么？</p><div class="opts"><label class="opt" data-q="3" data-opt="0"><input type="radio" name="q3" value="0"> <span>A. 买一张可以低买高卖的彩票</span></label>
+<label class="opt" data-q="3" data-opt="1"><input type="radio" name="q3" value="1"> <span>B. 买下公司的一小部分，成为股东</span></label>
+<label class="opt" data-q="3" data-opt="2"><input type="radio" name="q3" value="2"> <span>C. 借给公司钱，收取固定利息</span></label>
+<label class="opt" data-q="3" data-opt="3"><input type="radio" name="q3" value="3"> <span>D. 购买公司的全部债务</span></label></div><div class="feedback" id="fb-q3"></div></div>
+</section>
+<script>
+(function(){
+  const answers = [1, 2, 1];
+  const explanations = ["M04 指出主动基金依赖经理、费率高，且可能发生风格漂移；对多数人应“指数打底，主动点缀”。", "M04 建议：指数作为核心，主动基金作为“锦上添花”的卫星，占比别太高。", "M04 强调：买股票 = 成为公司股东；长期股价跟公司赚钱能力走，短期受情绪影响。"];
+  document.querySelectorAll('.opt').forEach(label => {
+    label.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') e.preventDefault();
+      const qIdx = parseInt(this.dataset.q) - 1;
+      const chosen = parseInt(this.dataset.opt);
+      const correct = answers[qIdx];
+      const fb = document.getElementById('fb-q' + (qIdx+1));
+      const all = this.closest('.opts').querySelectorAll('.opt');
+      all.forEach(l => l.classList.add('disabled'));
+      if (chosen === correct) {
+        this.classList.add('correct');
+        fb.innerHTML = '<span class="ok">✅ 正确！</span> ' + explanations[qIdx];
+      } else {
+        this.classList.add('wrong');
+        all[correct].classList.add('correct');
+        fb.innerHTML = '<span class="bad">❌ 不对。</span> ' + explanations[qIdx];
+      }
+    });
+  });
+})();
+</script>
+
+<footer>
+  ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+</footer>
+<script>
+const MODULE_ID = 'm04';
+const STORE = 'flr_progress_v1';
+const STAGE_ID = 's3';
+function getDone(){ return new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); }
+function saveDone(s){ localStorage.setItem(STORE, JSON.stringify([...s])); }
+function toast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+}
+function updateBtn(){
+  const done = getDone();
+  const btn = document.getElementById('markBtn');
+  const msg = document.getElementById('completeMsg');
+  if (done.has(MODULE_ID)) {
+    btn.textContent = '✓ 本节已完成（点击取消）';
+    btn.classList.add('done');
+    msg.textContent = '进度已同步到 milestones 页';
+  } else {
+    btn.textContent = '✅ 标记本节为「已完成」';
+    btn.classList.remove('done');
+    msg.textContent = '';
+  }
+}
+function toggleComplete(){
+  const done = getDone();
+  const wasDone = done.has(MODULE_ID);
+  if (wasDone) done.delete(MODULE_ID); else done.add(MODULE_ID);
+  saveDone(done);
+  updateBtn();
+  toast(wasDone ? '已取消完成标记' : '🎉 本节已标记完成！');
+}
+updateBtn();
+</script>
+</body>
+</html>

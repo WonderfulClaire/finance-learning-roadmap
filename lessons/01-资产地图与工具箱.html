@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="M01 资产地图与工具箱 · 个人理财系统学习路线"/>
+<meta property="og:title" content="M01 资产地图与工具箱"/>
+<meta property="og:description" content="从零基础到资产配置的中文开源理财教程"/>
+<meta property="og:image" content="https://wonderfulclaire.github.io/finance-learning-roadmap/assets/share-card.png"/>
+<title>M01 资产地图与工具箱 · 理财学习路线</title>
+<style>
+:root{
+  --bg:#ffffff;--fg:#1f2a44;--muted:#6b7280;--line:#e5e7eb;
+  --brand:#4e79a7;--brand2:#f28e2b;--ok:#59a14f;--bad:#e15759;--gold:#c8a24a;
+  --card:#f8fafc;--shadow:0 8px 30px rgba(15,23,42,.08);
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#0f172a;--fg:#e2e8f0;--muted:#94a3b8;--line:#233044;--card:#111c33;--shadow:0 8px 30px rgba(0,0,0,.4);}
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+header.hero{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:32px 20px 24px}
+header.hero .hwrap{max-width:980px;margin:0 auto}
+header.hero h1{margin:0;font-size:26px}
+header.hero .meta{margin-top:8px;font-size:13px;color:#cbd5e1}
+nav.top{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px}
+nav.top a.back{color:var(--muted)}
+nav.top .stage{margin-left:auto;color:var(--muted)}
+nav.lesson-nav{max-width:980px;margin:0 auto;padding:0 20px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+nav.lesson-nav a{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13px;max-width:48%}
+main.wrap{max-width:980px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media(min-width:900px){
+  main.wrap{grid-template-columns:220px 1fr}
+}
+aside.toc{display:none}
+@media(min-width:900px){
+  aside.toc{display:block;position:sticky;top:24px;align-self:start;font-size:13px}
+  aside.toc ul{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:12px}
+  aside.toc li{margin:8px 0}
+  aside.toc a{color:var(--muted)}
+  aside.toc a:hover{color:var(--brand)}
+}
+article{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow)}
+article h1{font-size:28px;margin-top:0}
+article h2{font-size:20px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+article h3{font-size:17px;margin-top:24px}
+article p{margin:.8em 0}
+article blockquote{margin:1em 0;padding:12px 16px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 8px 8px 0;color:var(--muted)}
+article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
+article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
+article th{background:var(--bg);font-weight:700}
+article code{background:rgba(0,0,0,.06);padding:2px 6px;border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em}
+article pre{background:#0f172a;color:#e2e8f0;padding:16px;border-radius:10px;overflow:auto}
+article pre code{background:transparent;color:inherit;padding:0}
+article ul,article ol{padding-left:22px}
+article li{margin:.35em 0}
+.wikilink{background:rgba(78,121,167,.12);color:var(--brand);padding:1px 6px;border-radius:4px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);margin:22px 0}
+.complete-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.complete-bar button{padding:12px 20px;border:0;border-radius:8px;background:var(--ok);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.complete-bar button:hover{filter:brightness(1.08)}
+.complete-bar button.done{background:var(--gold)}
+.complete-bar .msg{font-size:13px;color:var(--muted)}
+.quiz .q{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}
+.quiz .qt{margin-top:0}
+.quiz .opts{display:flex;flex-direction:column;gap:8px}
+.quiz .opt{padding:10px 12px;border:1px solid var(--line);border-radius:8px;cursor:pointer;background:var(--card);display:flex;align-items:flex-start;gap:8px}
+.quiz .opt:hover{border-color:var(--brand)}
+.quiz .opt.disabled{pointer-events:none}
+.quiz .opt.correct{border-color:var(--ok);background:rgba(89,161,79,.12)}
+.quiz .opt.wrong{border-color:var(--bad);background:rgba(225,87,89,.12)}
+.quiz .opt input{margin-top:3px;flex:none}
+.quiz .feedback{margin-top:10px;font-size:14px}
+.quiz .feedback .ok{color:var(--ok);font-weight:700}
+.quiz .feedback .bad{color:var(--bad);font-weight:700}
+.note{font-size:13px;color:var(--muted);margin-top:8px}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
+#toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
+#toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+<header class="hero">
+  <div class="hwrap">
+    <h1>M01 资产地图与工具箱</h1>
+    <div class="meta">阶段二 · 基础 · 💰 资产管家 · 个人理财系统学习路线</div>
+  </div>
+</header>
+<nav class="top">
+  <a class="back" href="../index.html">← 交互式计算器</a>
+  <a class="back" href="../learn.html">🎮 里程碑</a>
+  <span class="stage">💰 资产管家</span>
+</nav>
+<nav class="lesson-nav">
+  <a class="navprev" href="00-启航-为什么理财与防坑.html">← M00 启航：为什么理财与防坑</a>
+  <a class="navnext" href="02-现金与固收.html">M02 现金与固收 →</a>
+</nav>
+<main class="wrap">
+  <aside class="toc">
+    <b>目录</b>
+    <div class="toc">
+<ul>
+<li><a href="#m01">M01 · 资产地图与工具箱</a><ul>
+<li><a href="#_1">一、一张图看懂资产全景</a></li>
+<li><a href="#_2">二、五类资产速查表</a></li>
+<li><a href="#_3">三、三个核心账户（分桶管理）</a></li>
+<li><a href="#app">四、工具箱：你真正需要的 App</a></li>
+<li><a href="#_4">五、关键概念：风险 ≠ 波动</a></li>
+<li><a href="#_5">六、本周行动清单 ✅</a></li>
+<li><a href="#_6">七、下一步</a></li>
+<li><a href="#english-abstract">🌐 English Abstract</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+  </aside>
+  <article>
+    <h1 id="m01">M01 · 资产地图与工具箱</h1>
+<blockquote>
+<p><strong>学习目标</strong>：建立"钱能去哪"的全景图，理解每类资产的收益/风险/流动性三角，知道用什么账户装什么钱。
+<strong>预计用时</strong>：35 分钟。</p>
+</blockquote>
+<hr />
+<h2 id="_1">一、一张图看懂资产全景</h2>
+<p>把资产按"风险从低到高"排成一条光谱：</p>
+<pre><code>现金/货基 ── 债券/固收 ── 宽基指数 ── 行业/主动基金 ── 个股 ── 衍生品/加密
+  (稳)                                                      (猛)
+</code></pre>
+<ul>
+<li>越往左：<strong>越稳、流动性越好、收益越低</strong></li>
+<li>越往右：<strong>波动越大、可能亏本金、长期收益更高</strong></li>
+</ul>
+<p>没有"最好"的资产，只有"最适合你期限和风险"的组合。</p>
+<p><img alt="稳健型资产配比参考" src="../assets/asset-allocation.svg" /></p>
+<hr />
+<h2 id="_2">二、五类资产速查表</h2>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>典型标的</th>
+<th>预期年化*</th>
+<th>最大风险</th>
+<th>流动性</th>
+<th>适合装什么钱</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现金/货基</td>
+<td>活期、余额宝</td>
+<td>1%–2%</td>
+<td>极低（输给通胀）</td>
+<td>即时</td>
+<td>应急金、短期要用的</td>
+</tr>
+<tr>
+<td>固收</td>
+<td>存款、国债、纯债基金</td>
+<td>2%–5%</td>
+<td>低（利率/信用风险）</td>
+<td>较好</td>
+<td>1–3 年不用的</td>
+</tr>
+<tr>
+<td>宽基权益</td>
+<td>沪深300/纳指100 指数基金</td>
+<td>6%–10%*</td>
+<td>中高（年化波动 15%–25%）</td>
+<td>好</td>
+<td>3 年以上不用的</td>
+</tr>
+<tr>
+<td>行业/主动</td>
+<td>行业 ETF、主动基金</td>
+<td>波动大</td>
+<td>高（可能腰斩）</td>
+<td>好</td>
+<td>能承受波动的"卫星"仓</td>
+</tr>
+<tr>
+<td>个股/衍生品</td>
+<td>单只股票、期权</td>
+<td>不确定</td>
+<td>极高（可归零）</td>
+<td>好</td>
+<td>仅闲钱、且你真懂</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*预期是长期历史区间，不是承诺。任何"保证收益 X%"都先当骗子看。</p>
+</blockquote>
+<hr />
+<h2 id="_3">三、三个核心账户（分桶管理）</h2>
+<p>把"钱"按用途分开，才能既稳又赚：</p>
+<ol>
+<li><strong>应急桶</strong>（活钱）：3–6 个月支出，放活期/货基，随时能取。</li>
+<li><strong>保值桶</strong>（稳钱）：1–3 年不用的，放存款/债券/纯债基金，跑赢通胀即可。</li>
+<li><strong>增值桶</strong>（长钱）：3 年以上不用的，放指数基金等权益，吃复利。</li>
+</ol>
+<blockquote>
+<p>绝大多数人亏钱，是因为把"增值桶"的钱误放进"应急桶"的期限里（短期要用却套在权益里，被迫割肉）。</p>
+</blockquote>
+<hr />
+<h2 id="app">四、工具箱：你真正需要的 App</h2>
+<p>不用下载一堆。核心就三类：</p>
+<ul>
+<li><strong>银行账户</strong>：工资、应急金、国债（柜台/网银）</li>
+<li><strong>基金平台</strong>：天天基金 / 蚂蚁 / 且慢 / 蛋卷 —— 买场外基金</li>
+<li><strong>证券账户</strong>：买 ETF、股票、打新（券商 App）</li>
+<li><strong>数据</strong>：中证/国证官网看指数估值；晨星看基金评级</li>
+</ul>
+<blockquote>
+<p>不用开很多户。先有一个基金平台 + 一个证券账户就够入门。</p>
+</blockquote>
+<hr />
+<h2 id="_4">五、关键概念：风险 ≠ 波动</h2>
+<p>很多人把"波动"和"风险"混为一谈。严格说：</p>
+<ul>
+<li><strong>波动（volatility）</strong>：价格上上下下，是常态，时间能熨平。</li>
+<li><strong>永久损失（permanent loss）</strong>：公司退市、杠杆爆仓、借钱炒到强平——这才是真风险。</li>
+</ul>
+<p><strong>期限越长，波动越不是风险；期限越短，波动越接近风险。</strong> 这解释了为什么"长钱才能投权益"。</p>
+<hr />
+<h2 id="_5">六、本周行动清单 ✅</h2>
+<ul>
+<li>[ ] 画一张自己的"三桶"表：每桶现在多少钱、装什么</li>
+<li>[ ] 检查应急桶是否 ≥ 3 个月支出</li>
+<li>[ ] 选定 1 个基金平台 + 1 个证券账户（不急着买）</li>
+</ul>
+<hr />
+<h2 id="_6">七、下一步</h2>
+<p>→ <strong>M02 现金与固收</strong>：先把"稳的部分"讲透——货基、存款、债券怎么挑。</p>
+<hr />
+<h2 id="english-abstract">🌐 English Abstract</h2>
+<p><strong>Topic:</strong> The asset map — where your money can actually go, and the toolkits you need.</p>
+<p><strong>Key takeaways:</strong>
+- Assets form a risk spectrum: <strong>cash → bonds → broad indexes → sector/active funds → single stocks → derivatives</strong>.
+- There is no single "best" asset — only the mix that fits your horizon and risk tolerance.
+- Manage money in three buckets: <strong>emergency (cash) / preservation (bonds) / growth (equity)</strong>.
+- <strong>Risk ≠ volatility</strong>: volatility is temporary and time can smooth it; <em>permanent loss</em> (bankruptcy, leverage blow-up) is the real risk.
+- The longer your horizon, the less volatility behaves like risk.</p>
+<p><strong>Why it matters:</strong> Gives you the map before you ever pick a product — so you stop buying things whose risk you can't name.</p>
+  </article>
+</main>
+<section class="card" style="max-width:980px;margin:0 auto 24px;">
+  <div class="complete-bar">
+    <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
+    <span class="msg" id="completeMsg"></span>
+  </div>
+  <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。</p>
+</section>
+
+<section class="quiz card" id="quiz">
+  <h2>🧩 课后小测验</h2>
+  <p class="note">答完立刻出答案与解析，巩固本节要点。</p>
+  <div class="q" id="quiz-q1"><p class="qt"><b>Q1.</b> 根据资产风险光谱，从左到右大致顺序是？</p><div class="opts"><label class="opt" data-q="1" data-opt="0"><input type="radio" name="q1" value="0"> <span>A. 个股 → 债券 → 现金 → 宽基指数</span></label>
+<label class="opt" data-q="1" data-opt="1"><input type="radio" name="q1" value="1"> <span>B. 现金/货基 → 债券/固收 → 宽基指数 → 行业/主动基金 → 个股/衍生品</span></label>
+<label class="opt" data-q="1" data-opt="2"><input type="radio" name="q1" value="2"> <span>C. 衍生品 → 个股 → 宽基指数 → 债券 → 现金</span></label>
+<label class="opt" data-q="1" data-opt="3"><input type="radio" name="q1" value="3"> <span>D. 主动基金 → 指数基金 → 债券 → 现金</span></label></div><div class="feedback" id="fb-q1"></div></div>
+<div class="q" id="quiz-q2"><p class="qt"><b>Q2.</b> “三桶管理”不包括以下哪一项？</p><div class="opts"><label class="opt" data-q="2" data-opt="0"><input type="radio" name="q2" value="0"> <span>A. 应急桶（活钱）</span></label>
+<label class="opt" data-q="2" data-opt="1"><input type="radio" name="q2" value="1"> <span>B. 保值桶（稳钱）</span></label>
+<label class="opt" data-q="2" data-opt="2"><input type="radio" name="q2" value="2"> <span>C. 增值桶（长钱）</span></label>
+<label class="opt" data-q="2" data-opt="3"><input type="radio" name="q2" value="3"> <span>D. 投机桶（赌钱）</span></label></div><div class="feedback" id="fb-q2"></div></div>
+<div class="q" id="quiz-q3"><p class="qt"><b>Q3.</b> 期限越长，波动对投资的实际影响通常会怎样？</p><div class="opts"><label class="opt" data-q="3" data-opt="0"><input type="radio" name="q3" value="0"> <span>A. 越大，因为时间放大了不确定性</span></label>
+<label class="opt" data-q="3" data-opt="1"><input type="radio" name="q3" value="1"> <span>B. 越小，因为时间能熨平短期波动</span></label>
+<label class="opt" data-q="3" data-opt="2"><input type="radio" name="q3" value="2"> <span>C. 不变，波动和风险永远一回事</span></label>
+<label class="opt" data-q="3" data-opt="3"><input type="radio" name="q3" value="3"> <span>D. 取决于是否使用杠杆</span></label></div><div class="feedback" id="fb-q3"></div></div>
+</section>
+<script>
+(function(){
+  const answers = [1, 3, 1];
+  const explanations = ["M01 的资产光谱：越左越稳、流动性越好、收益越低；越右波动越大、潜在收益越高。", "M01 把资金分为应急桶、保值桶、增值桶，没有“投机桶”。投资前先保障，再谈增值。", "M01 指出：风险 ≠ 波动。长期看，波动更可能被时间熨平；期限越短，波动越像风险。"];
+  document.querySelectorAll('.opt').forEach(label => {
+    label.addEventListener('click', function(e){
+      if(e.target.tagName === 'INPUT') e.preventDefault();
+      const qIdx = parseInt(this.dataset.q) - 1;
+      const chosen = parseInt(this.dataset.opt);
+      const correct = answers[qIdx];
+      const fb = document.getElementById('fb-q' + (qIdx+1));
+      const all = this.closest('.opts').querySelectorAll('.opt');
+      all.forEach(l => l.classList.add('disabled'));
+      if (chosen === correct) {
+        this.classList.add('correct');
+        fb.innerHTML = '<span class="ok">✅ 正确！</span> ' + explanations[qIdx];
+      } else {
+        this.classList.add('wrong');
+        all[correct].classList.add('correct');
+        fb.innerHTML = '<span class="bad">❌ 不对。</span> ' + explanations[qIdx];
+      }
+    });
+  });
+})();
+</script>
+
+<footer>
+  ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
+</footer>
+<script>
+const MODULE_ID = 'm01';
+const STORE = 'flr_progress_v1';
+const STAGE_ID = 's2';
+function getDone(){ return new Set(JSON.parse(localStorage.getItem(STORE) || '[]')); }
+function saveDone(s){ localStorage.setItem(STORE, JSON.stringify([...s])); }
+function toast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._tm); t._tm = setTimeout(() => t.classList.remove('show'), 3000);
+}
+function updateBtn(){
+  const done = getDone();
+  const btn = document.getElementById('markBtn');
+  const msg = document.getElementById('completeMsg');
+  if (done.has(MODULE_ID)) {
+    btn.textContent = '✓ 本节已完成（点击取消）';
+    btn.classList.add('done');
+    msg.textContent = '进度已同步到 milestones 页';
+  } else {
+    btn.textContent = '✅ 标记本节为「已完成」';
+    btn.classList.remove('done');
+    msg.textContent = '';
+  }
+}
+function toggleComplete(){
+  const done = getDone();
+  const wasDone = done.has(MODULE_ID);
+  if (wasDone) done.delete(MODULE_ID); else done.add(MODULE_ID);
+  saveDone(done);
+  updateBtn();
+  toast(wasDone ? '已取消完成标记' : '🎉 本节已标记完成！');
+}
+updateBtn();
+</script>
+</body>
+</html>
