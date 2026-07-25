@@ -47,6 +47,66 @@ MODULES = [
 
 MD_FILE_TO_MODULE = {m["file"]: m for m in MODULES}
 
+# 每章开篇名人名言 / 本章为什么重要
+QUOTES = {
+    "m00": {
+        "text": "Rule No. 1: Never lose money. Rule No. 2: Never forget rule No. 1.",
+        "author": "—— Warren Buffett（沃伦·巴菲特）",
+        "why": "本章先给你泼一盆冷水：理财不是暴富，而是先守住本金、跑赢通胀。巴菲特的第一条规则，正是本章的底层逻辑。"
+    },
+    "m01": {
+        "text": "Diversification is the only free lunch in finance.",
+        "author": "—— Harry Markowitz（哈里·马科维茨，现代投资组合理论之父）",
+        "why": "本章绘制“资产地图”：不同资产就像不同食材，单吃一种会营养不良，合理搭配才能免费降低风险。"
+    },
+    "m02": {
+        "text": "The individual investor should act consistently as an investor and not as a speculator.",
+        "author": "—— Benjamin Graham（本杰明·格雷厄姆）",
+        "why": "现金与固收是账户的“压舱石”。格雷厄姆提醒我们：先当投资者，再谈收益；稳钱管不好，长钱难安心。"
+    },
+    "m03": {
+        "text": "Don't look for the needle in the haystack. Just buy the haystack.",
+        "author": "—— John C. Bogle（约翰·博格，指数基金之父）",
+        "why": "本章讲指数基金：不必费尽心思选股，买下整个市场，让时间和复利为你工作。"
+    },
+    "m04": {
+        "text": "Invest in what you know.",
+        "author": "—— Peter Lynch（彼得·林奇）",
+        "why": "主动基金与个股是“认知变现”的重灾区。林奇说：只投你看得懂的生意，不懂的不碰。"
+    },
+    "m05": {
+        "text": "Asset allocation is the overwhelmingly dominant contributor to total return.",
+        "author": "—— David F. Swensen（大卫·斯文森，耶鲁捐赠基金首席投资官）",
+        "why": "本章进入实战：配多少股票、多少债券、定投多少钱，这些决策决定了你绝大部分长期收益。"
+    },
+    "m06": {
+        "text": "We cannot predict, but we can prepare.",
+        "author": "—— Howard Marks（霍华德·马克斯）",
+        "why": "估值与择时不是为了猜顶底，而是为了在市场极端时保持清醒。马克斯的话，是本章的核心心法。"
+    },
+    "m07": {
+        "text": "Price is what you pay. Value is what you get.",
+        "author": "—— Warren Buffett（沃伦·巴菲特）",
+        "why": "财报与量化初探：学会读数字背后的生意，才能判断你付的价格是否物有所值。"
+    },
+    "m08": {
+        "text": "In this world nothing can be said to be certain, except death and taxes.",
+        "author": "—— Benjamin Franklin（本杰明·富兰克林）",
+        "why": "保险、养老、税务看不见摸不着，却决定你人生下半场是否体面。本章把“不得不面对”的事提前安排好。"
+    },
+}
+
+
+def quote_html(module_id: str) -> str:
+    q = QUOTES.get(module_id)
+    if not q:
+        return ""
+    return f'''<div class="quote-hero">
+  <p class="quote-text">{q['text']}</p>
+  <p class="quote-author">{q['author']}</p>
+  <p class="quote-why">💡 本章为什么重要：{q['why']}</p>
+</div>'''
+
 
 def load_quizzes():
     qf = DATA / "quizzes.json"
@@ -155,6 +215,7 @@ def build_page(md_path: Path, module: dict, prev_mod: dict | None, next_mod: dic
     next_link = f'<a class="navnext" href="{html_filename(next_mod["file"])}">{next_mod["title"]} →</a>' if next_mod else '<span></span>'
 
     quiz = quiz_html(module["id"])
+    quote = quote_html(module["id"])
 
     return f'''<!DOCTYPE html>
 <html lang="zh-CN">
@@ -176,36 +237,41 @@ def build_page(md_path: Path, module: dict, prev_mod: dict | None, next_mod: dic
   :root{{--bg:#0f172a;--fg:#e2e8f0;--muted:#94a3b8;--line:#233044;--card:#111c33;--shadow:0 8px 30px rgba(0,0,0,.4);}}
 }}
 *{{box-sizing:border-box}}
-body{{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.7}}
+body{{margin:0;font-family:-apple-system,'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;background:var(--bg);color:var(--fg);line-height:1.75;font-size:16px}}
 a{{color:var(--brand);text-decoration:none}}
 a:hover{{text-decoration:underline}}
-header.hero{{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:32px 20px 24px}}
-header.hero .hwrap{{max-width:980px;margin:0 auto}}
-header.hero h1{{margin:0;font-size:26px}}
-header.hero .meta{{margin-top:8px;font-size:13px;color:#cbd5e1}}
-nav.top{{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:13px}}
+header.hero{{background:linear-gradient(135deg,#1f2a44,#32507a);color:#fff;padding:36px 24px 28px}}
+header.hero .hwrap{{max-width:1400px;margin:0 auto}}
+header.hero h1{{margin:0;font-size:clamp(26px,3vw,38px)}}
+header.hero .meta{{margin-top:10px;font-size:14px;color:#cbd5e1}}
+nav.top{{max-width:1400px;margin:0 auto;padding:16px 24px;display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:14px}}
 nav.top a.back{{color:var(--muted)}}
 nav.top .stage{{margin-left:auto;color:var(--muted)}}
-nav.lesson-nav{{max-width:980px;margin:0 auto;padding:0 20px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}}
-nav.lesson-nav a{{padding:10px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:13px;max-width:48%}}
-main.wrap{{max-width:980px;margin:0 auto;padding:0 20px 40px;display:grid;grid-template-columns:minmax(0,1fr);gap:24px}}
-@media(min-width:900px){{
-  main.wrap{{grid-template-columns:220px 1fr}}
+nav.lesson-nav{{max-width:1400px;margin:0 auto;padding:0 24px 32px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}}
+nav.lesson-nav a{{padding:12px 16px;border:1px solid var(--line);border-radius:8px;background:var(--card);font-size:14px;max-width:48%}}
+main.wrap{{max-width:1400px;margin:0 auto;padding:0 24px 48px;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}}
+@media(min-width:1100px){{
+  main.wrap{{grid-template-columns:260px 1fr}}
 }}
 aside.toc{{display:none}}
-@media(min-width:900px){{
-  aside.toc{{display:block;position:sticky;top:24px;align-self:start;font-size:13px}}
-  aside.toc ul{{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:12px}}
-  aside.toc li{{margin:8px 0}}
+@media(min-width:1100px){{
+  aside.toc{{display:block;position:sticky;top:24px;align-self:start;font-size:14px}}
+  aside.toc ul{{list-style:none;padding:0;margin:0;border-left:2px solid var(--line);padding-left:14px}}
+  aside.toc li{{margin:10px 0}}
   aside.toc a{{color:var(--muted)}}
   aside.toc a:hover{{color:var(--brand)}}
 }}
-article{{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow)}}
-article h1{{font-size:28px;margin-top:0}}
-article h2{{font-size:20px;margin-top:32px;padding-bottom:8px;border-bottom:1px solid var(--line)}}
-article h3{{font-size:17px;margin-top:24px}}
+article{{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:clamp(24px,3vw,44px);box-shadow:var(--shadow);font-size:clamp(16px,1.6vw,18px)}}
+article h1{{font-size:clamp(28px,3.2vw,42px);margin-top:0}}
+article h2{{font-size:clamp(22px,2.4vw,30px);margin-top:36px;padding-bottom:10px;border-bottom:1px solid var(--line)}}
+article h3{{font-size:clamp(18px,2vw,22px);margin-top:28px}}
 article p{{margin:.8em 0}}
-article blockquote{{margin:1em 0;padding:12px 16px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 8px 8px 0;color:var(--muted)}}
+article blockquote{{margin:1.2em 0;padding:16px 20px;border-left:4px solid var(--brand);background:var(--bg);border-radius:0 10px 10px 0;color:var(--muted)}}
+.quote-hero{{margin:0 0 28px 0;padding:clamp(20px,2.5vw,32px);border-radius:14px;background:linear-gradient(135deg,rgba(78,121,167,.10),rgba(242,142,43,.08));border:1px solid var(--line);position:relative;overflow:hidden}}
+.quote-hero::before{{content:"“";position:absolute;top:-10px;left:14px;font-size:72px;color:var(--brand);opacity:.18;line-height:1}}
+.quote-hero .quote-text{{font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.6;color:var(--fg);position:relative;z-index:1;margin:0;padding-left:12px}}
+.quote-hero .quote-author{{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic;padding-left:12px}}
+.quote-hero .quote-why{{margin-top:10px;font-size:13px;color:var(--muted);padding-left:12px;border-top:1px dashed var(--line);padding-top:10px}}
 article img{{max-width:100%;height:auto;border-radius:8px;margin:12px 0}}
 article table{{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}}
 article th,article td{{border:1px solid var(--line);padding:10px;text-align:left}}
@@ -263,10 +329,11 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:20px}}
     {toc_html}
   </aside>
   <article>
+    {quote}
     {body}
   </article>
 </main>
-<section class="card" style="max-width:980px;margin:0 auto 24px;">
+<section class="card" style="max-width:1400px;margin:0 auto 24px;">
   <div class="complete-bar">
     <button id="markBtn" onclick="toggleComplete()">✅ 标记本节为「已完成」</button>
     <span class="msg" id="completeMsg"></span>
