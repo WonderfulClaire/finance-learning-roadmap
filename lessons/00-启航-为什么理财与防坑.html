@@ -85,6 +85,10 @@ article li{margin:.35em 0}
 .quiz .feedback .ok{color:var(--ok);font-weight:700}
 .quiz .feedback .bad{color:var(--bad);font-weight:700}
 .note{font-size:13px;color:var(--muted);margin-top:8px}
+.videos .vlist{list-style:none;padding:0;margin:12px 0 0}
+.videos .vlist li{padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--bg)}
+.videos .vlist a{font-weight:600;font-size:15px}
+.videos .vnote{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 #toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
 #toast.show{transform:translateX(-50%) translateY(0)}
@@ -113,18 +117,18 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
     <div class="toc">
 <ul>
 <li><a href="#m00">M00 · 启航：为什么理财，以及如何不踩坑</a><ul>
-<li><a href="#_1">一、先泼冷水：理财不是"暴富"</a></li>
+<li><a href="#_1">一、先说点不好听的：理财不是“暴富”</a></li>
 <li><a href="#vs">二、两把剪刀：复利 vs 通胀</a><ul>
-<li><a href="#1">1) 复利：世界第八大奇迹</a></li>
-<li><a href="#2">2) 通胀：看不见的小偷</a></li>
-<li><a href="#3-72">3) 72 法则（心算神器）</a></li>
+<li><a href="#1">1) 复利：时间真的能换钱</a></li>
+<li><a href="#2">2) 通胀：那个不动声色偷你钱的东西</a></li>
+<li><a href="#3-72">3) 72 法则：不用计算器也能估</a></li>
 </ul>
 </li>
-<li><a href="#_2">三、买任何东西前，先想三件事</a></li>
+<li><a href="#_2">三、买任何东西前，先问自己三句话</a></li>
 <li><a href="#_3">四、三条保命原则</a></li>
-<li><a href="#6">五、新手最常见的 6 个坑</a></li>
-<li><a href="#_4">六、本周行动清单 ✅</a></li>
-<li><a href="#_5">七、下一步</a></li>
+<li><a href="#6">五、新手最爱踩的 6 个坑</a></li>
+<li><a href="#_4">六、本周就能做的事 ✅</a></li>
+<li><a href="#_5">七、接下来去哪</a></li>
 <li><a href="#english-abstract">🌐 English Abstract</a></li>
 </ul>
 </li>
@@ -140,62 +144,60 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 </div>
     <h1 id="m00">M00 · 启航：为什么理财，以及如何不踩坑</h1>
 <blockquote>
-<p><strong>学习目标</strong>：搞懂"理财到底解决什么问题"，建立三条保命原则，识别最常见的坑。
-<strong>预计用时</strong>：40 分钟 + 本周行动清单。</p>
+<p>这一节不教你买什么，先把脑子里的坑填平。读完大概 40 分钟，最后有一张本周就能照着做的清单。</p>
 </blockquote>
 <hr />
-<h2 id="_1">一、先泼冷水：理财不是"暴富"</h2>
-<p>很多人冲进理财是想着"钱生钱、早日财务自由"。但现实是：</p>
+<h2 id="_1">一、先说点不好听的：理财不是“暴富”</h2>
+<p>我猜你冲进理财，心里想的是“钱生钱、早点不上班”。这想法太正常了，但也是最容易被割的起点。</p>
+<p>几个大概率会发生的事：</p>
 <ul>
-<li>理财的第一目标不是<strong>赚最多</strong>，而是<strong>不亏大钱 + 让钱不被通胀吃掉</strong>。</li>
-<li>真正能"复利起飞"的，是<strong>时间长 + 稳定不中断</strong>，不是某次押对。</li>
-<li>金融市场专治各种"我很聪明"。杠杆、内幕、短线暴富故事，幸存者偏差极大。</li>
+<li>你的第一目标不该是“赚最多”，而是<strong>别一把亏光，同时别让钱被通胀慢慢吃掉</strong>。这两件事做到，你就已经跑赢大多数乱操作的人。</li>
+<li>复利真正起作用，靠的是<strong>时间长 + 别中断</strong>，不是某一次押对。一次翻倍，不如二十年不间断。</li>
+<li>市场最擅长教训“我觉得我很聪明”的人。加杠杆、听内幕、追短线暴富故事——你看到的那些赢家，大多是幸存者偏差，输家根本不会出来讲。</li>
 </ul>
-<p>记住一句话：<strong>你赚的每一分钱，都是认知的变现；你亏的每一分钱，都是认知的缺陷。</strong></p>
+<p>顺带一句：你之前跟着朋友买的那两只基金，问题不在基金本身，而在于“没研究就买”。后面 M03 我会拉真实数据帮你复盘，看看到底适不适合长期拿。</p>
 <hr />
 <h2 id="vs">二、两把剪刀：复利 vs 通胀</h2>
-<p>理财的意义，用一个对比就懂。</p>
-<h3 id="1">1) 复利：世界第八大奇迹</h3>
-<p>本金 10 万，年化 8%：
-- 10 年后 ≈ 21.6 万（翻 1 倍多）
-- 20 年后 ≈ 46.6 万（翻 4.6 倍）
-- 30 年后 ≈ 100.6 万（翻 10 倍）</p>
-<p>关键是<strong>时间</strong>。越早开始，曲线越陡。仓库工具一键算：</p>
+<p>为什么要理财？把这两件事放一起就懂了。</p>
+<h3 id="1">1) 复利：时间真的能换钱</h3>
+<p>拿 10 万本金、年化 8% 举例：</p>
+<ul>
+<li>10 年后 ≈ 21.6 万</li>
+<li>20 年后 ≈ 46.6 万</li>
+<li>30 年后 ≈ 100.6 万</li>
+</ul>
+<p>注意看曲线：越往后越陡。所以“早点开始”比“一次投很多”重要得多。仓库里有个小工具，把你自己的金额填进去就能看到属于你的曲线：</p>
 <pre><code class="language-bash">python tools/compound_interest.py --principal 100000 --years 30 --rate 0.08
 </code></pre>
-<h3 id="2">2) 通胀：看不见的小偷</h3>
-<p>假设通胀 3%/年，今天的 100 元，30 年后购买力只剩约 100 ÷ (1.03³⁰) ≈ <strong>41 元</strong>。
-也就是说，<strong>钱躺在活期里，每年都在被动变穷</strong>。</p>
-<blockquote>
-<p>复利让你"往前跑"，通胀在"往后拽"。理财，就是让前者稳稳跑赢后者。
-跑通胀≈需要 3%–4% 年化；要真正增值，目标通常 6%–10%（伴随更大波动）。</p>
-</blockquote>
-<h3 id="3-72">3) 72 法则（心算神器）</h3>
-<p>本金翻倍需要的年数 ≈ <strong>72 ÷ 年化收益率(%)</strong>
-- 8% 年化 → 约 9 年翻倍
-- 12% 年化 → 约 6 年翻倍
-- 通胀 3% → 约 24 年购买力腰斩</p>
+<h3 id="2">2) 通胀：那个不动声色偷你钱的东西</h3>
+<p>假设每年通胀 3%，今天的 100 块，30 年后购买力只剩约 41 块。钱放活期，不是“没动”，是每年都在悄悄变少。</p>
+<p>所以理财的本质其实挺朴素：让“钱生钱”的速度，稳稳超过“钱贬值”的速度。跑平通胀大概要 3%–4% 年化；想真正增值，通常奔着 6%–10% 去，但波动也会更大——这就是后面要一点点学的取舍。</p>
+<h3 id="3-72">3) 72 法则：不用计算器也能估</h3>
+<p>本金翻一倍要多少年？≈ <strong>72 ÷ 年化收益率(%)</strong></p>
+<ul>
+<li>8% → 约 9 年翻倍</li>
+<li>12% → 约 6 年翻倍</li>
+<li>通胀 3% → 约 24 年购买力腰斩</li>
+</ul>
 <p><img alt="名义价值 vs 实际购买力（30 年）" src="../assets/inflation-erode.svg" /></p>
 <hr />
-<h2 id="_2">三、买任何东西前，先想三件事</h2>
-<p>这是全教程最重要的三问，写下来贴在屏幕上：</p>
+<h2 id="_2">三、买任何东西前，先问自己三句话</h2>
+<p>这是全教程最值钱的三问，建议直接贴在屏幕上：</p>
 <ol>
-<li><strong>这笔钱多久不用？</strong>（期限决定你能不能承受波动）</li>
-<li><strong>亏多少我会睡不着？</strong>（风险承受能力，不是"想赚多少"）</li>
-<li><strong>我为什么要买它、什么情况下卖？</strong>（没有卖出计划 = 没有计划）</li>
+<li><strong>这笔钱我多久不用？</strong> —— 明年就要用的钱，别扔进波动大的地方。</li>
+<li><strong>亏多少我会睡不着？</strong> —— 这是你的风险底线，不是“我想赚多少”。</li>
+<li><strong>我为什么买、什么时候卖？</strong> —— 答不上“怎么卖”，就等于没计划，只能被情绪牵着走。</li>
 </ol>
-<blockquote>
-<p>对应概念卡见 <span class="wikilink">资产配置</span>、<span class="wikilink">风险承受能力与风险偏好</span>、<span class="wikilink">通胀</span>、<span class="wikilink">复利</span>。</p>
-</blockquote>
+<p>（相关概念卡：<span class="wikilink">资产配置</span>、<span class="wikilink">风险承受能力与风险偏好</span>、<span class="wikilink">通胀</span>、<span class="wikilink">复利</span>）</p>
 <hr />
 <h2 id="_3">四、三条保命原则</h2>
 <ol>
-<li><strong>先保障，后投资</strong>：应急金（3–6 个月支出）+ 必要保险没到位前，别谈高波动投资。</li>
-<li><strong>不懂不投</strong>：朋友说"长期持有稳赚"就跟着买，是最大的坑（见 M03 真实案例）。</li>
-<li><strong>分散 + 纪律</strong>：单一资产再好也别 all in；用定投和再平衡代替"感觉"。</li>
+<li><strong>先保命，再赚钱</strong>：应急金（3–6 个月生活费）和必要的保险没备好之前，别碰高波动投资。</li>
+<li><strong>不懂不投</strong>：别人说“长期持有稳赚”你就跟，是最大的坑。你不知道他成本多少、什么时候跑路。</li>
+<li><strong>分散 + 守纪律</strong>：再看好的东西也别 all in；用定投和再平衡，代替“我觉得该买了”的冲动。</li>
 </ol>
 <hr />
-<h2 id="6">五、新手最常见的 6 个坑</h2>
+<h2 id="6">五、新手最爱踩的 6 个坑</h2>
 <table>
 <thead>
 <tr>
@@ -205,24 +207,24 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 </thead>
 <tbody>
 <tr>
-<td>跟着朋友/大V 买，没研究</td>
-<td>他亏得起、你未必；他卖出你不知道</td>
+<td>跟着朋友/大V 买，自己没研究</td>
+<td>他亏得起你未必；他卖了你根本不知道</td>
 </tr>
 <tr>
-<td>把基金当股票短线炒</td>
-<td>基金费用高、波动慢，不适合日内</td>
+<td>把基金当股票天天炒</td>
+<td>基金费率高、波动慢，不适合日内折腾</td>
 </tr>
 <tr>
-<td>只看收益率不看回撤</td>
-<td>一年涨 50% 但可能先跌 40%，你拿不住</td>
+<td>只看收益不看回撤</td>
+<td>一年涨 50% 可能先跌 40%，你多半拿不住</td>
 </tr>
 <tr>
-<td>用杠杆 / 借钱炒股</td>
-<td>波动会放大到强行平仓，归零</td>
+<td>借钱 / 加杠杆炒股</td>
+<td>波动会被放大到强制平仓，直接归零</td>
 </tr>
 <tr>
-<td>迷信"保本高收益"</td>
-<td>收益和风险永远挂钩，反常即骗局</td>
+<td>信“保本高收益”</td>
+<td>收益和风险永远绑定，反常的八成是骗局</td>
 </tr>
 <tr>
 <td>追涨杀跌</td>
@@ -231,16 +233,16 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 </tbody>
 </table>
 <hr />
-<h2 id="_4">六、本周行动清单 ✅</h2>
+<h2 id="_4">六、本周就能做的事 ✅</h2>
 <ul>
-<li>[ ] 用工具算一次自己的"复利曲线"（代入真实可投金额）</li>
-<li>[ ] 盘点：活期 + 货基够不够 <strong>3–6 个月支出</strong>？不够先补</li>
-<li>[ ] 写一句：账户浮亏 <strong>___%</strong> 你会睡不着？（你的风险红线）</li>
-<li>[ ] 把你已买的每个产品，用"三问"过一遍，记下来</li>
+<li>[ ] 用工具算一次你自己的复利曲线（填真实能投的金额）</li>
+<li>[ ] 盘一下：活期 + 货基够不够 <strong>3–6 个月支出</strong>？不够先补</li>
+<li>[ ] 写下一个数：账户浮亏 <strong>___%</strong> 你会睡不着？（这就是你的风险红线）</li>
+<li>[ ] 把你已经买的产品，用上面“三问”过一遍，记下来</li>
 </ul>
 <hr />
-<h2 id="_5">七、下一步</h2>
-<p>→ <strong>M01 资产地图与工具箱</strong>：钱到底能去哪些地方，各自的收益/风险/流动性长啥样。</p>
+<h2 id="_5">七、接下来去哪</h2>
+<p>→ <strong>M01 资产地图与工具箱</strong>：钱到底能去哪些地方，各自的收益、风险、取用方便程度都长啥样。</p>
 <hr />
 <h2 id="english-abstract">🌐 English Abstract</h2>
 <p><strong>Topic:</strong> Why we invest at all — and how to avoid the most common traps.</p>
@@ -303,6 +305,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 })();
 </script>
 
+<section class="card videos" id="videos">
+  <h2>📺 延伸观看</h2>
+  <p class="note">挑播放量高、UP主有系统输出的看；视频只作辅助，投资决策请以你自己的判断为准。</p>
+  <ul class="vlist"><li><a href="https://search.bilibili.com/all?keyword=理财入门防坑" target="_blank" rel="noopener">🔍 B站：理财入门与防坑（搜“理财入门 防坑”）</a><span class="vnote">挑播放量高、有系列输出的 UP 主看</span></li>
+<li><a href="https://www.youtube.com/@ThePlainBagel" target="_blank" rel="noopener">🎬 YouTube：Investing for Beginners — The Plain Bagel</a><span class="vnote">英文，讲得清楚不忽悠；需梯子</span></li></ul>
+</section>
 <footer>
   ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
 </footer>

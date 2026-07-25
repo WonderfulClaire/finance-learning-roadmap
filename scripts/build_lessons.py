@@ -97,6 +97,63 @@ QUOTES = {
 }
 
 
+# 每章延伸观看视频（B站搜索入口为主，兼顾 YouTube 国际读者；链接稳定不失效）
+VIDEOS = {
+    "m00": [
+        {"title": "🔍 B站：理财入门与防坑（搜“理财入门 防坑”）", "url": "https://search.bilibili.com/all?keyword=理财入门防坑", "note": "挑播放量高、有系列输出的 UP 主看"},
+        {"title": "🎬 YouTube：Investing for Beginners — The Plain Bagel", "url": "https://www.youtube.com/@ThePlainBagel", "note": "英文，讲得清楚不忽悠；需梯子"},
+    ],
+    "m01": [
+        {"title": "🔍 B站：资产配置入门（搜“资产配置 入门”）", "url": "https://search.bilibili.com/all?keyword=资产配置入门", "note": "先看“钱有哪些去处”再动手"},
+        {"title": "🎬 YouTube：Asset Allocation Explained — Ben Felix", "url": "https://www.youtube.com/@BenFelixCSI", "note": "英文，数据派；需梯子"},
+    ],
+    "m02": [
+        {"title": "🔍 B站：货币基金与债券入门（搜“货币基金 债券 入门”）", "url": "https://search.bilibili.com/all?keyword=货币基金债券入门", "note": "搞懂“稳钱”为什么稳"},
+        {"title": "🎬 YouTube：Bonds Explained — The Plain Bagel", "url": "https://www.youtube.com/@ThePlainBagel", "note": "英文；需梯子"},
+    ],
+    "m03": [
+        {"title": "🔍 B站：指数基金与定投（搜“指数基金 定投 银行螺丝钉”）", "url": "https://search.bilibili.com/all?keyword=指数基金定投银行螺丝钉", "note": "银行螺丝钉是 index 流派代表"},
+        {"title": "🎬 YouTube：Index Funds — Ben Felix", "url": "https://www.youtube.com/@BenFelixCSI", "note": "英文；需梯子"},
+    ],
+    "m04": [
+        {"title": "🔍 B站：股票与基本面入门（搜“股票入门 基本面分析”）", "url": "https://search.bilibili.com/all?keyword=股票入门基本面分析", "note": "先懂生意再谈买股"},
+        {"title": "🎬 YouTube：Stock Picking — The Plain Bagel", "url": "https://www.youtube.com/@ThePlainBagel", "note": "英文；需梯子"},
+    ],
+    "m05": [
+        {"title": "🔍 B站：定投与资产配置（搜“定投 资产配置”）", "url": "https://search.bilibili.com/all?keyword=定投资产配置", "note": "落地“怎么买、买多少”"},
+        {"title": "🎬 YouTube：Passive Investing — Ben Felix", "url": "https://www.youtube.com/@BenFelixCSI", "note": "英文；需梯子"},
+    ],
+    "m06": [
+        {"title": "🔍 B站：市盈率与估值（搜“市盈率 估值 定投”）", "url": "https://search.bilibili.com/all?keyword=市盈率估值定投", "note": "学会看贵还是便宜"},
+        {"title": "🎬 YouTube：Valuation — Ben Felix", "url": "https://www.youtube.com/@BenFelixCSI", "note": "英文；需梯子"},
+    ],
+    "m07": [
+        {"title": "🔍 B站：财报三张表入门（搜“财报 三张表 入门”）", "url": "https://search.bilibili.com/all?keyword=财报三张表入门", "note": "读得懂报表才看得懂生意"},
+        {"title": "🎬 YouTube：Financial Statements — The Plain Bagel", "url": "https://www.youtube.com/@ThePlainBagel", "note": "英文；需梯子"},
+    ],
+    "m08": [
+        {"title": "🔍 B站：保险与养老规划（搜“保险入门 养老规划”）", "url": "https://search.bilibili.com/all?keyword=保险入门养老规划", "note": "先把“万一”安排好"},
+        {"title": "🎬 YouTube：Insurance & Retirement — The Plain Bagel", "url": "https://www.youtube.com/@ThePlainBagel", "note": "英文；需梯子"},
+    ],
+}
+
+
+def video_html(module_id: str) -> str:
+    items = VIDEOS.get(module_id)
+    if not items:
+        return ""
+    lis = "\n".join(
+        f'<li><a href="{v["url"]}" target="_blank" rel="noopener">{v["title"]}</a>'
+        f'<span class="vnote">{v.get("note", "")}</span></li>'
+        for v in items
+    )
+    return f'''<section class="card videos" id="videos">
+  <h2>📺 延伸观看</h2>
+  <p class="note">挑播放量高、UP主有系统输出的看；视频只作辅助，投资决策请以你自己的判断为准。</p>
+  <ul class="vlist">{lis}</ul>
+</section>'''
+
+
 def quote_html(module_id: str) -> str:
     q = QUOTES.get(module_id)
     if not q:
@@ -216,6 +273,7 @@ def build_page(md_path: Path, module: dict, prev_mod: dict | None, next_mod: dic
 
     quiz = quiz_html(module["id"])
     quote = quote_html(module["id"])
+    video = video_html(module["id"])
     if next_mod:
         next_href = html_filename(next_mod["file"])
         next_label = "📖 下一章 →"
@@ -310,6 +368,10 @@ article li{{margin:.35em 0}}
 .quiz .feedback .ok{{color:var(--ok);font-weight:700}}
 .quiz .feedback .bad{{color:var(--bad);font-weight:700}}
 .note{{font-size:13px;color:var(--muted);margin-top:8px}}
+.videos .vlist{{list-style:none;padding:0;margin:12px 0 0}}
+.videos .vlist li{{padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--bg)}}
+.videos .vlist a{{font-weight:600;font-size:15px}}
+.videos .vnote{{display:block;margin-top:4px;font-size:13px;color:var(--muted)}}
 footer{{text-align:center;color:var(--muted);font-size:13px;padding:20px}}
 #toast{{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}}
 #toast.show{{transform:translateX(-50%) translateY(0)}}
@@ -351,6 +413,7 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:20px}}
   <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。学完点「下一章」即可继续。</p>
 </section>
 {quiz}
+{video}
 <footer>
   ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
 </footer>

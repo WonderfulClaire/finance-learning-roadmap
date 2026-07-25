@@ -85,6 +85,10 @@ article li{margin:.35em 0}
 .quiz .feedback .ok{color:var(--ok);font-weight:700}
 .quiz .feedback .bad{color:var(--bad);font-weight:700}
 .note{font-size:13px;color:var(--muted);margin-top:8px}
+.videos .vlist{list-style:none;padding:0;margin:12px 0 0}
+.videos .vlist li{padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin:10px 0;background:var(--bg)}
+.videos .vlist a{font-weight:600;font-size:15px}
+.videos .vnote{display:block;margin-top:4px;font-size:13px;color:var(--muted)}
 footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 #toast{position:fixed;left:50%;top:24px;transform:translateX(-50%) translateY(-120%);background:linear-gradient(135deg,var(--gold),var(--brand2));color:#fff;font-weight:700;padding:14px 22px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:9999;transition:transform .4s cubic-bezier(.2,1.2,.4,1);font-size:15px}
 #toast.show{transform:translateX(-50%) translateY(0)}
@@ -281,6 +285,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 })();
 </script>
 
+<section class="card videos" id="videos">
+  <h2>📺 延伸观看</h2>
+  <p class="note">挑播放量高、UP主有系统输出的看；视频只作辅助，投资决策请以你自己的判断为准。</p>
+  <ul class="vlist"><li><a href="https://search.bilibili.com/all?keyword=保险入门养老规划" target="_blank" rel="noopener">🔍 B站：保险与养老规划（搜“保险入门 养老规划”）</a><span class="vnote">先把“万一”安排好</span></li>
+<li><a href="https://www.youtube.com/@ThePlainBagel" target="_blank" rel="noopener">🎬 YouTube：Insurance & Retirement — The Plain Bagel</a><span class="vnote">英文；需梯子</span></li></ul>
+</section>
 <footer>
   ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
 </footer>
