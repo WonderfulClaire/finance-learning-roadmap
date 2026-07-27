@@ -53,6 +53,16 @@ article blockquote{margin:1.2em 0;padding:16px 20px;border-left:4px solid var(--
 .quote-hero .quote-text{font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.6;color:var(--fg);position:relative;z-index:1;margin:0;padding-left:12px}
 .quote-hero .quote-author{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic;padding-left:12px}
 .quote-hero .quote-why{margin-top:10px;font-size:13px;color:var(--muted);padding-left:12px;border-top:1px dashed var(--line);padding-top:10px}
+.badge-hero{display:flex;align-items:center;gap:16px;margin:0 0 28px 0;padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(139,92,246,.10));border:1px solid var(--line);box-shadow:0 0 0 1px rgba(255,215,0,.25),0 6px 20px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.badge-hero::after{content:"";position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(255,215,0,.18),transparent 60%);pointer-events:none}
+.badge-icon{font-size:38px;line-height:1;flex-shrink:0}
+.badge-title{font-size:17px;font-weight:700;color:var(--fg);margin-bottom:4px}
+.badge-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.badge-status{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,215,0,.12);padding:6px 12px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,215,0,.35)}
+@media(max-width:600px){
+  .badge-hero{flex-wrap:wrap;gap:12px}
+  .badge-status{margin-left:0}
+}
 article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
 article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
 article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
@@ -132,7 +142,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <li><a href="#vs">三、主动基金 vs 指数基金，怎么选？</a></li>
 <li><a href="#_8">四、本周行动清单 ✅</a></li>
 <li><a href="#_9">五、下一步</a></li>
-<li><a href="#english-abstract">🌐 English Abstract</a></li>
 </ul>
 </li>
 </ul>
@@ -144,6 +153,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
   <p class="quote-text">Invest in what you know.</p>
   <p class="quote-author">—— Peter Lynch（彼得·林奇）</p>
   <p class="quote-why">💡 本章为什么重要：主动基金与个股是“认知变现”的重灾区。林奇说：只投你看得懂的生意，不懂的不碰。</p>
+</div>
+    <div class="badge-hero" id="chapterBadge">
+  <div class="badge-icon">🎯</div>
+  <div class="badge-body">
+    <div class="badge-title">🏅 本章成就：选股猎手</div>
+    <div class="badge-desc">理性看待主动基金与个股，只投看得懂的生意</div>
+  </div>
+  <div class="badge-status">✨ 已点亮</div>
 </div>
     <h1 id="m04">M04 · 主动基金与股票入门</h1>
 <blockquote>
@@ -242,15 +259,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <hr />
 <h2 id="_9">五、下一步</h2>
 <p>→ <strong>M05 资产配置与定投</strong>：把各类资产拼成组合，并用定投降低择时压力。</p>
-<hr />
-<h2 id="english-abstract">🌐 English Abstract</h2>
-<p><strong>Topic:</strong> Active funds &amp; individual stocks — what they are and whether ordinary people should touch them.</p>
-<p><strong>Key takeaways:</strong>
-- Active funds chase <em>alpha</em> but cost more (≈1.5%/yr) and depend heavily on the manager (style drift, "champion's curse").
-- Stocks make you an <strong>owner</strong>; long-term price follows earning power, short-term follows sentiment.
-- Most retail traders lose via chasing rallies, rumor-trading, over-trading, and concentrated bets.
-- Rule of thumb: <strong>index as core, active as a small satellite (≤30%)</strong>; single stock ≤10%–15% of portfolio.</p>
-<p><strong>Why it matters:</strong> Clarifies what is worth your time (core index + allocation) versus what is an "advanced problem" best deferred until the basics are solid.</p>
   </article>
 </main>
 <section class="card" style="max-width:1400px;margin:0 auto 24px;">

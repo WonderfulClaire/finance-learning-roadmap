@@ -53,6 +53,16 @@ article blockquote{margin:1.2em 0;padding:16px 20px;border-left:4px solid var(--
 .quote-hero .quote-text{font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.6;color:var(--fg);position:relative;z-index:1;margin:0;padding-left:12px}
 .quote-hero .quote-author{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic;padding-left:12px}
 .quote-hero .quote-why{margin-top:10px;font-size:13px;color:var(--muted);padding-left:12px;border-top:1px dashed var(--line);padding-top:10px}
+.badge-hero{display:flex;align-items:center;gap:16px;margin:0 0 28px 0;padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(139,92,246,.10));border:1px solid var(--line);box-shadow:0 0 0 1px rgba(255,215,0,.25),0 6px 20px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.badge-hero::after{content:"";position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(255,215,0,.18),transparent 60%);pointer-events:none}
+.badge-icon{font-size:38px;line-height:1;flex-shrink:0}
+.badge-title{font-size:17px;font-weight:700;color:var(--fg);margin-bottom:4px}
+.badge-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.badge-status{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,215,0,.12);padding:6px 12px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,215,0,.35)}
+@media(max-width:600px){
+  .badge-hero{flex-wrap:wrap;gap:12px}
+  .badge-status{margin-left:0}
+}
 article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
 article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
 article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
@@ -130,7 +140,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <li><a href="#6">五、新手最爱踩的 6 个坑</a></li>
 <li><a href="#_4">六、本周就能做的事 ✅</a></li>
 <li><a href="#_5">七、接下来去哪</a></li>
-<li><a href="#english-abstract">🌐 English Abstract</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +151,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
   <p class="quote-text">Rule No. 1: Never lose money. Rule No. 2: Never forget rule No. 1.</p>
   <p class="quote-author">—— Warren Buffett（沃伦·巴菲特）</p>
   <p class="quote-why">💡 本章为什么重要：本章先给你泼一盆冷水：理财不是暴富，而是先守住本金、跑赢通胀。巴菲特的第一条规则，正是本章的底层逻辑。</p>
+</div>
+    <div class="badge-hero" id="chapterBadge">
+  <div class="badge-icon">🛡️</div>
+  <div class="badge-body">
+    <div class="badge-title">🏅 本章成就：防坑守卫</div>
+    <div class="badge-desc">识别销售套路，把守住本金放在第一位</div>
+  </div>
+  <div class="badge-status">✨ 已点亮</div>
 </div>
     <h1 id="m00">M00 · 启航：为什么理财，以及如何不踩坑</h1>
 <blockquote>
@@ -244,15 +261,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <hr />
 <h2 id="_5">七、接下来去哪</h2>
 <p>→ <strong>M01 资产地图与工具箱</strong>：钱到底能去哪些地方，各自的收益、风险、取用方便程度都长啥样。</p>
-<hr />
-<h2 id="english-abstract">🌐 English Abstract</h2>
-<p><strong>Topic:</strong> Why we invest at all — and how to avoid the most common traps.</p>
-<p><strong>Key takeaways:</strong>
-- The first goal of investing is <em>not to lose big</em> and <em>to outrun inflation</em> — not to get rich quick.
-- Compound interest rewards <strong>time + consistency</strong>; the Rule of 72 lets you estimate doubling time in your head (72 ÷ annual %).
-- Before buying anything, ask three questions: <strong>time horizon</strong> / <strong>max loss you can sleep through</strong> / <strong>why-buy-and-when-to-sell</strong>.
-- Three life-saving rules: insure first, never invest in what you don't understand, diversify + follow discipline.</p>
-<p><strong>Why it matters:</strong> Sets the right mindset so you don't become the market's tuition. Most people lose money before they start, by chasing stories instead of building understanding.</p>
   </article>
 </main>
 <section class="card" style="max-width:1400px;margin:0 auto 24px;">

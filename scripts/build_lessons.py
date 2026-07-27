@@ -98,6 +98,20 @@ QUOTES = {
 
 
 # 每章延伸观看视频（B站搜索入口为主，兼顾 YouTube 国际读者；链接稳定不失效）
+# 每章顶部点亮勋章（游戏化成就）
+BADGES = {
+    "m00": {"icon": "🛡️", "name": "防坑守卫", "desc": "识别销售套路，把守住本金放在第一位"},
+    "m01": {"icon": "🧭", "name": "资产罗盘", "desc": "建立“钱能去哪”的全景图，不再盲目跟风"},
+    "m02": {"icon": "🏦", "name": "现金管家", "desc": "把稳的钱放在对的地方，睡好觉比高收益更重要"},
+    "m03": {"icon": "📈", "name": "指数先锋", "desc": "用宽基指数撬动长期复利，不赌个股"},
+    "m04": {"icon": "🎯", "name": "选股猎手", "desc": "理性看待主动基金与个股，只投看得懂的生意"},
+    "m05": {"icon": "⚖️", "name": "配置大师", "desc": "用股债配比平衡波动与收益，把焦虑变成纪律"},
+    "m06": {"icon": "🔭", "name": "估值侦探", "desc": "用数据辅助决策，而不是被情绪牵着走"},
+    "m07": {"icon": "📊", "name": "财报量化师", "desc": "把“感觉”变成可验证的数据，看懂生意再出价"},
+    "m08": {"icon": "🛡️", "name": "人生护城河", "desc": "用保险和养老提前安排好人生的底线"},
+}
+
+
 VIDEOS = {
     "m00": [
         {"title": "🔍 B站：理财入门与防坑（搜“理财入门 防坑”）", "url": "https://search.bilibili.com/all?keyword=理财入门防坑", "note": "挑播放量高、有系列输出的 UP 主看"},
@@ -162,6 +176,20 @@ def quote_html(module_id: str) -> str:
   <p class="quote-text">{q['text']}</p>
   <p class="quote-author">{q['author']}</p>
   <p class="quote-why">💡 本章为什么重要：{q['why']}</p>
+</div>'''
+
+
+def badge_html(module_id: str) -> str:
+    b = BADGES.get(module_id)
+    if not b:
+        return ""
+    return f'''<div class="badge-hero" id="chapterBadge">
+  <div class="badge-icon">{b['icon']}</div>
+  <div class="badge-body">
+    <div class="badge-title">🏅 本章成就：{b['name']}</div>
+    <div class="badge-desc">{b['desc']}</div>
+  </div>
+  <div class="badge-status">✨ 已点亮</div>
 </div>'''
 
 
@@ -273,6 +301,7 @@ def build_page(md_path: Path, module: dict, prev_mod: dict | None, next_mod: dic
 
     quiz = quiz_html(module["id"])
     quote = quote_html(module["id"])
+    badge = badge_html(module["id"])
     video = video_html(module["id"])
     if next_mod:
         next_href = html_filename(next_mod["file"])
@@ -336,6 +365,16 @@ article blockquote{{margin:1.2em 0;padding:16px 20px;border-left:4px solid var(-
 .quote-hero .quote-text{{font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.6;color:var(--fg);position:relative;z-index:1;margin:0;padding-left:12px}}
 .quote-hero .quote-author{{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic;padding-left:12px}}
 .quote-hero .quote-why{{margin-top:10px;font-size:13px;color:var(--muted);padding-left:12px;border-top:1px dashed var(--line);padding-top:10px}}
+.badge-hero{{display:flex;align-items:center;gap:16px;margin:0 0 28px 0;padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(139,92,246,.10));border:1px solid var(--line);box-shadow:0 0 0 1px rgba(255,215,0,.25),0 6px 20px rgba(0,0,0,.08);position:relative;overflow:hidden}}
+.badge-hero::after{{content:"";position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(255,215,0,.18),transparent 60%);pointer-events:none}}
+.badge-icon{{font-size:38px;line-height:1;flex-shrink:0}}
+.badge-title{{font-size:17px;font-weight:700;color:var(--fg);margin-bottom:4px}}
+.badge-desc{{font-size:13px;color:var(--muted);line-height:1.5}}
+.badge-status{{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,215,0,.12);padding:6px 12px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,215,0,.35)}}
+@media(max-width:600px){{
+  .badge-hero{{flex-wrap:wrap;gap:12px}}
+  .badge-status{{margin-left:0}}
+}}
 article img{{max-width:100%;height:auto;border-radius:8px;margin:12px 0}}
 article table{{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}}
 article th,article td{{border:1px solid var(--line);padding:10px;text-align:left}}
@@ -402,6 +441,7 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:20px}}
   </aside>
   <article>
     {quote}
+    {badge}
     {body}
   </article>
 </main>

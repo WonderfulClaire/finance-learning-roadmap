@@ -53,6 +53,16 @@ article blockquote{margin:1.2em 0;padding:16px 20px;border-left:4px solid var(--
 .quote-hero .quote-text{font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.6;color:var(--fg);position:relative;z-index:1;margin:0;padding-left:12px}
 .quote-hero .quote-author{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic;padding-left:12px}
 .quote-hero .quote-why{margin-top:10px;font-size:13px;color:var(--muted);padding-left:12px;border-top:1px dashed var(--line);padding-top:10px}
+.badge-hero{display:flex;align-items:center;gap:16px;margin:0 0 28px 0;padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(139,92,246,.10));border:1px solid var(--line);box-shadow:0 0 0 1px rgba(255,215,0,.25),0 6px 20px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.badge-hero::after{content:"";position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(255,215,0,.18),transparent 60%);pointer-events:none}
+.badge-icon{font-size:38px;line-height:1;flex-shrink:0}
+.badge-title{font-size:17px;font-weight:700;color:var(--fg);margin-bottom:4px}
+.badge-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.badge-status{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,215,0,.12);padding:6px 12px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,215,0,.35)}
+@media(max-width:600px){
+  .badge-hero{flex-wrap:wrap;gap:12px}
+  .badge-status{margin-left:0}
+}
 article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
 article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
 article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
@@ -127,7 +137,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <li><a href="#_4">四、给数据背景同学的建议路径</a></li>
 <li><a href="#_5">五、本周行动清单 ✅</a></li>
 <li><a href="#_6">六、下一步</a></li>
-<li><a href="#english-abstract">🌐 English Abstract</a></li>
 </ul>
 </li>
 </ul>
@@ -139,6 +148,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
   <p class="quote-text">Price is what you pay. Value is what you get.</p>
   <p class="quote-author">—— Warren Buffett（沃伦·巴菲特）</p>
   <p class="quote-why">💡 本章为什么重要：财报与量化初探：学会读数字背后的生意，才能判断你付的价格是否物有所值。</p>
+</div>
+    <div class="badge-hero" id="chapterBadge">
+  <div class="badge-icon">📊</div>
+  <div class="badge-body">
+    <div class="badge-title">🏅 本章成就：财报量化师</div>
+    <div class="badge-desc">把“感觉”变成可验证的数据，看懂生意再出价</div>
+  </div>
+  <div class="badge-status">✨ 已点亮</div>
 </div>
     <h1 id="m07">M07 · 进阶：财报与量化初探</h1>
 <blockquote>
@@ -224,15 +241,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <hr />
 <h2 id="_6">六、下一步</h2>
 <p>→ <strong>M08 保险与养老税务</strong>：守住下限，再谈上限；以及个人养老金这类 tax-advantaged 账户。</p>
-<hr />
-<h2 id="english-abstract">🌐 English Abstract</h2>
-<p><strong>Topic:</strong> Financial statements &amp; a quant primer — turning "feel" into "data" with Python.</p>
-<p><strong>Key takeaways:</strong>
-- Three statements: <strong>income / balance sheet / cash flow</strong>; remember <strong>ROE (&gt;15% good), gross margin, free cash flow</strong>.
-- Python beats the naked eye for decades of data and for <strong>backtests</strong> that test whether a strategy ever worked.
-- Minimal backtest idea: buy when PE percentile &lt;30%, sell &gt;70%, compare vs naive DCA.
-- Beware <strong>overfitting</strong>: put <em>logic before data</em>; a pretty backtest ≠ future profits.</p>
-<p><strong>Why it matters:</strong> If you have a data/AI background, this is your edge — compute the concepts instead of trusting slogans.</p>
   </article>
 </main>
 <section class="card" style="max-width:1400px;margin:0 auto 24px;">

@@ -53,6 +53,16 @@ article blockquote{margin:1.2em 0;padding:16px 20px;border-left:4px solid var(--
 .quote-hero .quote-text{font-size:clamp(18px,2vw,24px);font-weight:600;line-height:1.6;color:var(--fg);position:relative;z-index:1;margin:0;padding-left:12px}
 .quote-hero .quote-author{margin-top:14px;font-size:14px;color:var(--muted);font-style:italic;padding-left:12px}
 .quote-hero .quote-why{margin-top:10px;font-size:13px;color:var(--muted);padding-left:12px;border-top:1px dashed var(--line);padding-top:10px}
+.badge-hero{display:flex;align-items:center;gap:16px;margin:0 0 28px 0;padding:16px 20px;border-radius:14px;background:linear-gradient(135deg,rgba(59,130,246,.10),rgba(139,92,246,.10));border:1px solid var(--line);box-shadow:0 0 0 1px rgba(255,215,0,.25),0 6px 20px rgba(0,0,0,.08);position:relative;overflow:hidden}
+.badge-hero::after{content:"";position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(255,215,0,.18),transparent 60%);pointer-events:none}
+.badge-icon{font-size:38px;line-height:1;flex-shrink:0}
+.badge-title{font-size:17px;font-weight:700;color:var(--fg);margin-bottom:4px}
+.badge-desc{font-size:13px;color:var(--muted);line-height:1.5}
+.badge-status{margin-left:auto;font-size:12px;font-weight:700;color:var(--gold);background:rgba(255,215,0,.12);padding:6px 12px;border-radius:20px;white-space:nowrap;border:1px solid rgba(255,215,0,.35)}
+@media(max-width:600px){
+  .badge-hero{flex-wrap:wrap;gap:12px}
+  .badge-status{margin-left:0}
+}
 article img{max-width:100%;height:auto;border-radius:8px;margin:12px 0}
 article table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
 article th,article td{border:1px solid var(--line);padding:10px;text-align:left}
@@ -129,7 +139,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <li><a href="#_4">四、固收在组合里的角色</a></li>
 <li><a href="#_5">五、本周行动清单 ✅</a></li>
 <li><a href="#_6">六、下一步</a></li>
-<li><a href="#english-abstract">🌐 English Abstract</a></li>
 </ul>
 </li>
 </ul>
@@ -141,6 +150,14 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
   <p class="quote-text">The individual investor should act consistently as an investor and not as a speculator.</p>
   <p class="quote-author">—— Benjamin Graham（本杰明·格雷厄姆）</p>
   <p class="quote-why">💡 本章为什么重要：现金与固收是账户的“压舱石”。格雷厄姆提醒我们：先当投资者，再谈收益；稳钱管不好，长钱难安心。</p>
+</div>
+    <div class="badge-hero" id="chapterBadge">
+  <div class="badge-icon">🏦</div>
+  <div class="badge-body">
+    <div class="badge-title">🏅 本章成就：现金管家</div>
+    <div class="badge-desc">把稳的钱放在对的地方，睡好觉比高收益更重要</div>
+  </div>
+  <div class="badge-status">✨ 已点亮</div>
 </div>
     <h1 id="m02">M02 · 现金与固收：先把"稳"的部分做对</h1>
 <blockquote>
@@ -224,16 +241,6 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:20px}
 <hr />
 <h2 id="_6">六、下一步</h2>
 <p>→ <strong>M03 指数基金入门</strong>：理财圈的"主角"——指数基金到底好在哪，以及一份真实持仓体检。</p>
-<hr />
-<h2 id="english-abstract">🌐 English Abstract</h2>
-<p><strong>Topic:</strong> Cash &amp; fixed income — getting the "stable" sleeve right.</p>
-<p><strong>Key takeaways:</strong>
-- Money-market funds (e.g. Yu'ebao) ≈ instant-access cash; they barely beat inflation — use them only for emergency money.
-- Deposits (insured up to ¥500k per bank) and treasury bonds are <em>truly</em> principal-protected.
-- Bond funds are the portfolio <strong>stabilizer</strong>: not risk-free (typical 1%–5% annual swing), but far steadier than equities.
-- Pick pure-bond funds by <strong>max drawdown (&lt;3% ideal), fund size, tenure (&gt;3y), and low fees</strong>.
-- Rate-cut cycles: lock longer-term rates where sensible instead of leaving everything in cash.</p>
-<p><strong>Why it matters:</strong> A solid stable sleeve is what lets you <em>hold</em> equities through downturns instead of panic-selling.</p>
   </article>
 </main>
 <section class="card" style="max-width:1400px;margin:0 auto 24px;">
