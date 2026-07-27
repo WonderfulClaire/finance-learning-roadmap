@@ -355,6 +355,7 @@ article li{{margin:.35em 0}}
 .complete-bar .next-btn:hover{{filter:brightness(1.08);text-decoration:none}}
 .complete-bar .next-btn.done{{background:var(--gold)}}
 .complete-bar .msg{{font-size:13px;color:var(--muted)}}
+.quiz{{max-width:900px;margin-left:auto;margin-right:auto}}
 .quiz .q{{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}}
 .quiz .qt{{margin-top:0}}
 .quiz .opts{{display:flex;flex-direction:column;gap:8px}}
@@ -412,8 +413,8 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:20px}}
   </div>
   <p class="note">进度保存在浏览器 localStorage，返回<a href="../learn.html">🎮 里程碑页</a>可查看徽章与证书。学完点「下一章」即可继续。</p>
 </section>
-{quiz}
 {video}
+{quiz}
 <footer>
   ⚠️ 本项目仅供学习，不构成投资建议 · <a href="https://github.com/WonderfulClaire/finance-learning-roadmap">GitHub</a>
 </footer>
