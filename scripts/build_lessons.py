@@ -355,7 +355,7 @@ article li{{margin:.35em 0}}
 .complete-bar .next-btn:hover{{filter:brightness(1.08);text-decoration:none}}
 .complete-bar .next-btn.done{{background:var(--gold)}}
 .complete-bar .msg{{font-size:13px;color:var(--muted)}}
-.quiz{{max-width:900px;margin-left:auto;margin-right:auto}}
+.quiz,.videos{{max-width:900px;margin-left:auto;margin-right:auto}}
 .quiz .q{{margin:18px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--bg)}}
 .quiz .qt{{margin-top:0}}
 .quiz .opts{{display:flex;flex-direction:column;gap:8px}}
